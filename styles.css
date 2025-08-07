@@ -3,34 +3,93 @@ body {
     margin: 0;
     padding: 20px;
     line-height: 1.6;
-    background-color: #f4f4f4;
+    background-color: #F7D147; /* UMich Maize */
+    color: #102F58; /* UMich Blue */
 }
+
 header {
-    background: #333;
-    color: white;
+    background: #102F58; /* UMich Blue */
+    color: #F7D147; /* UMich Maize */
     padding: 10px 20px;
     text-align: center;
 }
+
 nav a {
-    color: white;
+    color: #F7D147; /* UMich Maize */
     margin: 0 10px;
     text-decoration: none;
 }
+
 nav a:hover {
     text-decoration: underline;
 }
+
 main {
-    max-width: 800px;
+    max-width: 1000px;
     margin: 20px auto;
     background: white;
     padding: 20px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+
+.content-container {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px; /* Space between image and text */
+}
+
+.profile-image {
+    width: 200px; /* Adjust as needed */
+    height: auto;
+    border-radius: 10px; /* Optional: rounded corners */
+    object-fit: cover;
+}
+
+.text-content {
+    flex: 1; /* Takes remaining space */
+}
+
 footer {
     text-align: center;
     margin-top: 20px;
-    color: #666;
+    color: #102F58; /* UMich Blue */
 }
+
+.footer-bar {
+    background: #102F58; /* UMich Blue */
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Space between links */
+}
+
+.footer-bar a {
+    color: #F7D147; /* UMich Maize */
+    text-decoration: none;
+}
+
+.footer-bar a:hover {
+    text-decoration: underline;
+}
+
 h1, h2 {
-    color: #333;
+    color: #102F58; /* UMich Blue */
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 600px) {
+    .content-container {
+        flex-direction: column; /* Stack image and text vertically */
+        align-items: center;
+    }
+
+    .profile-image {
+        width: 100%;
+        max-width: 300px; /* Prevent image from getting too large */
+    }
+
+    .footer-bar {
+        flex-direction: column; /* Stack links vertically */
+        gap: 10px;
+    }
 }
