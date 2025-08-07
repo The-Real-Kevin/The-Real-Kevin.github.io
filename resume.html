@@ -1,238 +1,85 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-	<title></title>
-	<meta name="generator" content="LibreOffice 24.8.1.2 (Linux)"/>
-	<meta name="author" content="Emanuel Zornberg"/>
-	<meta name="created" content="2025-06-19T05:26:00"/>
-	<meta name="changedby" content="0214013 SUN, Yuqi"/>
-	<meta name="changed" content="2025-08-07T04:10:00"/>
-	<meta name="AppVersion" content="16.0000"/>
-	<style type="text/css">
-		@page { size: 8.5in 11in; margin-left: 1in; margin-right: 1in; margin-top: 0.5in; margin-bottom: 0.5in }
-		p { line-height: 115%; text-align: left; orphans: 2; widows: 2; margin-bottom: 0.1in; direction: ltr; background: transparent }
-		a:link { color: #0563c1; text-decoration: underline }
-	</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume - Yuqi Sun</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
-<body lang="en-US" link="#0563c1" vlink="#800000" dir="ltr"><p align="center" style="line-height: 108%; margin-bottom: 0in">
-<font face="Times New Roman, serif"><font size="1" style="font-size: 8pt"><b>YUQI
-SUN</b></font></font></p>
-<p align="center" style="line-height: 108%; margin-bottom: 0in"><font color="#0563c1"><u><a href="mailto:yuqisun@umich.edu"><font face="Times New Roman, serif"><font size="1" style="font-size: 8pt"><b>yuqisun@umich.edu</b></font></font></a></u></font><font face="Times New Roman, serif"><font size="1" style="font-size: 8pt"><b>
-</b></font></font>
-</p>
-<p align="center" style="line-height: 108%; margin-bottom: 0in"><font face="Times New Roman, serif"><font size="1" style="font-size: 8pt">Updated
-2025 August</font></font></p>
-<p align="justify" style="line-height: 108%; margin-bottom: 0in"><br/>
+<body>
+    <header>
+        <h1>My Resume</h1>
+        <nav>
+            <a href="index.html">Home</a> | <a href="resume.html">Resume</a>
+        </nav>
+    </header>
+    <main>
+        <div class="resume-container">
+            <h2>Yuqi Sun</h2>
+            <p><a href="mailto:yuqisun@umich.edu">yuqisun@umich.edu</a> | Updated August 2025</p>
+            
+            <h3>Education</h3>
+            <p><strong>The University of Michigan College of Engineering</strong>, Ann Arbor, MI</p>
+            <p>BS in Data Science & Computer Science, September 2025 – May 2029 (anticipated)</p>
+            <p><strong>The Independent Schools Foundation Academy</strong>, Hong Kong, HK SAR</p>
+            <p>International Baccalaureate (IB) Bilingual Diploma, August 2021 – June 2025</p>
 
-</p>
-<p align="justify" style="line-height: 108%; margin-bottom: 0in; border-top: none; border-bottom: 1px solid #000000; border-left: none; border-right: none; padding-top: 0in; padding-bottom: 0.01in; padding-left: 0in; padding-right: 0in">
-<font face="Times New Roman, serif"><font size="1" style="font-size: 8pt"><b>EDUCATION</b></font></font></p>
-<p align="justify" style="line-height: 108%; margin-bottom: 0in"><font face="Times New Roman, serif"><font size="1" style="font-size: 8pt"><b>The
-University of Michigan College of Engineering</b></font></font><font face="Times New Roman, serif"><font size="1" style="font-size: 8pt">
-	Ann Arbor, MI</font></font></p>
-<p align="justify" style="line-height: 108%; margin-bottom: 0in"><font face="Times New Roman, serif"><font size="1" style="font-size: 8pt">BS
-in Data Science &amp; Computer Science	September 2025 – May 2029
-(anticipated)</font></font></p>
-<p align="justify" style="line-height: 108%; margin-bottom: 0in"><br/>
+            <h3>Research Experience</h3>
+            <p><strong>Shanghai Jiaotong University</strong>, Shanghai, China</p>
+            <p>Research Assistant, July 2025 – August 2025</p>
+            <ul>
+                <li>Researched “Road Sign Classification with a Denoising Pipeline Approach.”</li>
+                <li>Used the German Traffic Sign Recognition Benchmark dataset with over 50,000 entries and created a script to add Gaussian noise of different severity; used the PyTorch framework to train CNN and ResNet models based on the clean and noisy datasets, and tested accuracy, latency, and F1 score; created a singular classification model and SwinIR denoise-classification pipeline to analyze data with R and PowerBI.</li>
+                <li>Data suggests that the pipeline approach with CNN significantly improves performance comparable to singular ResNet, whereas the pipeline approach with ResNet weakens performance compared to its singular classification form; investigation ongoing.</li>
+            </ul>
+            <p><strong>ISFA Shuyuan Research Program</strong>, Hong Kong, HK SAR</p>
+            <p>First Author (Published), June 2023 – May 2025</p>
+            <ul>
+                <li>Researched “Evaluating the Feasibility of Using Vertical Take-Off and Landing (VTOL) Aircraft to Replace Helicopters for Rescue Missions.”</li>
+                <li>Constructed a VTOL prototype with vertical takeoff, horizontal flight, and stable hover; designed a modular airframe with dual rotating exhaust nozzles using Fusion 360; integrated control systems using an ESP32 microcontroller, gyroscope, and servo motors; found that although the VTOL prototype may function as well as a helicopter in short missions, limitations in operation and range, as well as production costs, render it impractical; stated that future innovations may change this.</li>
+                <li>Paper published in Bauhinia Journal, Volume X, Issue 2, Pages 9–21 (ISSN 2409-4064).</li>
+            </ul>
+            <p><strong>ISFA Shuyuan Research Program</strong>, Hong Kong, HK SAR</p>
+            <p>First Author (Published), April 2023 – December 2024</p>
+            <ul>
+                <li>Researched “Development and Evaluation of a Low-Cost Open Source Power Monitoring and Recording System for Solar Panel Efficiency Analysis.”</li>
+                <li>Used an ESP32 microcontroller, INA219 sensor, and microSD to construct a customizable power monitoring system; conducted a 15-day test at the ISF weather station, comparing results to those of a commercial system; analyzed data using PowerBI, accounting for size and efficiency; found a strong R^2 correlation despite minor discrepancies due to environmental shadows, suggesting high reliability.</li>
+                <li>Paper published in IEEE-YE 2023: <a href="https://www.researchgate.net/publication/386508879_Development_and_Evaluation_of_a_Low-Cost_Open_Source_Power_Monitoring_and_Recording_System_for_Solar_Panel_Efficiency_Analysis">Link</a>.</li>
+            </ul>
+            <p><strong>ISFA Shuyuan Research Program</strong>, Hong Kong, HK SAR</p>
+            <p>First Author (Published), December 2021 – April 2022</p>
+            <ul>
+                <li>Researched “The Potential of Tracking Solar Panels in Hong Kong Compared to Fixed Panels.”</li>
+                <li>Used PowerBI to analyze 3 years of solar panel output data from the ISF Center for Renewable Energy Education; visualized power generation patterns across times of day and seasons using line plots and matrix tables; found that due to shadow interference from Hong Kong skyrises, tracking solar panels only generated 29% more energy than fixed panels; because tracking panels cost 25% more, concluded that fixed arrays offer better ROI.</li>
+                <li>Condensed poster presentation published by AGU: <a href="https://agu2022fallmeeting-agu.ipostersessions.com/Default.aspx?s=13-4E-8F-0E-A8-42-2E-71-74-37-18-20-F4-AF-E1-CE">Link</a>.</li>
+            </ul>
 
-</p>
-<p align="justify" style="line-height: 108%; margin-bottom: 0in"><font face="Times New Roman, serif"><font size="1" style="font-size: 8pt"><b>The
-Independent Schools Foundation Academy</b></font></font><font face="Times New Roman, serif"><font size="1" style="font-size: 8pt">
-	Hong Kong, HK SAR </font></font>
-</p>
-<p align="justify" style="line-height: 108%; margin-bottom: 0in"><font face="Times New Roman, serif"><font size="1" style="font-size: 8pt">International
-Baccalaureate (IB) </font></font><font face="Times New Roman, serif"><font size="1" style="font-size: 8pt">Bilingual
-</font></font><font face="Times New Roman, serif"><font size="1" style="font-size: 8pt">Diploma
-	August 2021 – June 2025</font></font></p>
-<p align="justify" style="line-height: 108%; margin-bottom: 0in"><br/>
-
-</p>
-<p align="justify" style="line-height: 108%; margin-bottom: 0in; border-top: none; border-bottom: 1px solid #000000; border-left: none; border-right: none; padding-top: 0in; padding-bottom: 0.01in; padding-left: 0in; padding-right: 0in">
-<font face="Times New Roman, serif"><font size="1" style="font-size: 8pt"><b>RESEARCH
-EXPERIENCE</b></font></font></p>
-<p align="justify" style="line-height: 108%; margin-bottom: 0in"><font face="Times New Roman, serif"><font size="1" style="font-size: 8pt"><b>Shanghai
-Jiaotong University 	</b></font></font><font face="Times New Roman, serif"><font size="1" style="font-size: 8pt">Shanghai,
-China</font></font></p>
-<p align="justify" style="line-height: 108%; margin-bottom: 0in"><font face="Times New Roman, serif"><font size="1" style="font-size: 8pt">Research
-Assistant 	July 2025 – August 2025</font></font></p>
-<ul>
-	<li><p align="justify" style="line-height: 108%; margin-bottom: 0in">
-	<font face="Times New Roman, serif"><font size="1" style="font-size: 8pt">Researching
-	“Road Sign Classification with a Denoising Pipeline Approach.”</font></font></p></li>
-	<li><p align="justify" style="line-height: 108%; margin-bottom: 0in">
-	<font face="Times New Roman, serif"><font size="1" style="font-size: 8pt">Used
-	the German Traffic Sign Recognition Benchmark dataset with over
-	50,000 entries and created a script to add gaussian noise of
-	different severity; used the PyTorch framework to train CNN and
-	ResNet models based on the clean and noisy datasets, and then tested
-	accuracy, latency, and F1 score; created a singular classification
-	model and SwinIR denoise-classification pipeline to analyze</font></font><font face="Times New Roman, serif"><font size="1" style="font-size: 8pt">
-	data with R and PowerBI.</font></font></p></li>
-	<li><p align="justify" style="line-height: 108%; margin-bottom: 0in">
-	<font face="Times New Roman, serif"><font size="1" style="font-size: 8pt">Data
-	thus far suggests that the pipeline approach with CNN significantly
-	improves performance comparable to singular ResNet, whereas the
-	pipeline approach with ResNet weakens performance compared to its
-	singular classification form; the investigation is ongoing.</font></font></p></li>
-</ul>
-<p align="justify" style="line-height: 108%; margin-bottom: 0in"><br/>
-
-</p>
-<p align="justify" style="line-height: 108%; margin-bottom: 0in"><font face="Times New Roman, serif"><font size="1" style="font-size: 8pt"><b>ISFA
-Shuyuan Research Program</b></font></font><font face="Times New Roman, serif"><font size="1" style="font-size: 8pt">
-	Hong Kong, HK SAR</font></font></p>
-<p align="justify" style="line-height: 108%; margin-bottom: 0in"><font face="Times New Roman, serif"><font size="1" style="font-size: 8pt">First
-Author (Published)	June 2023 – May 2025</font></font></p>
-<ul>
-	<li><p align="justify" style="line-height: 108%; margin-bottom: 0in">
-	<font face="Times New Roman, serif"><font size="1" style="font-size: 8pt">Researched
-	“Evaluating the Feasibility of Using Vertical Take-Off and Landing
-	(VTOL) Aircraft to Replace Helicopters for Rescue Missions.”</font></font></p></li>
-	<li><p align="justify" style="line-height: 108%; margin-bottom: 0in">
-	<font face="Times New Roman, serif"><font size="1" style="font-size: 8pt">Constructed
-	a VTOL prototype with vertical takeoff, horizontal flight, and
-	stable hover; designed a modular airframe with dual rotating exhaust
-	nozzles using Fusion 360; integrated control systems using an ESP32
-	microcontroller, gyroscope, and servo motors; found that although
-	the VTOL prototype may function as well as a helicopter in short
-	missions, limitations in operation and range, as well as production
-	costs, render it impractical; stated that future innovations may
-	change this.</font></font></p></li>
-	<li><p align="justify" style="line-height: 108%; margin-bottom: 0in">
-	<font face="Times New Roman, serif"><font size="1" style="font-size: 8pt">Paper
-	published in a physical journal (no link): Bauhinia Journal, Volume
-	X, Issue 2, Pages 9 to 21 (ISSN 2409-4064)</font></font></p></li>
-</ul>
-<p align="justify" style="line-height: 108%; margin-bottom: 0in"><br/>
-
-</p>
-<p align="justify" style="line-height: 108%; margin-bottom: 0in"><font face="Times New Roman, serif"><font size="1" style="font-size: 8pt"><b>ISFA
-Shuyuan Research Program</b></font></font><font face="Times New Roman, serif"><font size="1" style="font-size: 8pt">
-	Hong Kong, HK SAR</font></font></p>
-<p align="justify" style="line-height: 108%; margin-bottom: 0in"><font face="Times New Roman, serif"><font size="1" style="font-size: 8pt">First
-Author (Published)	April 2023 – December 2024</font></font></p>
-<ul>
-	<li><p align="justify" style="line-height: 108%; margin-bottom: 0in">
-	<font face="Times New Roman, serif"><font size="1" style="font-size: 8pt">Researched
-	the “Development and Evaluation of a Low-Cost Open Source Power
-	Monitoring and Recording System for Solar Panel Efficiency
-	Analysis.”</font></font></p></li>
-	<li><p align="justify" style="line-height: 108%; margin-bottom: 0in">
-	<font face="Times New Roman, serif"><font size="1" style="font-size: 8pt">Used
-	an ESP32 microcontroller, INA219 sensor, and microSD to construct a
-	customizable power monitoring system; conducted a 15-day test at the
-	ISF weather station, comparing results to those of a commercial
-	system; analyzed data using PowerBI, accounting for size and
-	efficiency; found a strong R^2 correlation despite minor
-	discrepancies due to environmental shadows, suggesting high
-	reliability.</font></font></p></li>
-	<li><p align="justify" style="line-height: 108%; margin-bottom: 0in">
-	<font face="Times New Roman, serif"><font size="1" style="font-size: 8pt">Paper
-	published in IEEE-YE 2023:
-	</font></font><font color="#0563c1"><u><a href="https://www.researchgate.net/publication/386508879_Development_and_Evaluation_of_a_Low-Cost_Open_Source_Power_Monitoring_and_Recording_System_for_Solar_Panel_Efficiency_Analysis"><font face="Times New Roman, serif"><font size="1" style="font-size: 8pt">https://www.researchgate.net/publication/386508879_Development_and_Evaluation_of_a_Low-Cost_Open_Source_Power_Monitoring_and_Recording_System_for_Solar_Panel_Efficiency_Analysis</font></font></a></u></font><font face="Times New Roman, serif"><font size="1" style="font-size: 8pt">
-	</font></font>
-	</p></li>
-</ul>
-<p align="justify" style="line-height: 108%; margin-bottom: 0in"><br/>
-
-</p>
-<p align="justify" style="line-height: 108%; margin-bottom: 0in"><font face="Times New Roman, serif"><font size="1" style="font-size: 8pt"><b>ISFA
-Shuyuan Research Program</b></font></font><font face="Times New Roman, serif"><font size="1" style="font-size: 8pt">
-	Hong Kong, HK SAR</font></font></p>
-<p align="justify" style="line-height: 108%; margin-bottom: 0in"><font face="Times New Roman, serif"><font size="1" style="font-size: 8pt">First
-Author (Published) 	December 2021 – April 2022</font></font></p>
-<ul>
-	<li><p align="justify" style="line-height: 108%; margin-bottom: 0in">
-	<font face="Times New Roman, serif"><font size="1" style="font-size: 8pt">Researched
-	“The Potential of Tracking Solar Panels in Hong Kong Compared to
-	Fixed Panels.”</font></font></p></li>
-	<li><p align="justify" style="line-height: 108%; margin-bottom: 0in">
-	<font face="Times New Roman, serif"><font size="1" style="font-size: 8pt">Used
-	PowerBI to analyze 3 years of solar panel output data from the ISF
-	Center for Renewable Energy Education; visualized power generation
-	patterns across times of day and seasons using line plots and matrix
-	tables; found that due to shadow interference from Hong Kong
-	skyrises, tracking solar panels only generated 29% more energy than
-	fixed panels; because tracking panels cost 25% more, concluded that
-	fixed arrays offer better ROI.</font></font></p></li>
-	<li><p align="justify" style="line-height: 108%; margin-bottom: 0in">
-	<font face="Times New Roman, serif"><font size="1" style="font-size: 8pt">Condensed
-	poster presentation of data published by AGU:
-	</font></font><font color="#0563c1"><u><a href="https://agu2022fallmeeting-agu.ipostersessions.com/Default.aspx?s=13-4E-8F-0E-A8-42-2E-71-74-37-18-20-F4-AF-E1-CE"><font face="Times New Roman, serif"><font size="1" style="font-size: 8pt">https://agu2022fallmeeting-agu.ipostersessions.com/Default.aspx?s=13-4E-8F-0E-A8-42-2E-71-74-37-18-20-F4-AF-E1-CE</font></font></a></u></font><font face="Times New Roman, serif"><font size="1" style="font-size: 8pt">
-	</font></font>
-	</p></li>
-</ul>
-<p align="justify" style="line-height: 108%; margin-bottom: 0in"><br/>
-
-</p>
-<p align="justify" style="line-height: 108%; margin-bottom: 0in; border-top: none; border-bottom: 1px solid #000000; border-left: none; border-right: none; padding-top: 0in; padding-bottom: 0.01in; padding-left: 0in; padding-right: 0in">
- <font face="Times New Roman, serif"><font size="1" style="font-size: 8pt"><b>PROFESSIONAL
-EXPERIENCE</b></font></font></p>
-<p align="justify" style="line-height: 108%; margin-bottom: 0in"><font face="Times New Roman, serif"><font size="1" style="font-size: 8pt"><b>Crostwick
-Industrial</b></font></font><font face="Times New Roman, serif"><font size="1" style="font-size: 8pt">
-	Hong Kong, HK SAR</font></font></p>
-<p align="justify" style="line-height: 108%; margin-bottom: 0in"><font face="Times New Roman, serif"><font size="1" style="font-size: 8pt">Contractor
-	January 2024 – May 2024</font></font></p>
-<ul>
-	<li><p align="justify" style="line-height: 108%; margin-bottom: 0in">
-	<font face="Times New Roman, serif"><font size="1" style="font-size: 8pt">Contracted
-	to design and build 1 unit of an office door lock that opens
-	automatically when a recognized phone connects to the office Wi-Fi,
-	and locks automatically when no device is connected; the design
-	parameters were that the lock should be made with commercially
-	available parts for easy maintenance, require no manual operation,
-	and be made at a per unit cost of 1,500 HKD or less.</font></font></p></li>
-	<li><p align="justify" style="line-height: 108%; margin-bottom: 0in">
-	<font face="Times New Roman, serif"><font size="1" style="font-size: 8pt">Used
-	an ESP-32 chip and Wi-Fi module to control a solenoid lock within
-	the parameters; provided a blueprint for design of the lock.</font></font></p></li>
-</ul>
-<p align="justify" style="line-height: 108%; margin-bottom: 0in"><br/>
-
-</p>
-<p align="justify" style="line-height: 108%; margin-bottom: 0in"><font face="Times New Roman, serif"><font size="1" style="font-size: 8pt"><span lang="fr-FR"><b>En-Trak</b></span></font></font><font face="Times New Roman, serif"><font size="1" style="font-size: 8pt"><span lang="fr-FR">
-	Hong Kong, HK SAR</span></font></font></p>
-<p align="justify" style="line-height: 108%; margin-bottom: 0in"><font face="Times New Roman, serif"><font size="1" style="font-size: 8pt">Software
-Developer 	March 2023 – October 2023</font></font></p>
-<ul>
-	<li><p align="justify" style="line-height: 108%; margin-bottom: 0in">
-	<font face="Times New Roman, serif"><font size="1" style="font-size: 8pt">Developed
-	an API to fetch data for En-Trak TEP, an application that tracks and
-	displays power usage and sustainability data for organizations that
-	own commercial real estate, including private companies, conference
-	centers, and schools.</font></font></p></li>
-	<li><p align="justify" style="line-height: 108%; margin-bottom: 0in">
-	<font face="Times New Roman, serif"><font size="1" style="font-size: 8pt">Used
-	Go to develop the API with object-relational mapping to access
-	Firebase databases maintained by En-Trak; deployed the API on the
-	En-Trak TEP application in 2023.</font></font></p></li>
-</ul>
-<p align="justify" style="line-height: 108%; margin-bottom: 0in"><br/>
-
-</p>
-<p align="justify" style="line-height: 108%; margin-bottom: 0in"><font face="Times New Roman, serif"><font size="1" style="font-size: 8pt"><b>Qirui
-Pay</b></font></font><font face="Times New Roman, serif"><font size="1" style="font-size: 8pt">
-	Hong Kong, HK SAR</font></font></p>
-<p align="justify" style="line-height: 108%; margin-bottom: 0in"><font face="Times New Roman, serif"><font size="1" style="font-size: 8pt">Founder
-&amp; Developer 	March 2022 – November 2024</font></font></p>
-<ul>
-	<li><p align="justify" style="line-height: 108%; margin-bottom: 0in">
-	<font face="Times New Roman, serif"><font size="1" style="font-size: 8pt">Programmed
-	and developed Qirui Pay, an app permitting organizations to issue
-	their own unique currencies pegged to local fiat; the use cases for
-	Qirui Pay are schools and organizations that issue points, tickets,
-	or currencies that can be redeemed for real money or items.</font></font></p></li>
-	<li><p align="justify" style="line-height: 108%; margin-bottom: 0in">
-	<font face="Times New Roman, serif"><font size="1" style="font-size: 8pt">Presented
-	a paper examining the technology, security, and use cases for Qirui
-	Pay during its trial period from 2022 – 2023, during which time it
-	recorded around 52,000 USD in transactions, at the 49th
-	International Exhibition of Inventions Geneva; received a Silver
-	Medal.</font></font></p></li>
-	<li><p align="justify" style="line-height: 108%; margin-bottom: 0in">
-	<font face="Times New Roman, serif"><font size="1" style="font-size: 8pt"><span lang="fr-FR">Publication:
-	</span></font></font><font color="#0563c1"><u><a href="https://catalog-admin.palexpo.ch/media/invention_invention_documentation/0c01584c-dd02-41e8-9ac5-7852d0346e95.pdf"><font face="Times New Roman, serif"><font size="1" style="font-size: 8pt"><span lang="fr-FR">https://catalog-admin.palexpo.ch/media/invention_invention_documentation/0c01584c-dd02-41e8-9ac5-7852d0346e95.pdf</span></font></font></a></u></font></p></li>
-</ul>
+            <h3>Professional Experience</h3>
+            <p><strong>Crostwick Industrial</strong>, Hong Kong, HK SAR</p>
+            <p>Contractor, January 2024 – May 2024</p>
+            <ul>
+                <li>Contracted to design and build 1 unit of an office door lock that opens automatically when a recognized phone connects to the office Wi-Fi, and locks automatically when no device is connected; the design parameters were that the lock should be made with commercially available parts for easy maintenance, require no manual operation, and be made at a per-unit cost of 1,500 HKD or less.</li>
+                <li>Used an ESP-32 chip and Wi-Fi module to control a solenoid lock within the parameters; provided a blueprint for design of the lock.</li>
+            </ul>
+            <p><strong>En-Trak</strong>, Hong Kong, HK SAR</p>
+            <p>Software Developer, March 2023 – October 2023</p>
+            <ul>
+                <li>Developed an API to fetch data for En-Trak TEP, an application that tracks and displays power usage and sustainability data for organizations that own commercial real estate, including private companies, conference centers, and schools.</li>
+                <li>Used Go to develop the API with object-relational mapping to access Firebase databases maintained by En-Trak; deployed the API on the En-Trak TEP application in 2023.</li>
+            </ul>
+            <p><strong>Qirui Pay</strong>, Hong Kong, HK SAR</p>
+            <p>Founder & Developer, March 2022 – November 2024</p>
+            <ul>
+                <li>Programmed and developed Qirui Pay, an app permitting organizations to issue their own unique currencies pegged to local fiat; the use cases for Qirui Pay are schools and organizations that issue points, tickets, or currencies that can be redeemed for real money or items.</li>
+                <li>Presented a paper examining the technology, security, and use cases for Qirui Pay during its trial period from 2022–2023, during which time it recorded around 52,000 USD in transactions, at the 49th International Exhibition of Inventions Geneva; received a Silver Medal.</li>
+                <li>Publication: <a href="https://catalog-admin.palexpo.ch/media/invention_invention_documentation/0c01584c-dd02-41e8-9ac5-7852d0346e95.pdf">Link</a>.</li>
+            </ul>
+        </div>
+    </main>
+    <footer>
+        <div class="footer-bar">
+            <a href="resume.docx" download>Download Resume (.docx)</a>
+        </div>
+    </footer>
 </body>
 </html>

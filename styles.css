@@ -5,6 +5,7 @@ body {
     line-height: 1.6;
     background-color: #F7D147; /* UMich Maize */
     color: #102F58; /* UMich Blue */
+    font-size: 16px; /* Base font size for larger text */
 }
 
 header {
@@ -35,7 +36,7 @@ main {
 .content-container {
     display: flex;
     align-items: flex-start;
-    gap: 20px; /* Space between image and text */
+    gap: 20px; /* Space between image and text on index.html */
 }
 
 .profile-image {
@@ -47,6 +48,41 @@ main {
 
 .text-content {
     flex: 1; /* Takes remaining space */
+}
+
+.resume-container {
+    font-size: 18px; /* Larger text for resume content */
+}
+
+.resume-container h2 {
+    font-size: 32px; /* Larger name at top */
+    margin-bottom: 10px;
+}
+
+.resume-container h3 {
+    font-size: 24px; /* Section headings */
+    margin-top: 20px;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #102F58; /* UMich Blue underline for sections */
+}
+
+.resume-container p {
+    margin: 5px 0;
+}
+
+.resume-container ul {
+    margin: 10px 0;
+    padding-left: 20px;
+}
+
+.resume-container a {
+    color: #102F58; /* UMich Blue for links */
+    text-decoration: underline;
+}
+
+.resume-container a:hover {
+    color: #F7D147; /* UMich Maize on hover */
+    background: #102F58; /* UMich Blue background on hover */
 }
 
 footer {
@@ -91,5 +127,17 @@ h1, h2 {
     .footer-bar {
         flex-direction: column; /* Stack links vertically */
         gap: 10px;
+    }
+
+    .resume-container {
+        font-size: 16px; /* Slightly smaller on mobile */
+    }
+
+    .resume-container h2 {
+        font-size: 28px;
+    }
+
+    .resume-container h3 {
+        font-size: 20px;
     }
 }
