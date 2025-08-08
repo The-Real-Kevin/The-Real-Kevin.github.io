@@ -149,7 +149,11 @@ footer {
 }
 
 /* Headings */
-h1, h2 {
+h1 {
+    color: #F7D147;
+}
+
+h2 {
     color: #102F58;
 }
 
@@ -197,8 +201,8 @@ h1, h2 {
 
 /* Override body for asteroid.html only */
 body.asteroid-page {
-    background-color: #00274C; /* Deeper Michigan Blue */
-    color: #FFCB05; /* Brighter Maize */
+    background-color: #102F58; /* Michigan Blue */
+    color: #F7D147; /* Maize */
     font-family: 'Courier New', monospace;
     padding: 0;
     margin: 0;
@@ -208,7 +212,7 @@ body.asteroid-page {
     background-color: transparent;
     box-shadow: none;
     padding: 20px;
-    color: #FFCB05;
+    color: #F7D147;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -217,21 +221,21 @@ body.asteroid-page {
 .asteroid-page h1,
 .asteroid-page h2,
 .asteroid-page header nav a {
-    color: #FFCB05 !important;
+    color: #F7D147 !important;
 }
 
 .asteroid-page .footer-bar {
-    background-color: #00274C !important;
+    background-color: #F7D147 !important;
 }
 
 .asteroid-page .footer-bar a {
-    color: #FFCB05 !important;
+    color: #102F58 !important;
 }
 
 .asteroid-page canvas {
-    border: 2px solid #FFCB05;
+    border: 2px solid #F7D147;
     margin-top: 20px;
-    background-color: #000;
+    background-color: #102F58; /* UMich Blue */
     display: block;
 }
 
