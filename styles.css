@@ -1,3 +1,4 @@
+/* Base Styles */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -5,9 +6,10 @@ body {
     line-height: 1.6;
     background-color: #F7D147; /* UMich Maize */
     color: #102F58; /* UMich Blue */
-    font-size: 16px; /* Base font size */
+    font-size: 16px;
 }
 
+/* General Header & Navigation */
 header {
     background: #102F58; /* UMich Blue */
     color: #F7D147; /* UMich Maize */
@@ -25,6 +27,7 @@ nav a:hover {
     text-decoration: underline;
 }
 
+/* Main Content */
 main {
     max-width: 1000px;
     margin: 20px auto;
@@ -33,37 +36,39 @@ main {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+/* Index Page: Profile Layout */
 .content-container {
     display: flex;
     align-items: flex-start;
-    gap: 20px; /* Space between image and text on index.html */
+    gap: 20px;
 }
 
 .profile-image {
-    width: 200px; /* Adjust as needed */
+    width: 200px;
     height: auto;
-    border-radius: 10px; /* Optional: rounded corners */
+    border-radius: 10px;
     object-fit: cover;
 }
 
 .text-content {
-    flex: 1; /* Takes remaining space */
+    flex: 1;
 }
 
+/* Resume Page Styling */
 .resume-container {
-    font-size: 18px; /* Larger text for resume content */
+    font-size: 18px;
 }
 
 .resume-container h2 {
-    font-size: 32px; /* Larger name at top */
+    font-size: 32px;
     margin-bottom: 10px;
 }
 
 .resume-container h3 {
-    font-size: 24px; /* Section headings */
+    font-size: 24px;
     margin-top: 20px;
     margin-bottom: 10px;
-    border-bottom: 2px solid #102F58; /* UMich Blue underline for sections */
+    border-bottom: 2px solid #102F58;
 }
 
 .resume-container p {
@@ -76,64 +81,66 @@ main {
 }
 
 .resume-container a {
-    color: #102F58; /* UMich Blue for links */
+    color: #102F58;
     text-decoration: underline;
 }
 
 .resume-container a:hover {
-    color: #F7D147; /* UMich Maize on hover */
-    background: #102F58; /* UMich Blue background on hover */
+    color: #F7D147;
+    background: #102F58;
 }
 
+/* Blog Page Styling */
 .blog-container {
     display: flex;
     flex-direction: column;
-    gap: 20px; /* Space between blog posts */
+    gap: 20px;
 }
 
 .blog-post {
     background: white;
     padding: 20px;
-    border-radius: 10px; /* Rounded corners for blog post boxes */
+    border-radius: 10px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
 
 .blog-post h2 {
     font-size: 24px;
     margin-bottom: 10px;
-    color: #102F58; /* UMich Blue */
+    color: #102F58;
 }
 
 .blog-date {
     font-size: 14px;
-    color: #666; /* Gray for date to distinguish it */
+    color: #666;
     margin-bottom: 10px;
 }
 
 .blog-image {
     width: 100%;
-    max-width: 400px; /* Limit image width */
+    max-width: 400px;
     height: auto;
-    border-radius: 10px; /* Match profile-image style */
+    border-radius: 10px;
     margin-bottom: 10px;
 }
 
+/* Footer */
 footer {
     text-align: center;
     margin-top: 20px;
-    color: #102F58; /* UMich Blue */
+    color: #102F58;
 }
 
 .footer-bar {
-    background: #102F58; /* UMich Blue */
+    background: #102F58;
     padding: 10px;
     display: flex;
     justify-content: center;
-    gap: 20px; /* Space between links */
+    gap: 20px;
 }
 
 .footer-bar a {
-    color: #F7D147; /* UMich Maize */
+    color: #F7D147;
     text-decoration: none;
 }
 
@@ -141,29 +148,30 @@ footer {
     text-decoration: underline;
 }
 
+/* Headings */
 h1, h2 {
-    color: #102F58; /* UMich Blue */
+    color: #102F58;
 }
 
-/* Responsive design for smaller screens */
+/* Responsive Design */
 @media (max-width: 600px) {
     .content-container {
-        flex-direction: column; /* Stack image and text vertically */
+        flex-direction: column;
         align-items: center;
     }
 
     .profile-image {
         width: 100%;
-        max-width: 300px; /* Prevent image from getting too large */
+        max-width: 300px;
     }
 
     .footer-bar {
-        flex-direction: column; /* Stack links vertically */
+        flex-direction: column;
         gap: 10px;
     }
 
     .resume-container {
-        font-size: 16px; /* Slightly smaller on mobile */
+        font-size: 16px;
     }
 
     .resume-container h2 {
@@ -175,10 +183,58 @@ h1, h2 {
     }
 
     .blog-post {
-        padding: 15px; /* Slightly less padding on mobile */
+        padding: 15px;
     }
 
     .blog-image {
-        max-width: 100%; /* Full width on small screens */
+        max-width: 100%;
     }
+}
+
+/* =============================== */
+/* Special Styles for Asteroid Game Page */
+/* =============================== */
+
+/* Override body for asteroid.html only */
+body.asteroid-page {
+    background-color: #00274C; /* Deeper Michigan Blue */
+    color: #FFCB05; /* Brighter Maize */
+    font-family: 'Courier New', monospace;
+    padding: 0;
+    margin: 0;
+}
+
+.asteroid-page main {
+    background-color: transparent;
+    box-shadow: none;
+    padding: 20px;
+    color: #FFCB05;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.asteroid-page h1,
+.asteroid-page h2,
+.asteroid-page header nav a {
+    color: #FFCB05 !important;
+}
+
+.asteroid-page .footer-bar {
+    background-color: #00274C !important;
+}
+
+.asteroid-page .footer-bar a {
+    color: #FFCB05 !important;
+}
+
+.asteroid-page canvas {
+    border: 2px solid #FFCB05;
+    margin-top: 20px;
+    background-color: #000;
+    display: block;
+}
+
+.asteroid-page p {
+    max-width: 600px;
 }
