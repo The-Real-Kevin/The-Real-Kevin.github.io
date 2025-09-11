@@ -285,11 +285,18 @@ body.asteroid-page {
 
 .media-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(2, 1fr); /* Always 2 columns */
     gap: 1em;
     justify-items: center;
     margin-top: 1em;
 }
+
+@media (max-width: 700px) {
+    .media-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
 .project-media {
     width: 100%;
     max-width: 280px;
