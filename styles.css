@@ -117,11 +117,13 @@ main {
 }
 
 .blog-image {
-    width: 100%;
-    max-width: 400px;
-    height: auto;
-    border-radius: 10px;
-    margin-bottom: 10px;
+    display: block;
+    width: 100%;            /* Makes image as wide as its container */
+    max-width: 600px;       /* Limits huge images on big screens */
+    height: auto;           /* Maintains aspect ratio */
+    border-radius: 8px;     /* Optional: rounded corners */
+    margin: 1em auto;       /* Centered with vertical space */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07); /* Optional: subtle shadow */
 }
 
 /* Footer */
@@ -241,4 +243,61 @@ body.asteroid-page {
 
 .asteroid-page p {
     max-width: 600px;
+}
+
+.project {
+    margin-bottom: 2em;
+    padding: 1em;
+    border-radius: 6px;
+    background: #f8f8f8;
+}
+
+.project-content {
+    display: flex;
+    align-items: flex-start;
+}
+
+.project-img {
+    width: 200px;
+    height: auto;
+    margin-right: 1em;
+    border-radius: 4px;
+}
+@media (max-width: 700px) {
+    .project-content {flex-direction: column;}
+    .project-img {margin-bottom: 1em; margin-right: 0;}
+}
+
+.skills-section, .useful-info-section {
+    margin: 2em 0;
+    background: #f9f9f9;
+    padding: 1em;
+    border-radius: 6px;
+}
+.skills-section h2, .useful-info-section h2 {
+    margin-top: 0;
+}
+
+.skills-list {
+    list-style-type: disc;
+    margin-left: 1.5em;
+}
+
+.media-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1em;
+    justify-items: center;
+    margin-top: 1em;
+}
+.project-media {
+    width: 100%;
+    max-width: 280px;
+    border-radius: 4px;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+}
+.media-grid-description {
+    margin-top: 1em;
+    text-align: center;
 }
