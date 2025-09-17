@@ -136,8 +136,8 @@ main {
 .blog-image {
     display: block;
     width: 100%;            /* Makes image as wide as its container */
-    max-width: 600px;       /* Limits huge images on big screens */
-    height: auto;           /* Maintains aspect ratio */
+    max-height: 400px;       /* Limits huge images on big screens */
+    width: auto;           /* Maintains aspect ratio */
     border-radius: 8px;     /* Optional: rounded corners */
     margin: 1em auto;       /* Centered with vertical space */
     box-shadow: 0 2px 8px rgba(0,0,0,0.07); /* Optional: subtle shadow */
@@ -285,13 +285,13 @@ body.asteroid-page {
     .project-img {margin-bottom: 1em; margin-right: 0;}
 }
 
-.skills-section, .useful-info-section {
+.skills-section, .useful-info-section, .fun-facts-section {
     margin: 2em 0;
     background: #f9f9f9;
     padding: 1em;
     border-radius: 6px;
 }
-.skills-section h2, .useful-info-section h2 {
+.skills-section h2, .useful-info-section, .fun-facts-section h2 {
     margin-top: 0;
 }
 
