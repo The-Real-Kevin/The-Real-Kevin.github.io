@@ -67,6 +67,33 @@ main {
     max-width: 190px;
 }
 
+.involvement-section {
+    margin: 2em 0 2em 0;
+    padding: 1em;
+    background: #f3f6fa;
+    border-radius: 6px;
+}
+
+.involvement-list {
+    list-style-type: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.involvement-list li {
+    margin: 0.5em 0;
+    font-size: 1.05em;
+}
+
+.involvement-list a {
+    text-decoration: none;
+    color: #1353a3;
+    font-weight: 500;
+}
+.involvement-list a:hover {
+    text-decoration: underline;
+}
+
 .text-content {
     flex: 1;
 }
