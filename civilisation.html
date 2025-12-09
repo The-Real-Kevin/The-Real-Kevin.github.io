@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Civilisation - Yuqi Sun</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .game-container {
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0;
+        }
+        
+        .game-description {
+            text-align: center;
+            margin: 1.5em 0;
+        }
+        
+        .game-description h2 {
+            color: #102F58; /* UMich Blue */
+            font-size: 28px;
+            margin-bottom: 0.5em;
+        }
+        
+        .game-description p {
+            color: #102F58;
+            font-size: 18px;
+        }
+        
+        .game-wrapper {
+            position: relative;
+            width: 100%;
+            padding-bottom: 75%; /* 4:3 aspect ratio */
+            background: #000;
+            border: 3px solid #102F58; /* UMich Blue border */
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(16, 47, 88, 0.3);
+        }
+        
+        .game-frame {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        @media (max-width: 768px) {
+            .game-wrapper {
+                padding-bottom: 100%; /* More square on mobile */
+            }
+            
+            .game-description h2 {
+                font-size: 24px;
+            }
+            
+            .game-description p {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Civilisation</h1>
+        <nav>
+            <a href="index.html">Home</a> | <a href="resume.html">Resume</a> | <a href="blog.html">Blog</a> | <a href="projects.html">Personal Projects</a> | <a href="asteroid.html">Asteroids</a> | <a href="invaders.html">Space Invaders</a> | <a href="civilisation.html">Civilisation</a>
+        </nav>
+    </header>
+    <main>
+        <div class="game-container">
+            <div class="game-description">
+                <h2>Play Civilisation</h2>
+                <p>Build and manage your own civilization in this strategy game built with Construct 3</p>
+            </div>
+            
+            <div class="game-wrapper">
+                <iframe src="civilisation-game/index.html" class="game-frame" allowfullscreen></iframe>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="footer-bar">
+            <a href="mailto:yuqisun@umich.edu">Email: yuqisun@umich.edu</a>
+            <a href="https://www.linkedin.com/in/yuqi-sun-11b709270" target="_blank">LinkedIn</a>
+            <a href="https://www.youtube.com/@the_real_kevin8996" target="_blank">YouTube</a>
+        </div>
+    </footer>
+</body>
+</html>
