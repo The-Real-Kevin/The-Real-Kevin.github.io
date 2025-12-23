@@ -352,3 +352,45 @@ body.asteroid-page {
     margin-top: 1em;
     text-align: center;
 }
+
+.timeline-section {
+    margin: 2em 0;
+    background: #f3f6fa;
+    border-radius: 6px;
+    padding: 1em 0.5em;
+}
+.gpa-banner {
+    font-size: 1.15em;
+    font-weight: bold;
+    color: #1353a3;
+    padding: 0.4em;
+    text-align: left;
+    margin-bottom: 0.5em;
+}
+.course-timeline {
+    display: flex;
+    gap: 3em;
+    flex-wrap: wrap;
+    margin-bottom: 1em;
+}
+.semester {
+    min-width: 220px;
+}
+@media (max-width:700px) {
+    .course-timeline {
+        flex-direction: column;
+        gap: 1.5em;
+    }
+}
+.resume-container h2, .resume-container h3 {
+    color: #102F58;
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+}
+.resume-container ul {
+    margin-left: 1em;
+    margin-bottom: 1em;
+}
+.resume-container p {
+    margin-bottom: 0.4em;
+}
