@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Civilisation Cycles</title>
+    <title>Civilisation - Yuqi Sun</title>
     <link rel="stylesheet" href="styles.css">
     <style>
         .game-container {
@@ -58,7 +58,7 @@
         .game-wrapper {
             position: relative;
             width: 100%;
-            padding-bottom: 75%; /* 4:3 aspect ratio */
+            padding-bottom: 80%; /* 5:4 aspect ratio for better Construct 3 display */
             background: #000;
             border: 3px solid #102F58; /* UMich Blue border */
             border-radius: 8px;
@@ -75,9 +75,20 @@
             border: none;
         }
         
+        .loading-message {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #F7D147;
+            font-size: 18px;
+            z-index: 1;
+            pointer-events: none;
+        }
+        
         @media (max-width: 768px) {
             .game-wrapper {
-                padding-bottom: 100%; /* More square on mobile */
+                padding-bottom: 100%; /* Square on mobile */
             }
             
             .game-description h2 {
@@ -106,7 +117,8 @@
     <main>
         <div class="game-container">
             <div class="game-description">
-                <h2>Civilisation Cycles</h2>
+                <h2>Play Civilisation</h2>
+                <p>Build and manage your own civilization in this strategy game built with Construct 3</p>
             </div>
             
             <div class="tutorial-bar">
@@ -114,16 +126,12 @@
             </div>
             
             <div class="game-wrapper">
-                <iframe src="civilisation-game/index.html" class="game-frame" allowfullscreen></iframe>
+                <div class="loading-message" id="loadingMsg">Loading game...</div>
+                <iframe src="civilisation-game/index.html" class="game-frame" allowfullscreen onload="document.getElementById('loadingMsg').style.display='none'"></iframe>
             </div>
         </div>
     </main>
     <footer>
         <div class="footer-bar">
-            <a href="mailto:yuqisun@umich.edu">Email: yuqisun@umich.edu</a>
+            <a href="/cdn-cgi/l/email-protection#6f161a1e061c1a012f1a02060c07410a0b1a">Email: <span class="__cf_email__" data-cfemail="bec7cbcfd7cdcbd0fecbd3d7ddd690dbdacb">[email&#160;protected]</span></a>
             <a href="https://www.linkedin.com/in/yuqi-sun-11b709270" target="_blank">LinkedIn</a>
-            <a href="https://www.youtube.com/@the_real_kevin8996" target="_blank">YouTube</a>
-        </div>
-    </footer>
-</body>
-</html>
