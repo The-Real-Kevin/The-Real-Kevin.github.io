@@ -48,20 +48,17 @@ export function initTutorialSystem(runtime) {
 		}
 	});
 	
-	// ALSO check the current layout immediately
-	setTimeout(() => {
-		const currentLayout = runtime.layout.name;
-		console.log("Current layout on init:", currentLayout);
-		if (currentLayout === START_SCREEN_LAYOUT) {
-			inStartScreen = true;
-			console.log("Detected start screen - ready for E key");
-		}
-	}, 100);
+	// REMOVED THE BUGGY setTimeout - layout state will be set by beforelayoutstart event
 }
 
 export function updateTutorialSystem(runtime) {
-	// ALWAYS check current layout to sync state
-	const currentLayout = runtime.layout?.name;
+	// Safety check - make sure layout exists before accessing
+	if (!runtime.layout) {
+		console.warn("Layout not yet loaded");
+		return;
+	}
+	
+	const currentLayout = runtime.layout.name;
 	
 	// Force update state based on current layout
 	if (currentLayout === START_SCREEN_LAYOUT) {
@@ -96,7 +93,7 @@ export function updateTutorialSystem(runtime) {
 		if (eKeyPressed && !eKeyWasPressed) {
 			console.log("E pressed on start screen - starting timer and going to tutorial");
 			
-			// START THE TIMER HERE - MOVED FROM UNUSED FUNCTION
+			// START THE TIMER HERE
 			startTimer();
 			
 			runtime.goToLayout(TUTORIAL_LAYOUT);
