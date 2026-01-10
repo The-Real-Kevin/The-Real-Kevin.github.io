@@ -145,6 +145,7 @@ main {
     background: white;
     padding: 20px;
     border-radius: 10px;
+    overflow: hidden;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
 
@@ -162,12 +163,14 @@ main {
 
 .blog-image {
     display: block;
-    width: 100%;            /* Makes image as wide as its container */
-    max-height: 400px;       /* Limits huge images on big screens */
-    width: auto;           /* Maintains aspect ratio */
-    border-radius: 8px;     /* Optional: rounded corners */
-    margin: 1em auto;       /* Centered with vertical space */
-    box-shadow: 0 2px 8px rgba(0,0,0,0.07); /* Optional: subtle shadow */
+    width: 100%;              /* Always fill container width */
+    max-width: 100%;          /* Don't exceed container */
+    height: auto;             /* Maintain aspect ratio */
+    object-fit: contain;      /* Fit entire image within bounds */
+    max-height: 500px;        /* Prevent extremely tall images */
+    margin: 1em auto;         /* Centered with vertical space */
+    border-radius: 8px;       /* Rounded corners */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07); /* Subtle shadow */
 }
 
 /* Footer */
