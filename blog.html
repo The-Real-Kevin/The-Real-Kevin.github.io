@@ -16,6 +16,21 @@
     <main>
         <div class="blog-container">
             <div class="blog-post">
+                <h2>University of Michigan AI Business Hackathon</h2>
+                <p class="blog-date">February 19-20, 2026</p>
+                <div class="carousel-container">
+                    <button class="carousel-btn prev" onclick="changeSlide(-1)">❮</button>
+                    <img src="assets/umai1.png" alt="AlignAI Hackathon 1" class="blog-image carousel-image active">
+                    <img src="assets/umai2.png" alt="AlignAI Hackathon 2" class="blog-image carousel-image">
+                    <img src="assets/umai3.jpg" alt="AlignAI Hackathon 3" class="blog-image carousel-image">
+                    <button class="carousel-btn next" onclick="changeSlide(1)">❯</button>
+                </div>
+                
+                <p>I participated in the University of Michigan AI Business Hackathon, a collaboration between Ross School of Business and College of Engineering. Our team (Yuqi Sun, Wonsik Jung, Chhavi Jain, and Deepti Mathur) developed <strong>AlignAI</strong>, an AI-powered EdTech and wellness personal assistant that helps students manage their energy, not just their time.</p>
+                <p>AlignAI is designed to prevent student burnout by using cognitive weight tagging to assess the mental load of each task, protecting wellness activities as non-negotiable priorities, and proactively creating buffer time for recovery. Unlike traditional calendars that optimize for productivity, AlignAI optimizes for sustainable success by aligning your day with your wellbeing.</p>
+                <p>Check out our <a href="https://alignai-sigma.vercel.app/" target="_blank">live demo</a>, watch our <a href="https://youtu.be/vw3Lj4yOHQ0" target="_blank">demo video</a>, or <a href="assets/umai.pdf" target="_blank">download our presentation</a>.</p>
+            </div>
+            <div class="blog-post">
                 <h2>TartanHacks 2026 at Carnegie Mellon</h2>
                 <p class="blog-date">February 6-7, 2026</p>
                 <img src="assets/tartan.png" alt="TartanHacks 2026" class="blog-image">
@@ -60,6 +75,17 @@
     </footer>
 </body>
 </html>
+
+<script>
+let currentSlide = 0;
+const images = document.querySelectorAll('.carousel-image');
+
+function changeSlide(direction) {
+    images[currentSlide].classList.remove('active');
+    currentSlide = (currentSlide + direction + images.length) % images.length;
+    images[currentSlide].classList.add('active');
+}
+</script>
 
 <!--
             <div class="blog-post">
