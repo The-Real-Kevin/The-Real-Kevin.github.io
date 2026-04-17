@@ -6,6 +6,7 @@
     <title>Image Collage Generator - Yuqi Sun</title>
     <link rel="stylesheet" href="styles.css">
     <script src="theme.js"></script>
+    <script src="i18n.js"></script>
     <style>
         .app-container {
             width: 100%;
@@ -19,18 +20,18 @@
 </head>
 <body>
     <header>
-        <h1>Auto Image Collage Generator</h1>
+        <h1 data-i18n="col_h1">Auto Image Collage Generator</h1>
         <nav>
-            <a href="index.html">Home</a>
-            <a href="resume.html">Resume</a>
-            <a href="blog.html">Blog</a>
-            <a href="projects.html">Personal Projects</a>
-            <a href="showcase.html">Showcase</a>
+            <a href="index.html" data-i18n="nav_home">Home</a>
+            <a href="resume.html" data-i18n="nav_resume">Resume</a>
+            <a href="blog.html" data-i18n="nav_blog">Blog</a>
+            <a href="projects.html" data-i18n="nav_projects">Personal Projects</a>
+            <a href="showcase.html" data-i18n="nav_showcase">Showcase</a>
         </nav>
     </header>
     <main>
-        <p style="text-align: center; margin: 1em 0;">
-            <strong>Loading interactive demo...</strong> If the app doesn't load, 
+        <p style="text-align: center; margin: 1em 0;" data-i18n="col_loading">
+            <strong>Loading interactive demo...</strong> If the app doesn't load,
             <a href="https://auto-image-collage-generator.streamlit.app/" target="_blank">open it in a new window</a>.
         </p>
         <iframe 

@@ -598,4 +598,121 @@
     ast_score: "分數：",
   });
 
+
+  /* =================================================================
+     CIVILISATION PAGE  civ_*
+     ================================================================= */
+
+  // === ENGLISH ===
+  Object.assign(i18n.en, {
+    civ_h1:         "Civilisation",
+    civ_h2:         "Play Civilisation",
+    civ_desc:       "Build and manage your own civilization in this strategy game built with Construct 3",
+    civ_tutorial:   '📺 <a href="https://www.youtube.com/watch?v=yWzf6_O5P8Q" target="_blank">Watch Gameplay Tutorial &amp; Demo</a>',
+    civ_btn:        "🎮 Launch Game in New Window",
+    civ_note:       "The game will open in a new tab/window for the best experience",
+    civ_about_h3:   "About This Game",
+    civ_about_p:    "Civilisation is an open-world strategy game where you manage a society through various challenges. Complete missions, interact with NPCs, and make decisions that shape your civilization's future.",
+    civ_ctrl_h4:    "Controls:",
+    civ_ctrl_arrow: "<strong>Arrow Keys</strong> - Move your character",
+    civ_ctrl_e:     "<strong>E Key</strong> - Interact with objects, NPCs, and enter buildings",
+    civ_ctrl_f:     "<strong>F Key</strong> - Use items",
+    civ_ctrl_r:     "<strong>R Key</strong> - Additional actions",
+    civ_ctrl_m:     "<strong>M Key</strong> - View instructions",
+    civ_ctrl_c:     "<strong>C Key</strong> - View credits",
+  });
+  // === GERMAN ===
+  Object.assign(i18n.de, {
+    civ_h1:         "Civilisation",
+    civ_h2:         "Civilisation spielen",
+    civ_desc:       "Baue und verwalte deine eigene Zivilisation in diesem mit Construct 3 entwickelten Strategiespiel",
+    civ_tutorial:   '📺 <a href="https://www.youtube.com/watch?v=yWzf6_O5P8Q" target="_blank">Gameplay-Tutorial &amp; Demo ansehen</a>',
+    civ_btn:        "🎮 Spiel in neuem Fenster öffnen",
+    civ_note:       "Das Spiel öffnet sich in einem neuen Tab/Fenster für das beste Erlebnis",
+    civ_about_h3:   "Über das Spiel",
+    civ_about_p:    "Civilisation ist ein Strategiespiel mit offener Welt, in dem du eine Gesellschaft durch verschiedene Herausforderungen führst. Erfülle Missionen, interagiere mit NPCs und triff Entscheidungen, die die Zukunft deiner Zivilisation gestalten.",
+    civ_ctrl_h4:    "Steuerung:",
+    civ_ctrl_arrow: "<strong>Pfeiltasten</strong> - Charakter bewegen",
+    civ_ctrl_e:     "<strong>E-Taste</strong> - Mit Objekten und NPCs interagieren, Gebäude betreten",
+    civ_ctrl_f:     "<strong>F-Taste</strong> - Gegenstände benutzen",
+    civ_ctrl_r:     "<strong>R-Taste</strong> - Weitere Aktionen",
+    civ_ctrl_m:     "<strong>M-Taste</strong> - Anweisungen anzeigen",
+    civ_ctrl_c:     "<strong>C-Taste</strong> - Credits anzeigen",
+  });
+  // === CANTONESE ===
+  Object.assign(i18n.ct, {
+    civ_h1:         "Civilisation",
+    civ_h2:         "開始 Civilisation",
+    civ_desc:       "喺呢個以 Construct 3 開發嘅策略遊戲中，建立同管理你嘅文明",
+    civ_tutorial:   '📺 <a href="https://www.youtube.com/watch?v=yWzf6_O5P8Q" target="_blank">觀看遊戲教學及示範</a>',
+    civ_btn:        "🎮 喺新視窗開啟遊戲",
+    civ_note:       "遊戲將會喺新分頁或視窗開啟，帶來最佳體驗",
+    civ_about_h3:   "關於呢個遊戲",
+    civ_about_p:    "Civilisation 係一款開放世界策略遊戲，你需要帶領一個社會應對各種挑戰。完成任務、與 NPC 互動，並作出塑造文明未來嘅決定。",
+    civ_ctrl_h4:    "操控：",
+    civ_ctrl_arrow: "<strong>方向鍵</strong> - 移動角色",
+    civ_ctrl_e:     "<strong>E 鍵</strong> - 與物件、NPC 互動及進入建築物",
+    civ_ctrl_f:     "<strong>F 鍵</strong> - 使用物品",
+    civ_ctrl_r:     "<strong>R 鍵</strong> - 附加動作",
+    civ_ctrl_m:     "<strong>M 鍵</strong> - 查看說明",
+    civ_ctrl_c:     "<strong>C 鍵</strong> - 查看製作名單",
+  });
+
+
+  /* =================================================================
+     INVADERS PAGE  inv_*
+     ================================================================= */
+
+  // === ENGLISH ===
+  Object.assign(i18n.en, {
+    inv_h1:         "Space Invaders",
+    inv_h2:         "Play Space Invaders",
+    inv_desc:       "A classic arcade game recreation built with Construct 3. Defend Earth from the alien invasion!",
+    inv_ctrl_h3:    "How to Play",
+    inv_ctrl_lr:    "<strong>Arrow Keys (← →)</strong> - Move your ship left and right",
+    inv_ctrl_space: "<strong>Spacebar</strong> - Fire lasers at the invaders",
+    inv_ctrl_goal:  "<strong>Goal</strong> - Destroy all aliens before they reach the bottom!",
+  });
+  // === GERMAN ===
+  Object.assign(i18n.de, {
+    inv_h1:         "Space Invaders",
+    inv_h2:         "Space Invaders spielen",
+    inv_desc:       "Eine Neuinterpretation des klassischen Arcade-Spiels mit Construct 3. Verteidige die Erde vor der Alien-Invasion!",
+    inv_ctrl_h3:    "Spielanleitung",
+    inv_ctrl_lr:    "<strong>Pfeiltasten (← →)</strong> - Schiff nach links und rechts bewegen",
+    inv_ctrl_space: "<strong>Leertaste</strong> - Laser auf die Eindringlinge abfeuern",
+    inv_ctrl_goal:  "<strong>Ziel</strong> - Vernichte alle Außerirdischen, bevor sie den Boden erreichen!",
+  });
+  // === CANTONESE ===
+  Object.assign(i18n.ct, {
+    inv_h1:         "Space Invaders",
+    inv_h2:         "開始 Space Invaders",
+    inv_desc:       "以 Construct 3 重製嘅經典街機遊戲。抵禦外星人入侵，保衛地球！",
+    inv_ctrl_h3:    "點樣玩",
+    inv_ctrl_lr:    "<strong>方向鍵（← →）</strong> - 向左右移動飛船",
+    inv_ctrl_space: "<strong>空白鍵</strong> - 向入侵者開火",
+    inv_ctrl_goal:  "<strong>目標</strong> - 喺外星人到達底部之前消滅所有外星人！",
+  });
+
+
+  /* =================================================================
+     COLLAGE DEMO PAGE  col_*
+     ================================================================= */
+
+  // === ENGLISH ===
+  Object.assign(i18n.en, {
+    col_h1:      "Auto Image Collage Generator",
+    col_loading: '<strong>Loading interactive demo...</strong> If the app doesn\'t load, <a href="https://auto-image-collage-generator.streamlit.app/" target="_blank">open it in a new window</a>.',
+  });
+  // === GERMAN ===
+  Object.assign(i18n.de, {
+    col_h1:      "Automatischer Bildcollagengenerator",
+    col_loading: '<strong>Interaktive Demo wird geladen...</strong> Falls die App nicht lädt, <a href="https://auto-image-collage-generator.streamlit.app/" target="_blank">hier in einem neuen Fenster öffnen</a>.',
+  });
+  // === CANTONESE ===
+  Object.assign(i18n.ct, {
+    col_h1:      "自動圖像拼貼生成器",
+    col_loading: '<strong>正在載入互動示範...</strong> 如果應用程式未能載入，<a href="https://auto-image-collage-generator.streamlit.app/" target="_blank">喺新視窗開啟</a>。',
+  });
+
 })();
