@@ -5,36 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog - Yuqi Sun</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="theme.js"></script>
+    <script src="i18n.js"></script>
 </head>
 <body>
     <header>
-        <h1>My Blog</h1>
+        <h1 data-i18n="blg_h1">My Blog</h1>
         <nav>
-            <a href="index.html">Home</a> | <a href="resume.html">Resume</a> | <a href="blog.html">Blog</a> | <a href="projects.html">Personal Projects</a> | <a href="showcase.html">Showcase</a>
+            <a href="index.html" data-i18n="nav_home">Home</a>
+            <a href="resume.html" data-i18n="nav_resume">Resume</a>
+            <a href="blog.html" data-i18n="nav_blog">Blog</a>
+            <a href="projects.html" data-i18n="nav_projects">Personal Projects</a>
+            <a href="showcase.html" data-i18n="nav_showcase">Showcase</a>
         </nav>
     </header>
     <main>
         <div class="blog-container">
             <div class="blog-post">
-                <h2>01 Poetry Anthology | Gedichtsammlung 01 | 初號詩集</h2>
-                <p class="blog-date">April 6, 2026</p>
+                <h2 data-i18n="blg_p01_h2">01 Poetry Anthology | Gedichtsammlung 01 | 初號詩集</h2>
+                <p class="blog-date" data-i18n="blg_p01_date">April 6, 2026</p>
                 <img src="assets/blog8.png" alt="01 Poetry Anthology" class="blog-image">
-                <p>I'm proud to present my second poetry anthology, <strong>01 Poetry Anthology | Gedichtsammlung 01 | 初號詩集</strong>, a trilingual collection featuring my best 10 詞 and modern style poems in English, German, and Cantonese. This collection represents a linguistic and emotional journey across three languages and cultures.</p>
-                <p>The poems focus on emotional development and personal growth, exploring themes of identity, transformation, and the inner landscape of a student bridging multiple worlds. Each piece reflects the unique expressive power of its language while maintaining a unified voice throughout.</p>
-                <p><a href="assets/poem2.pdf" target="_blank">Download 01 Poetry Anthology | Gedichtsammlung 01 | 初號詩集</a> to experience the full trilingual collection.</p>
-                <p>Please read the Creator's Note at the end of the anthology for more information. </p>
+                <p data-i18n="blg_p01_p1">I'm proud to present my second poetry anthology, <strong>01 Poetry Anthology | Gedichtsammlung 01 | 初號詩集</strong>, a trilingual collection featuring my best 10 詞 and modern style poems in English, German, and Cantonese. This collection represents a linguistic and emotional journey across three languages and cultures.</p>
+                <p data-i18n="blg_p01_p2">The poems focus on emotional development and personal growth, exploring themes of identity, transformation, and the inner landscape of a student bridging multiple worlds. Each piece reflects the unique expressive power of its language while maintaining a unified voice throughout.</p>
+                <p data-i18n="blg_p01_p3"><a href="assets/poem2.pdf" target="_blank">Download 01 Poetry Anthology | Gedichtsammlung 01 | 初號詩集</a> to experience the full trilingual collection.</p>
+                <p data-i18n="blg_p01_p4">Please read the Creator's Note at the end of the anthology for more information. </p>
             </div>
             <div class="blog-post">
-                <h2>00 Poetry Anthology</h2>
-                <p class="blog-date">April 2, 2026</p>
+                <h2 data-i18n="blg_p00_h2">00 Poetry Anthology</h2>
+                <p class="blog-date" data-i18n="blg_p00_date">April 2, 2026</p>
                 <img src="assets/blog7.png" alt="Poetry Anthology" class="blog-image">
-                <p>I'm excited to share my first poetry anthology, a bilingual collection of 26 poems chronicling my journey from April 2024 to April 2026. This two-year compilation features works in both English and Chinese, reflecting on my experiences, growth, and emotional developments I've experienced during my time transitioning from end of highschool to start of college.</p>
-                <p>The collection includes reflections on young adulthood, homesickness, emotional challenges, cultural identity, and the beauty found in everyday moments. Some pieces explore the intersection of Eastern and Western perspectives, while others capture the universal emotions of a stranger navigating new horizons.</p>
-                <p><a href="assets/poem.pdf" target="_blank">Download the full poetry anthology</a> to read the complete collection.</p>
+                <p data-i18n="blg_p00_p1">I'm excited to share my first poetry anthology, a bilingual collection of 26 poems chronicling my journey from April 2024 to April 2026. This two-year compilation features works in both English and Chinese, reflecting on my experiences, growth, and emotional developments I've experienced during my time transitioning from end of highschool to start of college.</p>
+                <p data-i18n="blg_p00_p2">The collection includes reflections on young adulthood, homesickness, emotional challenges, cultural identity, and the beauty found in everyday moments. Some pieces explore the intersection of Eastern and Western perspectives, while others capture the universal emotions of a stranger navigating new horizons.</p>
+                <p data-i18n="blg_p00_p3"><a href="assets/poem.pdf" target="_blank">Download the full poetry anthology</a> to read the complete collection.</p>
             </div>
             <div class="blog-post">
-                <h2>University of Michigan AI Business Hackathon</h2>
-                <p class="blog-date">February 19-20, 2026</p>
+                <h2 data-i18n="blg_umai_h2">University of Michigan AI Business Hackathon</h2>
+                <p class="blog-date" data-i18n="blg_umai_date">February 19-20, 2026</p>
                 <div class="carousel-container">
                     <button class="carousel-btn prev" onclick="changeSlide(-1)">❮</button>
                     <img src="assets/umai1.png" alt="AlignAI Hackathon 1" class="blog-image carousel-image active">
@@ -42,45 +48,45 @@
                     <img src="assets/umai3.jpg" alt="AlignAI Hackathon 3" class="blog-image carousel-image">
                     <button class="carousel-btn next" onclick="changeSlide(1)">❯</button>
                 </div>
-                
-                <p>I participated in the University of Michigan AI Business Hackathon, a collaboration between Ross School of Business and College of Engineering. Our team (Yuqi Sun, Wonsik Jung, Chhavi Jain, and Deepti Mathur) developed <strong>AlignAI</strong>, an AI-powered EdTech and wellness personal assistant that helps students manage their energy, not just their time.</p>
-                <p>AlignAI is designed to prevent student burnout by using cognitive weight tagging to assess the mental load of each task, protecting wellness activities as non-negotiable priorities, and proactively creating buffer time for recovery. Unlike traditional calendars that optimize for productivity, AlignAI optimizes for sustainable success by aligning your day with your wellbeing.</p>
-                <p>Check out our <a href="https://alignai-sigma.vercel.app/" target="_blank">live demo</a>, watch our <a href="https://youtu.be/vw3Lj4yOHQ0" target="_blank">demo video</a>, or <a href="assets/umai.pdf" target="_blank">download our presentation</a>.</p>
+
+                <p data-i18n="blg_umai_p1">I participated in the University of Michigan AI Business Hackathon, a collaboration between Ross School of Business and College of Engineering. Our team (Yuqi Sun, Wonsik Jung, Chhavi Jain, and Deepti Mathur) developed <strong>AlignAI</strong>, an AI-powered EdTech and wellness personal assistant that helps students manage their energy, not just their time.</p>
+                <p data-i18n="blg_umai_p2">AlignAI is designed to prevent student burnout by using cognitive weight tagging to assess the mental load of each task, protecting wellness activities as non-negotiable priorities, and proactively creating buffer time for recovery. Unlike traditional calendars that optimize for productivity, AlignAI optimizes for sustainable success by aligning your day with your wellbeing.</p>
+                <p data-i18n="blg_umai_p3">Check out our <a href="https://alignai-sigma.vercel.app/" target="_blank">live demo</a>, watch our <a href="https://youtu.be/vw3Lj4yOHQ0" target="_blank">demo video</a>, or <a href="assets/umai.pdf" target="_blank">download our presentation</a>.</p>
             </div>
             <div class="blog-post">
-                <h2>TartanHacks 2026 at Carnegie Mellon</h2>
-                <p class="blog-date">February 6-7, 2026</p>
+                <h2 data-i18n="blg_tartan_h2">TartanHacks 2026 at Carnegie Mellon</h2>
+                <p class="blog-date" data-i18n="blg_tartan_date">February 6-7, 2026</p>
                 <img src="assets/tartan.png" alt="TartanHacks 2026" class="blog-image">
-                <p>I participated in TartanHacks 2026 at Carnegie Mellon University and developed <strong>Ledgerly</strong> with Jonathan, Adil, and James. Ledgerly is an all-in-one real-time financial planning and budgeting platform. We deliver proactive AI-powered insights that help users avoid financial problems before they happen. Instead of reacting to overdrafts or missed payments, the system forecasts risk and recommends actions early.</p>
-                <p>Ledgerly was selected as the favorite project at TartanHacks by Agentuity! Check out our <a href="https://github.com/jonathandunne/Ledgerly-UI" target="_blank">GitHub repository</a>, read the <a href="https://agentuity.com/blog/tartanhacks-2026-recap" target="_blank">Agentuity recap blog post</a>, or <a href="assets/tartan.pdf" target="_blank">download our presentation</a>, and watch <a href="https://youtu.be/bbiGeH78C5Q" target="_blank">Ledgerly's demo video by Jonathan Dunne</a></p>
+                <p data-i18n="blg_tartan_p1">I participated in TartanHacks 2026 at Carnegie Mellon University and developed <strong>Ledgerly</strong> with Jonathan, Adil, and James. Ledgerly is an all-in-one real-time financial planning and budgeting platform. We deliver proactive AI-powered insights that help users avoid financial problems before they happen. Instead of reacting to overdrafts or missed payments, the system forecasts risk and recommends actions early.</p>
+                <p data-i18n="blg_tartan_p2">Ledgerly was selected as the favorite project at TartanHacks by Agentuity! Check out our <a href="https://github.com/jonathandunne/Ledgerly-UI" target="_blank">GitHub repository</a>, read the <a href="https://agentuity.com/blog/tartanhacks-2026-recap" target="_blank">Agentuity recap blog post</a>, or <a href="assets/tartan.pdf" target="_blank">download our presentation</a>, and watch <a href="https://youtu.be/bbiGeH78C5Q" target="_blank">Ledgerly's demo video by Jonathan Dunne</a></p>
             </div>
             <div class="blog-post">
-                <h2>Winter 2026 semester starts!</h2>
-                <p class="blog-date">January 7, 2026</p>
+                <h2 data-i18n="blg_w26_h2">Winter 2026 semester starts!</h2>
+                <p class="blog-date" data-i18n="blg_w26_date">January 7, 2026</p>
                 <img src="assets/campus2.jpg" alt="Hello world!" class="blog-image">
-                <p>I'm excited to start my second semester at Michigan. Go blue!</p>
+                <p data-i18n="blg_w26_p">I'm excited to start my second semester at Michigan. Go blue!</p>
             </div>
             <div class="blog-post">
-                <h2>Fall 2025 semester concluded</h2>
-                <p class="blog-date">Dec 17, 2025</p>
+                <h2 data-i18n="blg_f25end_h2">Fall 2025 semester concluded</h2>
+                <p class="blog-date" data-i18n="blg_f25end_date">Dec 17, 2025</p>
                 <img src="assets/schedule1.png" alt="Schedule" class="blog-image">
-                <p>I'm proud to have completed my first semester at Michigan with a 4.0 GPA. I greatly appreciate all the time and support from my wonderful professors and classmates. Go Blue!</p>
+                <p data-i18n="blg_f25end_p">I'm proud to have completed my first semester at Michigan with a 4.0 GPA. I greatly appreciate all the time and support from my wonderful professors and classmates. Go Blue!</p>
             </div>
             <div class="blog-post">
-                <h2>Fall 2025 semester starts!</h2>
-                <p class="blog-date">August 25, 2025</p>
+                <h2 data-i18n="blg_f25_h2">Fall 2025 semester starts!</h2>
+                <p class="blog-date" data-i18n="blg_f25_date">August 25, 2025</p>
                 <img src="assets/campus1.jpg" alt="Hello world!" class="blog-image">
-                <p>I'm excited to start my first semester at Michigan. Go blue!</p>
+                <p data-i18n="blg_f25_p">I'm excited to start my first semester at Michigan. Go blue!</p>
             </div>
             <!-- Blog Post 1 -->
             <!-- To add a new post, copy from <div class="blog-post"> to </div> and paste here -->
             <div class="blog-post">
-                <h2>Start of my blog</h2>
-                <p class="blog-date">August 8, 2025</p>
+                <h2 data-i18n="blg_start_h2">Start of my blog</h2>
+                <p class="blog-date" data-i18n="blg_start_date">August 8, 2025</p>
                 <img src="assets/blog1.jpg" alt="Hello world!" class="blog-image">
-                <p>Ready to go blue!</p>
+                <p data-i18n="blg_start_p">Ready to go blue!</p>
             </div>
-            
+
         </div>
     </main>
     <footer>

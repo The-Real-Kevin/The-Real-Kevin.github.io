@@ -5,49 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Game Showcase - Yuqi Sun</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="theme.js"></script>
+    <script src="i18n.js"></script>
 </head>
 <body>
     <header>
-        <h1>Game Showcase</h1>
+        <h1 data-i18n="shw_h1">Game Showcase</h1>
         <nav>
-            <a href="index.html">Home</a> | 
-            <a href="resume.html">Resume</a> | 
-            <a href="blog.html">Blog</a> | 
-            <a href="projects.html">Personal Projects</a> | 
-            <a href="showcase.html">Showcase</a>
+            <a href="index.html" data-i18n="nav_home">Home</a>
+            <a href="resume.html" data-i18n="nav_resume">Resume</a>
+            <a href="blog.html" data-i18n="nav_blog">Blog</a>
+            <a href="projects.html" data-i18n="nav_projects">Personal Projects</a>
+            <a href="showcase.html" data-i18n="nav_showcase">Showcase</a>
         </nav>
     </header>
     <main>
         <div class="showcase-intro">
-            <h2>Interactive Games & Projects</h2>
-            <p>A collection of games and interactive experiences I've created using Construct 3 and other tools.</p>
+            <h2 data-i18n="shw_h2">Interactive Games &amp; Projects</h2>
+            <p data-i18n="shw_intro">A collection of games and interactive experiences I've created using Construct 3 and other tools.</p>
         </div>
         <!-- Project 0: Image Collage Generator -->
         <div class="project">
             <div class="project-content">
-                <!--
-                <iframe 
-                    width="300" 
-                    height="250"
-                    src="https://www.youtube.com/embed/DiUdkiedquo"
-                    title="Image Collage Generator Demo"
-                    frameborder="0"
-                    referrerpolicy="strict-origin-when-cross-origin"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowfullscreen
-                    class="project-img"
-                    style="border-radius: 6px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-                </iframe>
-                -->
                 <img src="assets/collage.png" alt="Civilisation Game" class="project-img">
                 <div class="project-info">
-                    <h3>Auto Image Collage Generator</h3>
+                    <h3 data-i18n="shw_collage_h3">Auto Image Collage Generator</h3>
                     <p>2026-04-12</p>
-                    <p>A photomosaic generator built with Python and Streamlit that transforms any target image into a stunning collage made entirely from your own source images. The tool analyzes colors, matches tiles intelligently, and creates high-resolution artistic mosaics. Developed as project lead for Michigan Data Science Team (MDST).</p>
+                    <p data-i18n="shw_collage_p">A photomosaic generator built with Python and Streamlit that transforms any target image into a stunning collage made entirely from your own source images. The tool analyzes colors, matches tiles intelligently, and creates high-resolution artistic mosaics. Developed as project lead for Michigan Data Science Team (MDST).</p>
                     <div class="project-links">
-                        <a href="collage-demo.html" class="project-button">View Demo →</a>
-                        <a href="https://github.com/The-Real-Kevin/MDST-Image-Collage-W26" target="_blank" class="project-link-secondary">GitHub Repository</a>
-                        <a href="https://www.youtube.com/watch?v=DiUdkiedquo" target="_blank" class="project-link-secondary">Watch Demo Video</a>
+                        <a href="collage-demo.html" class="project-button" data-i18n="shw_btn_demo">View Demo →</a>
+                        <a href="https://github.com/The-Real-Kevin/MDST-Image-Collage-W26" target="_blank" class="project-link-secondary" data-i18n="shw_github">GitHub Repository</a>
+                        <a href="https://www.youtube.com/watch?v=DiUdkiedquo" target="_blank" class="project-link-secondary" data-i18n="shw_watch_demo">Watch Demo Video</a>
                     </div>
                 </div>
             </div>
@@ -57,12 +45,12 @@
             <div class="project-content">
                 <img src="assets/civilisation-thumbnail.png" alt="Civilisation Game" class="project-img">
                 <div class="project-info">
-                    <h3>Civilisation</h3>
+                    <h3 data-i18n="shw_civ_h3">Civilisation</h3>
                     <p>2025-12-4<p></p>
-                    <p>An open-world strategy game where you manage a society through various challenges. Complete missions, interact with NPCs, and make decisions that shape your civilization's future. Built with Construct 3 using TypeScript for game logic.</p>
+                    <p data-i18n="shw_civ_p">An open-world strategy game where you manage a society through various challenges. Complete missions, interact with NPCs, and make decisions that shape your civilization's future. Built with Construct 3 using TypeScript for game logic.</p>
                     <div class="project-links">
-                        <a href="civilisation.html" class="project-button">Play Game →</a>
-                        <a href="https://www.youtube.com/watch?v=yWzf6_O5P8Q" target="_blank" class="project-link-secondary">Watch Tutorial</a>
+                        <a href="civilisation.html" class="project-button" data-i18n="shw_btn_play">Play Game →</a>
+                        <a href="https://www.youtube.com/watch?v=yWzf6_O5P8Q" target="_blank" class="project-link-secondary" data-i18n="shw_watch_tut">Watch Tutorial</a>
                     </div>
                 </div>
             </div>
@@ -73,11 +61,11 @@
             <div class="project-content">
                 <img src="assets/invaders-thumbnail.png" alt="Space Invaders Game" class="project-img">
                 <div class="project-info">
-                    <h3>Space Invaders</h3>
+                    <h3 data-i18n="shw_inv_h3">Space Invaders</h3>
                     <p>2025-10-22<p></p>
-                    <p>A classic arcade game recreation. Defend Earth from waves of alien invaders! Features smooth gameplay, progressive difficulty, and retro-style graphics. Control your ship and shoot down the alien fleet before they reach the bottom.</p>
+                    <p data-i18n="shw_inv_p">A classic arcade game recreation. Defend Earth from waves of alien invaders! Features smooth gameplay, progressive difficulty, and retro-style graphics. Control your ship and shoot down the alien fleet before they reach the bottom.</p>
                     <div class="project-links">
-                        <a href="invaders.html" class="project-button">Play Game →</a>
+                        <a href="invaders.html" class="project-button" data-i18n="shw_btn_play">Play Game →</a>
                     </div>
                 </div>
             </div>
@@ -88,18 +76,18 @@
             <div class="project-content">
                 <img src="assets/asteroids-thumbnail.png" alt="Asteroids Game" class="project-img">
                 <div class="project-info">
-                    <h3>Asteroids</h3>
+                    <h3 data-i18n="shw_ast_h3">Asteroids</h3>
                     <p>2025-8-25<p>
-                    <p>Navigate through space, destroy asteroids, and survive as long as possible! This classic arcade-style game features physics-based movement and challenging gameplay. Styled in University of Michigan blue and maize colors.</p>
+                    <p data-i18n="shw_ast_p">Navigate through space, destroy asteroids, and survive as long as possible! This classic arcade-style game features physics-based movement and challenging gameplay. Styled in University of Michigan blue and maize colors.</p>
                     <div class="project-links">
-                        <a href="asteroid.html" class="project-button">Play Game →</a>
+                        <a href="asteroid.html" class="project-button" data-i18n="shw_btn_play">Play Game →</a>
                     </div>
                 </div>
             </div>
         </div>
 
         <!-- Add more projects here following the same structure -->
-        <!-- 
+        <!--
         <div class="project">
             <div class="project-content">
                 <img src="assets/your-game-thumbnail.png" alt="Your Game Name" class="project-img">

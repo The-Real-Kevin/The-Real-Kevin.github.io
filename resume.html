@@ -6,102 +6,108 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resume - Yuqi Sun</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="theme.js"></script>
+    <script src="i18n.js"></script>
 </head>
 <body>
     <header>
-        <h1>My Resume</h1>
+        <h1 data-i18n="rsm_h1">My Resume</h1>
         <nav>
-            <a href="index.html">Home</a> | <a href="resume.html">Resume</a> | <a href="blog.html">Blog</a> | <a href="projects.html">Personal Projects</a> | <a href="showcase.html">Showcase</a>
+            <a href="index.html" data-i18n="nav_home">Home</a>
+            <a href="resume.html" data-i18n="nav_resume">Resume</a>
+            <a href="blog.html" data-i18n="nav_blog">Blog</a>
+            <a href="projects.html" data-i18n="nav_projects">Personal Projects</a>
+            <a href="showcase.html" data-i18n="nav_showcase">Showcase</a>
         </nav>
-        <div class="footer-bar" style="margin-top:1em;">
-            <a href="resume.pdf" download>Download Resume (.pdf)</a>
+        <div class="header-action">
+            <a href="resume.pdf" download data-i18n="rsm_download">Download Resume (.pdf)</a>
         </div>
     </header>
     <main>
         <div class="resume-container">
             <h2 style="text-align:center;">Yuqi Sun (Kevin) <a href="mailto:yuqisun@umich.edu">yuqisun@umich.edu</a></h2>
             <p style="text-align:center;">December 2025</p>
-            <h3>Education</h3>
+            <h3 data-i18n="rsm_edu_h3">Education</h3>
             <p><strong>The University of Michigan College of Engineering</strong>, Ann Arbor, MI</p>
-            <p><strong>Degree:</strong> Computer Science & Robotics BSE, Sept 2025 – May 2029 (anticipated)</p>
+            <p data-i18n="rsm_umich_degree"><strong>Degree:</strong> Computer Science &amp; Robotics BSE, Sept 2025 – May 2029 (anticipated)</p>
             <ul>
-                <li>Manipulation and Machine Intelligence Lab (Professor Nima Fazeli) - Research Assistant (W26, F25)</li>
-                <li>Michigan Data Science Team - Project Lead (W26), Member (F25)</li>
-                <li>Michigan Student Artificial Intelligence Lab - Member (W26, F25)</li>
-                <li>Michigan Intercollegiate Polo Club - Member (W26, F25)</li>
+                <li data-i18n="rsm_umich_li1">Manipulation and Machine Intelligence Lab (Professor Nima Fazeli) - Research Assistant (W26, F25)</li>
+                <li data-i18n="rsm_umich_li2">Michigan Data Science Team - Project Lead (W26), Member (F25)</li>
+                <li data-i18n="rsm_umich_li3">Michigan Student Artificial Intelligence Lab - Member (W26, F25)</li>
+                <li data-i18n="rsm_umich_li4">Michigan Intercollegiate Polo Club - Member (W26, F25)</li>
             </ul>
             <br>
             <p><strong>The Independent Schools Foundation Academy</strong>, Hong Kong, HK</p>
-            <p><strong>Degree:</strong> International Baccalaureate (IB) Bilingual Diploma, Score: 43/45 Aug 2021 – June 2025</p>
+            <p data-i18n="rsm_isf_degree"><strong>Degree:</strong> International Baccalaureate (IB) Bilingual Diploma, Score: 43/45 Aug 2021 – June 2025</p>
             <ul>
-                <li>Magna cum laude - Top 10% in school (G11)</li>
-                <li>2x Summa cum laude - Top 5% in school (G10)</li>
-                <li>3x Academy Honors - Top 20% in school (G11, G12)</li>
-                <li>2x MYP Gold Service Award (G9, G10)</li>
-                <li>2x Honorary Shuyuan STEM Research Scholarship (G9, G10)</li>
-                <li>2x IBDP Computer Science Subject Award - Awarded to best CS student (G11, G12)</li>
-                <li>ISF Academy Special Talent Scholarship | The Harvard University Book Award | The S. K. and Margaret Wong Prize for Community Service | Information Communication Technologies Award</li>
+                <li data-i18n="rsm_isf_li1">Magna cum laude - Top 10% in school (G11)</li>
+                <li data-i18n="rsm_isf_li2">2x Summa cum laude - Top 5% in school (G10)</li>
+                <li data-i18n="rsm_isf_li3">3x Academy Honors - Top 20% in school (G11, G12)</li>
+                <li data-i18n="rsm_isf_li4">2x MYP Gold Service Award (G9, G10)</li>
+                <li data-i18n="rsm_isf_li5">2x Honorary Shuyuan STEM Research Scholarship (G9, G10)</li>
+                <li data-i18n="rsm_isf_li6">2x IBDP Computer Science Subject Award - Awarded to best CS student (G11, G12)</li>
+                <li data-i18n="rsm_isf_li7">ISF Academy Special Talent Scholarship | The Harvard University Book Award | The S. K. and Margaret Wong Prize for Community Service | Information Communication Technologies Award</li>
             </ul>
-            <h3>Research Experience</h3>
+            <h3 data-i18n="rsm_research_h3">Research Experience</h3>
             <p><strong>Shanghai Jiaotong University</strong>, Shanghai, China</p>
-            <p><strong>First Author</strong> (Submitted for Publishing), July 2025 – August 2025</p>
+            <p data-i18n="rsm_sjtu_role"><strong>First Author</strong> (Submitted for Publishing), July 2025 – August 2025</p>
             <ul>
-                <li>Paper title: “Road Sign Classification with a Denoising Pipeline Approach.”</li>
-                <li>Used the German Traffic Sign Recognition Benchmark dataset with over 50,000 entries and add Gaussian noise of different severity; used the PyTorch framework to train CNN and ResNet models with clean and noisy datasets. Measured accuracy, latency, and F1 score; innovated a singular classification model and SwinIR denoise-classification pipeline.</li>
-                <li>Data suggests that the pipeline approach with CNN significantly improves performance comparable to singular ResNet, whereas the pipeline approach with ResNet weakens performance compared to its singular classification form; investigation ongoing.</li>
-                <li>Accepted to the <strong>7th International Conference on Intelligent Autonomous Systems</strong></li>
+                <li data-i18n="rsm_sjtu_li1">Paper title: "Road Sign Classification with a Denoising Pipeline Approach."</li>
+                <li data-i18n="rsm_sjtu_li2">Used the German Traffic Sign Recognition Benchmark dataset with over 50,000 entries and add Gaussian noise of different severity; used the PyTorch framework to train CNN and ResNet models with clean and noisy datasets. Measured accuracy, latency, and F1 score; innovated a singular classification model and SwinIR denoise-classification pipeline.</li>
+                <li data-i18n="rsm_sjtu_li3">Data suggests that the pipeline approach with CNN significantly improves performance comparable to singular ResNet, whereas the pipeline approach with ResNet weakens performance compared to its singular classification form; investigation ongoing.</li>
+                <li data-i18n="rsm_sjtu_li4">Accepted to the <strong>7th International Conference on Intelligent Autonomous Systems</strong></li>
             </ul>
             <br>
             <p><strong>ISFA Shuyuan Research Program</strong>, Hong Kong, HK</p>
-            <p><strong>First Author</strong> (Published), June 2023 – May 2025</p>
+            <p data-i18n="rsm_vtol_role"><strong>First Author</strong> (Published), June 2023 – May 2025</p>
             <ul>
-                <li>Paper title: “Evaluating the Feasibility of Using Vertical Take-Off and Landing (VTOL) Aircraft to Replace Helicopters for Rescue Missions.”</li>
-                <li>Constructed a VTOL prototype with vertical takeoff, horizontal flight, and stable hover; designed a modular airframe with dual rotating exhaust nozzles using Fusion 360; integrated control systems using an ESP32 microcontroller, gyroscope, and servo motors; VTOL prototype may function as well as a helicopter in short missions, limitations in operation and range, as well as production costs, render it impractical;</li>
-                <li>Paper published in Bauhinia Journal, Volume X, Issue 2, Pages 9–21 (ISSN 2409-4064).</li>
+                <li data-i18n="rsm_vtol_li1">Paper title: "Evaluating the Feasibility of Using Vertical Take-Off and Landing (VTOL) Aircraft to Replace Helicopters for Rescue Missions."</li>
+                <li data-i18n="rsm_vtol_li2">Constructed a VTOL prototype with vertical takeoff, horizontal flight, and stable hover; designed a modular airframe with dual rotating exhaust nozzles using Fusion 360; integrated control systems using an ESP32 microcontroller, gyroscope, and servo motors; VTOL prototype may function as well as a helicopter in short missions, limitations in operation and range, as well as production costs, render it impractical;</li>
+                <li data-i18n="rsm_vtol_li3">Paper published in Bauhinia Journal, Volume X, Issue 2, Pages 9–21 (ISSN 2409-4064).</li>
             </ul>
             <br>
             <p><strong>ISFA Shuyuan Research Program</strong>, Hong Kong, HK</p>
-            <p><strong>First Author</strong> (Published), April 2023 – December 2024</p>
+            <p data-i18n="rsm_solar1_role"><strong>First Author</strong> (Published), April 2023 – December 2024</p>
             <ul>
-                <li>Researched “Development and Evaluation of a Low-Cost Open Source Power Monitoring and Recording System for Solar Panel Efficiency Analysis.”</li>
-                <li>Used an ESP32 microcontroller, INA219 sensor, and microSD to construct a customizable power monitoring system; conducted a 15-day test at the ISF weather station, comparing results to those of a commercial system; analyzed data using PowerBI, accounting for size and efficiency; found a strong R^2 correlation despite minor discrepancies due to environmental shadows, suggesting high reliability.</li>
-                <li>Paper published in IEEE 2023 YE conference: <a href="https://www.researchgate.net/publication/386508879_Development_and_Evaluation_of_a_Low-Cost_Open_Source_Power_Monitoring_and_Recording_System_for_Solar_Panel_Efficiency_Analysis">Link</a>.</li>
+                <li data-i18n="rsm_solar1_li1">Researched "Development and Evaluation of a Low-Cost Open Source Power Monitoring and Recording System for Solar Panel Efficiency Analysis."</li>
+                <li data-i18n="rsm_solar1_li2">Used an ESP32 microcontroller, INA219 sensor, and microSD to construct a customizable power monitoring system; conducted a 15-day test at the ISF weather station, comparing results to those of a commercial system; analyzed data using PowerBI, accounting for size and efficiency; found a strong R^2 correlation despite minor discrepancies due to environmental shadows, suggesting high reliability.</li>
+                <li data-i18n="rsm_solar1_li3">Paper published in IEEE 2023 YE conference: <a href="https://www.researchgate.net/publication/386508879_Development_and_Evaluation_of_a_Low-Cost_Open_Source_Power_Monitoring_and_Recording_System_for_Solar_Panel_Efficiency_Analysis">Link</a>.</li>
             </ul>
             <br>
             <p><strong>ISFA Shuyuan Research Program</strong>, Hong Kong, HK</p>
-            <p><strong>First Author</strong> (Published), December 2021 – April 2022</p>
+            <p data-i18n="rsm_solar2_role"><strong>First Author</strong> (Published), December 2021 – April 2022</p>
             <ul>
-                <li>Researched “The Potential of Tracking Solar Panels in Hong Kong Compared to Fixed Panels.”</li>
-                <li>Used PowerBI to analyze 3 years of solar panel output data from the ISF Center for Renewable Energy Education; visualized power generation patterns across times of day and seasons using line plots and matrix tables; found that due to shadow interference from Hong Kong skyrises, tracking solar panels only generated 29% more energy than fixed panels; because tracking panels cost 25% more, concluded that fixed arrays offer better ROI.</li>
-                <li>Condensed poster presentation published by <strong>American Geophysical Union (AGU)</strong>: <a href="https://agu2022fallmeeting-agu.ipostersessions.com/Default.aspx?s=13-4E-8F-0E-A8-42-2E-71-74-37-18-20-F4-AF-E1-CE">Link</a>.</li>
+                <li data-i18n="rsm_solar2_li1">Researched "The Potential of Tracking Solar Panels in Hong Kong Compared to Fixed Panels."</li>
+                <li data-i18n="rsm_solar2_li2">Used PowerBI to analyze 3 years of solar panel output data from the ISF Center for Renewable Energy Education; visualized power generation patterns across times of day and seasons using line plots and matrix tables; found that due to shadow interference from Hong Kong skyrises, tracking solar panels only generated 29% more energy than fixed panels; because tracking panels cost 25% more, concluded that fixed arrays offer better ROI.</li>
+                <li data-i18n="rsm_solar2_li3">Condensed poster presentation published by <strong>American Geophysical Union (AGU)</strong>: <a href="https://agu2022fallmeeting-agu.ipostersessions.com/Default.aspx?s=13-4E-8F-0E-A8-42-2E-71-74-37-18-20-F4-AF-E1-CE">Link</a>.</li>
             </ul>
-            <h3>Professional Experience</h3>
+            <h3 data-i18n="rsm_exp_h3">Professional Experience</h3>
             <p><strong>Everstory</strong>, Ann Arbor, MI</p>
-            <p>Software Developer, Nov 2025 - ongoing</p>
+            <p data-i18n="rsm_every_role">Software Developer, Nov 2025 - ongoing</p>
             <ul>
-                <li>Developing a pipeline to streamline user input from Google Drive to AWS and Supabase </li>
+                <li data-i18n="rsm_every_li1">Developing a pipeline to streamline user input from Google Drive to AWS and Supabase </li>
             </ul>
             <br>
             <p><strong>Crostwick Industrial</strong>, Hong Kong, HK</p>
-            <p>Contractor, Jan 2024 – May 2024</p>
+            <p data-i18n="rsm_crost_role">Contractor, Jan 2024 – May 2024</p>
             <ul>
-                <li>Contracted to design and build 1 unit of an office door lock that opens automatically when a recognized phone connects to the office Wi-Fi, and locks automatically when no device is connected; the design parameters were that the lock should be made with commercially available parts for easy maintenance, require no manual operation, and be made at a per-unit cost of 1,500 HKD or less.</li>
-                <li>Used an ESP-32 chip and Wi-Fi module to control a solenoid lock within the parameters; provided a blueprint for design of the lock.</li>
+                <li data-i18n="rsm_crost_li1">Contracted to design and build 1 unit of an office door lock that opens automatically when a recognized phone connects to the office Wi-Fi, and locks automatically when no device is connected; the design parameters were that the lock should be made with commercially available parts for easy maintenance, require no manual operation, and be made at a per-unit cost of 1,500 HKD or less.</li>
+                <li data-i18n="rsm_crost_li2">Used an ESP-32 chip and Wi-Fi module to control a solenoid lock within the parameters; provided a blueprint for design of the lock.</li>
             </ul>
             <br>
             <p><strong>En-Trak</strong>, Hong Kong, HK</p>
-            <p>Software Developer, Mar 2023 – Oct 2023</p>
+            <p data-i18n="rsm_entrak_role">Software Developer, Mar 2023 – Oct 2023</p>
             <ul>
-                <li>Developed an API to fetch data for En-Trak TEP, an application that tracks and displays power usage and sustainability data for organizations that own commercial real estate, including private companies, conference centers, and schools.</li>
-                <li>Used Go to develop the API with object-relational mapping to access Firebase databases maintained by En-Trak; deployed the API on the En-Trak TEP application in 2023.</li>
+                <li data-i18n="rsm_entrak_li1">Developed an API to fetch data for En-Trak TEP, an application that tracks and displays power usage and sustainability data for organizations that own commercial real estate, including private companies, conference centers, and schools.</li>
+                <li data-i18n="rsm_entrak_li2">Used Go to develop the API with object-relational mapping to access Firebase databases maintained by En-Trak; deployed the API on the En-Trak TEP application in 2023.</li>
             </ul>
             <br>
             <p><strong>Qirui Pay</strong>, Hong Kong, HK</p>
-            <p>Founder & Developer, First Author (Published), March 2022 – ongoing</p>
+            <p data-i18n="rsm_qirui_role">Founder &amp; Developer, First Author (Published), March 2022 – ongoing</p>
             <ul>
-                <li>Programmed and developed Qirui Pay, an app permitting organizations to issue their own unique currencies pegged to local fiat; the use cases for Qirui Pay are schools and organizations that issue points, tickets, or currencies that can be redeemed for real money or items.</li>
-                <li>Presented a paper examining the technology, security, and use cases for Qirui Pay during its trial period from 2022–2023, during which time it recorded around 52,000 USD in transactions, at the 49th International Exhibition of Inventions Geneva; received a Silver Medal.</li>
-                <li>Published at 49th International Exhibition of Inventions Geneva: <a href="https://catalog-admin.palexpo.ch/media/invention_invention_documentation/0c01584c-dd02-41e8-9ac5-7852d0346e95.pdf">Link</a>.</li>
+                <li data-i18n="rsm_qirui_li1">Programmed and developed Qirui Pay, an app permitting organizations to issue their own unique currencies pegged to local fiat; the use cases for Qirui Pay are schools and organizations that issue points, tickets, or currencies that can be redeemed for real money or items.</li>
+                <li data-i18n="rsm_qirui_li2">Presented a paper examining the technology, security, and use cases for Qirui Pay during its trial period from 2022–2023, during which time it recorded around 52,000 USD in transactions, at the 49th International Exhibition of Inventions Geneva; received a Silver Medal.</li>
+                <li data-i18n="rsm_qirui_li3">Published at 49th International Exhibition of Inventions Geneva: <a href="https://catalog-admin.palexpo.ch/media/invention_invention_documentation/0c01584c-dd02-41e8-9ac5-7852d0346e95.pdf">Link</a>.</li>
             </ul>
         </div>
     </main>
