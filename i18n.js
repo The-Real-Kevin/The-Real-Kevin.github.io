@@ -132,7 +132,7 @@
   });
   // === GERMAN ===
   Object.assign(i18n.de, {
-    idx_caption:     "@ Ford Robotics Gebäude, Sept. 2025",
+    idx_caption:     "@ Ford Robotics Gebäude, April 2026",
     idx_about_h2:    "Über mich",
     idx_about_p:     "Hallo, ich bin Yuqi Sun (Kevin). Ich studiere Informatik und Robotik an der Universität Michigan, College of Engineering. Mein Interesse gilt der multimodalen Wahrnehmung für autonome Systeme. In meiner Freizeit fahre ich gerne Fahrrad, schreibe Gedichte und spiele Cello.",
     idx_inv_h2:      "Aktuelle Tätigkeiten",
@@ -154,7 +154,7 @@
   });
   // === CANTONESE ===
   Object.assign(i18n.ct, {
-    idx_caption:     "@ Ford 機器人大樓，2025年9月",
+    idx_caption:     "@ Ford 機器人大樓，2026年4月",
     idx_about_h2:    "關於我",
     idx_about_p:     "你好，我係孫宇琦（Kevin）。我喺密歇根大學工程學院修讀計算機科學及機器人學。我對自主系統嘅多模態感知好有興趣。喺業餘時間，我鍾意踩單車、寫詩同拉大提琴。",
     idx_inv_h2:      "現時參與",
