@@ -354,6 +354,9 @@
   // === ENGLISH ===
   Object.assign(i18n.en, {
     blg_h1:           "My Blog",
+    blg_w26end_h2:    "Winter 2026 semester concluded",
+    blg_w26end_date:  "May 1, 2026",
+    blg_w26end_p:     "I'm proud to have completed my second semester at Michigan with a 3.92 cumulative GPA. I greatly appreciate all the time and support from my wonderful professors and classmates. Go Blue!",
     blg_p01_h2:       "01 Poetry Anthology | Gedichtsammlung 01 | 初號詩集",
     blg_p01_date:     "April 6, 2026",
     blg_p01_p1:       "I'm proud to present my second poetry anthology, <strong>01 Poetry Anthology | Gedichtsammlung 01 | 初號詩集</strong>, a trilingual collection featuring my best 10 詞 and modern style poems in English, German, and Cantonese. This collection represents a linguistic and emotional journey across three languages and cultures.",
@@ -390,6 +393,9 @@
   // === GERMAN ===
   Object.assign(i18n.de, {
     blg_h1:           "Mein Blog",
+    blg_w26end_h2:    "Wintersemester 2026 abgeschlossen",
+    blg_w26end_date:  "1. Mai 2026",
+    blg_w26end_p:     "Ich bin stolz, mein zweites Semester in Michigan mit einem kumulativen GPA von 3,92 abgeschlossen zu haben. Herzlichen Dank an alle Professoren und Kommilitonen für ihre Zeit und Unterstützung. Go Blue!",
     blg_p01_h2:       "01 Poetry Anthology | Gedichtsammlung 01 | 初號詩集",
     blg_p01_date:     "6. April 2026",
     blg_p01_p1:       "Ich freue mich, meine zweite Gedichtsammlung vorzustellen: <strong>01 Poetry Anthology | Gedichtsammlung 01 | 初號詩集</strong>, eine dreisprachige Sammlung mit meinen besten 10 詞 und modernen Gedichten auf Englisch, Deutsch und Kantonesisch. Diese Sammlung steht für eine sprachliche und emotionale Reise durch drei Sprachen und Kulturen.",
@@ -426,6 +432,9 @@
   // === CANTONESE ===
   Object.assign(i18n.ct, {
     blg_h1:           "我的網誌",
+    blg_w26end_h2:    "2026年冬季學期結束",
+    blg_w26end_date:  "2026年5月1日",
+    blg_w26end_p:     "我好自豪以3.92嘅累積GPA完成咗喺密歇根嘅第二個學期。非常感謝所有教授同同學嘅時間同支持。Go Blue！",
     blg_p01_h2:       "01 Poetry Anthology | Gedichtsammlung 01 | 初號詩集",
     blg_p01_date:     "2026年4月6日",
     blg_p01_p1:       "我好榮幸發表我嘅第二本詩集：<strong>01 Poetry Anthology | Gedichtsammlung 01 | 初號詩集</strong>，呢係一本三語詩集，收錄咗我最精選嘅10首詞及現代詩，以英語、德語及廣東話寫成，代表一次跨越三種語言同文化嘅情感旅程。",
