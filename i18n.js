@@ -357,6 +357,9 @@
   // === ENGLISH ===
   Object.assign(i18n.en, {
     blg_h1:           "My Blog",
+    blg_s26_h2:       "Summer 2026 semester starts!",
+    blg_s26_date:     "May 15, 2026",
+    blg_s26_p:        "I'm excited to start my summer semester at RWTH Aachen University, conducting research under Dr. Elma Kerz at Exaia Technologies!",
     blg_w26end_h2:    "Winter 2026 semester concluded",
     blg_w26end_date:  "May 1, 2026",
     blg_w26end_p:     "I'm proud to have completed my second semester at Michigan with a 3.92 cumulative GPA. I greatly appreciate all the time and support from my wonderful professors and classmates. Go Blue!",
@@ -399,6 +402,9 @@
   // === GERMAN ===
   Object.assign(i18n.de, {
     blg_h1:           "Mein Blog",
+    blg_s26_h2:       "Sommersemester 2026 beginnt!",
+    blg_s26_date:     "15. Mai 2026",
+    blg_s26_p:        "Ich freue mich, mein Sommersemester an der RWTH Aachen zu beginnen und unter Dr. Elma Kerz bei Exaia Technologies zu forschen!",
     blg_w26end_h2:    "Wintersemester 2026 abgeschlossen",
     blg_w26end_date:  "1. Mai 2026",
     blg_w26end_p:     "Ich bin stolz, mein zweites Semester in Michigan mit einem kumulativen GPA von 3,92 abgeschlossen zu haben. Herzlichen Dank an alle Professoren und Kommilitonen für ihre Zeit und Unterstützung. Go Blue!",
@@ -441,6 +447,9 @@
   // === CANTONESE ===
   Object.assign(i18n.ct, {
     blg_h1:           "我的網誌",
+    blg_s26_h2:       "2026年暑期學期開始！",
+    blg_s26_date:     "2026年5月15日",
+    blg_s26_p:        "好興奮喺亞琛工業大學開始我嘅暑期學期，喺 Exaia Technologies 跟隨 Dr. Elma Kerz 進行研究！",
     blg_w26end_h2:    "2026年冬季學期結束",
     blg_w26end_date:  "2026年5月1日",
     blg_w26end_p:     "我好自豪以3.92嘅累積GPA完成咗喺密歇根嘅第二個學期。非常感謝所有教授同同學嘅時間同支持。Go Blue！",
