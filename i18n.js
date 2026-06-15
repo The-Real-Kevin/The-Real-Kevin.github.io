@@ -82,7 +82,7 @@
   Object.assign(i18n.en, {
     nav_home:     "Home",
     nav_resume:   "Resume",
-    nav_blog:     "Blog",
+    nav_blog:     "News",
     nav_projects: "Personal Projects",
     nav_showcase: "Showcase",
   });
@@ -90,7 +90,7 @@
   Object.assign(i18n.de, {
     nav_home:     "Startseite",
     nav_resume:   "Lebenslauf",
-    nav_blog:     "Blog",
+    nav_blog:     "News",
     nav_projects: "Persönliche Projekte",
     nav_showcase: "Galerie",
   });
@@ -98,7 +98,7 @@
   Object.assign(i18n.ct, {
     nav_home:     "主頁",
     nav_resume:   "履歷",
-    nav_blog:     "網誌",
+    nav_blog:     "消息",
     nav_projects: "個人項目",
     nav_showcase: "作品集",
   });
@@ -356,7 +356,7 @@
 
   // === ENGLISH ===
   Object.assign(i18n.en, {
-    blg_h1:           "My Blog",
+    blg_h1:           "News & Announcements",
     blg_s26_h2:       "Summer 2026 semester starts!",
     blg_s26_date:     "May 15, 2026",
     blg_s26_p:        "I'm excited to start my summer semester at RWTH Aachen University, conducting research under Dr. Elma Kerz at Exaia Technologies!",
@@ -402,7 +402,7 @@
   });
   // === GERMAN ===
   Object.assign(i18n.de, {
-    blg_h1:           "Mein Blog",
+    blg_h1:           "Nachrichten & Ankündigungen",
     blg_s26_h2:       "Sommersemester 2026 beginnt!",
     blg_s26_date:     "15. Mai 2026",
     blg_s26_p:        "Ich freue mich, mein Sommersemester an der RWTH Aachen zu beginnen und unter Dr. Elma Kerz bei Exaia Technologies zu forschen!",
@@ -448,7 +448,7 @@
   });
   // === CANTONESE ===
   Object.assign(i18n.ct, {
-    blg_h1:           "我的網誌",
+    blg_h1:           "消息及公告",
     blg_s26_h2:       "2026年暑期學期開始！",
     blg_s26_date:     "2026年5月15日",
     blg_s26_p:        "好興奮喺亞琛工業大學開始我嘅暑期學期，喺 Exaia Technologies 跟隨 Dr. Elma Kerz 進行研究！",
