@@ -357,6 +357,9 @@
   // === ENGLISH ===
   Object.assign(i18n.en, {
     blg_h1:           "News & Announcements",
+    blg_s26end_h2:    "Summer 2026 semester concluded",
+    blg_s26end_date:  "July 25, 2026",
+    blg_s26end_p:     "I'm proud to have completed my research project at RWTH Aachen University and passed my German A2.2 course with 91% score. I greatly appreciate all the time and support from PD Dr. Elma Kerz, PD Dr. Daniel Wiechmann, and Yu Qiao, M.Sc. from Exaia Technologies! (Photo credits: Mahdi Fakhfakh)",
     blg_s26_h2:       "Summer 2026 semester starts!",
     blg_s26_date:     "May 15, 2026",
     blg_s26_p:        "I'm excited to start my summer semester at RWTH Aachen University, conducting research under Dr. Elma Kerz at Exaia Technologies!",
@@ -403,6 +406,9 @@
   // === GERMAN ===
   Object.assign(i18n.de, {
     blg_h1:           "Nachrichten & Ankündigungen",
+    blg_s26end_h2:    "Sommersemester 2026 abgeschlossen",
+    blg_s26end_date:  "25. Juli 2026",
+    blg_s26end_p:     "Ich bin stolz, mein Forschungsprojekt an der RWTH Aachen erfolgreich abgeschlossen und meinen Deutschkurs A2.2 mit 91% bestanden zu haben. Herzlichen Dank an PD Dr. Elma Kerz, PD Dr. Daniel Wiechmann und Yu Qiao, M.Sc. von Exaia Technologies für ihre Zeit und Unterstützung! (Foto-Credits: Mahdi Fakhfakh)",
     blg_s26_h2:       "Sommersemester 2026 beginnt!",
     blg_s26_date:     "15. Mai 2026",
     blg_s26_p:        "Ich freue mich, mein Sommersemester an der RWTH Aachen zu beginnen und unter Dr. Elma Kerz bei Exaia Technologies zu forschen!",
@@ -449,6 +455,9 @@
   // === CANTONESE ===
   Object.assign(i18n.ct, {
     blg_h1:           "消息及公告",
+    blg_s26end_h2:    "2026年暑期學期結束",
+    blg_s26end_date:  "2026年7月25日",
+    blg_s26end_p:     "我好自豪完成咗喺亞琛工業大學嘅研究項目，同時以91%嘅成績通過咗德語A2.2課程。衷心感謝Exaia Technologies嘅PD Dr. Elma Kerz、PD Dr. Daniel Wiechmann同Yu Qiao, M.Sc.嘅時間同支持！ (照片來源：Mahdi Fakhfakh)",
     blg_s26_h2:       "2026年暑期學期開始！",
     blg_s26_date:     "2026年5月15日",
     blg_s26_p:        "好興奮喺亞琛工業大學開始我嘅暑期學期，喺 Exaia Technologies 跟隨 Dr. Elma Kerz 進行研究！",
