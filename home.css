@@ -1,6 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap');
-
-/* Home page: a quiet editorial portfolio, with maize used as a fine rule. */
+/* Home page: system sans-serif, maize light accents, Michigan-blue dark accents. */
 body.home-page {
   --home-paper: #fffefa;
   --home-wash: #fbf8ef;
@@ -12,7 +10,7 @@ body.home-page {
   --home-rule: #e9e5d9;
   --home-surface: rgba(255, 255, 252, 0.92);
   --home-shadow: 0 12px 40px rgba(58, 49, 23, 0.055);
-  font-family: 'DM Sans', system-ui, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
   line-height: 1.72;
   color: var(--home-ink);
   background: var(--home-paper);
@@ -30,22 +28,23 @@ body.home-page::after {
 
 body.home-page[data-theme="dark"],
 [data-theme="dark"] body.home-page {
-  --home-paper: #20211f;
-  --home-wash: #252622;
-  --home-ink: #ecebe4;
-  --home-muted: #b6b4a9;
-  --home-maize: #dfc56c;
-  --home-maize-line: rgba(223, 197, 108, 0.38);
-  --home-maize-soft: rgba(223, 197, 108, 0.08);
-  --home-rule: rgba(238, 235, 220, 0.13);
-  --home-surface: rgba(39, 40, 36, 0.96);
+  --home-paper: #14191f;
+  --home-wash: #171f28;
+  --home-ink: #edf2f7;
+  --home-muted: #b2becb;
+  /* Lighter Michigan-blue tones keep outlines visible on dark surfaces. */
+  --home-maize: #6099c7;
+  --home-maize-line: #335675;
+  --home-maize-soft: #00274c;
+  --home-rule: rgba(152, 183, 211, 0.18);
+  --home-surface: rgba(27, 34, 42, 0.96);
   --home-shadow: 0 12px 40px rgba(0, 0, 0, 0.14);
   background: var(--home-paper);
 }
 
 [data-theme="dark"] body.home-page::before {
   background:
-    radial-gradient(ellipse 80% 42% at 50% 0%, rgba(223, 197, 108, 0.07), transparent 72%),
+    radial-gradient(ellipse 80% 42% at 50% 0%, rgba(0, 39, 76, 0.22), transparent 72%),
     linear-gradient(180deg, var(--home-paper), var(--home-wash) 80%, var(--home-paper));
 }
 
@@ -59,15 +58,15 @@ body.home-page header {
 }
 
 [data-theme="dark"] body.home-page header {
-  background: rgba(32, 33, 31, 0.96);
+  background: rgba(20, 25, 31, 0.96);
 }
 
 body.home-page header h1 {
   margin: 0 0 11px;
   color: var(--home-ink);
-  font-family: 'Newsreader', Georgia, serif;
+  font-family: inherit;
   font-size: clamp(1.7rem, 3vw, 2.12rem);
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: 0.13em;
 }
 
@@ -122,8 +121,8 @@ body.home-page #lang-selector button.active {
 }
 
 [data-theme="dark"] body.home-page #lang-selector button.active {
-  color: #26251f;
-  background: #dfc56c;
+  color: var(--home-ink);
+  background: #00274c;
 }
 
 body.home-page main {
@@ -191,9 +190,9 @@ body.home-page h2 {
   margin: 0 0 16px;
   padding-bottom: 11px;
   color: var(--home-ink);
-  font-family: 'Newsreader', Georgia, serif;
+  font-family: inherit;
   font-size: clamp(1.45rem, 2.6vw, 1.85rem);
-  font-weight: 500;
+  font-weight: 600;
   line-height: 1.25;
 }
 
@@ -319,9 +318,9 @@ body.home-page .semester {
 body.home-page .semester h3 {
   margin: 0 0 10px;
   color: var(--home-ink);
-  font-family: 'Newsreader', Georgia, serif;
+  font-family: inherit;
   font-size: 1.12rem;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 body.home-page .semester ul {
@@ -369,6 +368,19 @@ body.home-page #theme-toggle {
   background: var(--home-surface);
   border-color: var(--home-maize-line);
   box-shadow: 0 4px 16px rgba(58, 49, 23, 0.12);
+  font-size: 0;
+}
+
+body.home-page #theme-toggle::before {
+  content: '☾';
+  font-family: Arial, sans-serif;
+  font-size: 25px;
+  line-height: 1;
+}
+
+[data-theme="dark"] body.home-page #theme-toggle::before {
+  content: '☀';
+  color: var(--home-maize);
 }
 
 body.home-page #theme-toggle:hover {
