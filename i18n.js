@@ -496,6 +496,9 @@
   // === ENGLISH ===
   Object.assign(i18n.en, {
     blg_h1:           "News & Announcements",
+    blg_f26_h2:       "Fall 2026 semester starts!",
+    blg_f26_date:     "August 31, 2026",
+    blg_f26_p:        "I'm excited to start F26 semester as a Max Kade Haus resident. Go blue!",
     blg_s26end_h2:    "Summer 2026 semester concluded",
     blg_s26end_date:  "July 25, 2026",
     blg_s26end_p:     "I'm proud to have completed my research project at RWTH Aachen University and passed my German A2.2 course with 91% score. I greatly appreciate all the time and support from PD Dr. Elma Kerz, PD Dr. Daniel Wiechmann, and Yu Qiao, M.Sc. from Exaia Technologies! (Photo credits: Mahdi Fakhfakh)",
@@ -545,6 +548,9 @@
   // === GERMAN ===
   Object.assign(i18n.de, {
     blg_h1:           "Nachrichten & Ankündigungen",
+    blg_f26_h2:       "Das Herbstsemester 2026 beginnt!",
+    blg_f26_date:     "31. August 2026",
+    blg_f26_p:        "Ich freue mich darauf, das F26-Semester als Bewohner des Max Kade Hauses zu beginnen. Go Blue!",
     blg_s26end_h2:    "Sommersemester 2026 abgeschlossen",
     blg_s26end_date:  "25. Juli 2026",
     blg_s26end_p:     "Ich bin stolz, mein Forschungsprojekt an der RWTH Aachen erfolgreich abgeschlossen und meinen Deutschkurs A2.2 mit 91% bestanden zu haben. Herzlichen Dank an PD Dr. Elma Kerz, PD Dr. Daniel Wiechmann und Yu Qiao, M.Sc. von Exaia Technologies für ihre Zeit und Unterstützung! (Foto-Credits: Mahdi Fakhfakh)",
@@ -594,6 +600,9 @@
   // === CANTONESE ===
   Object.assign(i18n.ct, {
     blg_h1:           "消息及公告",
+    blg_f26_h2:       "2026年秋季學期開始！",
+    blg_f26_date:     "2026年8月31日",
+    blg_f26_p:        "我好期待以 Max Kade Haus 宿舍住客身份開始 F26 學期。Go Blue！",
     blg_s26end_h2:    "2026年暑期學期結束",
     blg_s26end_date:  "2026年7月25日",
     blg_s26end_p:     "我好自豪完成咗喺亞琛工業大學嘅研究項目，同時以91%嘅成績通過咗德語A2.2課程。衷心感謝Exaia Technologies嘅PD Dr. Elma Kerz、PD Dr. Daniel Wiechmann同Yu Qiao, M.Sc.嘅時間同支持！ (照片來源：Mahdi Fakhfakh)",
