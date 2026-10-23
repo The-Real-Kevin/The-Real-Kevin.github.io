@@ -301,13 +301,14 @@ body.home-page .gpa-banner em {
 
 body.home-page .course-timeline {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  align-items: start;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: stretch;
   gap: 16px;
 }
 
 body.home-page .semester {
   min-width: 0;
+  min-height: 110px;
   padding: 17px 17px 15px;
   background: var(--home-paper);
   border: 1px solid var(--home-rule);
