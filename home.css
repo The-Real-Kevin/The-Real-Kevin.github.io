@@ -103,6 +103,7 @@ body.home-page :focus-visible {
 body.home-page #lang-selector {
   top: 15px;
   right: 18px;
+  border-radius: 7px;
   background: var(--home-surface);
   border-color: var(--home-maize-line);
   box-shadow: 0 3px 12px rgba(58, 49, 23, 0.07);
