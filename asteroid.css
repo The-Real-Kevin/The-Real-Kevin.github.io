@@ -1,0 +1,242 @@
+/* Asteroids page: a wider, touch-ready Michigan arcade cabinet.
+   Load after styles.css and site-theme.css. */
+
+body.asteroid-page {
+  --asteroid-blue: #00274c;
+  --asteroid-blue-deep: #071a2b;
+  --asteroid-maize: #ffcb05;
+  --asteroid-maize-soft: rgba(255, 203, 5, 0.17);
+  --asteroid-line: rgba(255, 203, 5, 0.38);
+  --asteroid-copy: var(--site-muted, rgba(238, 242, 255, 0.68));
+}
+
+body.asteroid-page header {
+  min-height: 0 !important;
+  padding: 16px 190px 15px !important;
+  text-align: center;
+}
+
+body.asteroid-page header h1 {
+  min-height: 0;
+  display: block;
+  margin: 0 !important;
+  color: var(--asteroid-maize) !important;
+  font-family: "Courier New", monospace !important;
+  font-size: clamp(1.12rem, 2.4vw, 1.55rem) !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.16em !important;
+  line-height: 1.25 !important;
+  text-transform: uppercase;
+}
+
+/* Main-game layout is deliberately broader than the legacy 600px canvas. */
+body.asteroid-page main {
+  display: flex;
+  width: min(1240px, calc(100% - 48px)) !important;
+  max-width: 1240px !important;
+  margin: clamp(18px, 3vw, 36px) auto 42px !important;
+  padding: clamp(22px, 4vw, 42px) !important;
+  flex-direction: column;
+  align-items: center;
+  color: var(--site-ink) !important;
+}
+
+body.asteroid-page main > h2 {
+  width: min(100%, 960px);
+  margin: 0 0 8px;
+  color: var(--asteroid-maize) !important;
+  font-family: "Courier New", monospace !important;
+  font-size: clamp(1.15rem, 2.8vw, 1.65rem) !important;
+  letter-spacing: 0.025em;
+  text-align: center;
+}
+
+body.asteroid-page main > p {
+  width: min(100%, 960px);
+  margin: 0 0 12px;
+  color: var(--asteroid-copy) !important;
+  text-align: center;
+}
+
+body.asteroid-page main > p strong {
+  color: var(--site-ink) !important;
+}
+
+body.asteroid-page .game-stage {
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  max-width: 1120px;
+  margin: 14px auto 0;
+  overflow: hidden;
+  border: 1px solid var(--asteroid-line);
+  border-radius: 10px;
+  background:
+    radial-gradient(ellipse at 50% 45%, rgba(11, 48, 78, 0.42), transparent 70%),
+    var(--asteroid-blue-deep);
+  box-shadow:
+    0 0 0 5px rgba(0, 39, 76, 0.06),
+    0 18px 48px rgba(0, 24, 45, 0.2),
+    inset 0 0 42px rgba(0, 39, 76, 0.52);
+  touch-action: none;
+}
+
+body.asteroid-page .game-stage::before {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background-image: radial-gradient(rgba(255, 203, 5, 0.28) 0.7px, transparent 0.8px);
+  background-position: 9px 11px;
+  background-size: 79px 67px;
+  content: "";
+  opacity: 0.28;
+  pointer-events: none;
+}
+
+body.asteroid-page .game-stage canvas,
+body.asteroid-page canvas#gameCanvas {
+  display: block;
+  width: 100% !important;
+  max-width: 100%;
+  height: auto !important;
+  aspect-ratio: auto;
+  margin: 0;
+  border: 0;
+  border-radius: inherit;
+  background: transparent;
+  box-shadow: none;
+}
+
+body.asteroid-page .asteroid-controls {
+  display: none;
+}
+
+body.asteroid-page .asteroid-controls button {
+  min-width: 48px;
+  min-height: 48px;
+  padding: 8px 13px;
+  border: 1px solid var(--asteroid-line);
+  border-radius: 6px;
+  color: var(--asteroid-maize);
+  background: color-mix(in srgb, var(--asteroid-blue) 88%, transparent);
+  font: 700 0.8rem/1.2 "Courier New", monospace;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  cursor: pointer;
+  transition: transform 120ms ease, background-color 120ms ease, border-color 120ms ease;
+}
+
+body.asteroid-page .asteroid-controls button:hover,
+body.asteroid-page .asteroid-controls button:focus-visible {
+  border-color: var(--asteroid-maize);
+  background: rgba(0, 39, 76, 0.98);
+}
+
+body.asteroid-page .asteroid-controls button:focus-visible {
+  outline: 2px solid var(--asteroid-maize);
+  outline-offset: 3px;
+}
+
+body.asteroid-page .asteroid-controls button[aria-pressed="true"],
+body.asteroid-page .asteroid-controls button.is-pressed {
+  transform: translateY(2px);
+  border-color: var(--asteroid-maize);
+  color: var(--asteroid-blue);
+  background: var(--asteroid-maize);
+}
+
+/* Controls appear only when touch is likely, keeping desktop playfield clean. */
+@media (pointer: coarse), (any-pointer: coarse), (max-width: 700px) {
+  body.asteroid-page .asteroid-controls {
+    display: grid;
+    width: min(100%, 720px);
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 9px;
+    margin: 12px auto 0;
+  }
+
+  body.asteroid-page .asteroid-controls button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 760px) {
+  body.asteroid-page header {
+    padding: 48px 72px 13px !important;
+  }
+
+  body.asteroid-page header h1 {
+    font-size: clamp(1rem, 4vw, 1.3rem) !important;
+    letter-spacing: 0.11em !important;
+  }
+
+  body.asteroid-page main {
+    width: calc(100% - 28px) !important;
+    margin: 18px auto 28px !important;
+    padding: clamp(18px, 4vw, 28px) !important;
+  }
+
+  body.asteroid-page .game-stage {
+    margin-top: 10px;
+    border-radius: 7px;
+  }
+}
+
+@media (max-width: 420px) {
+  body.asteroid-page header {
+    padding-right: 82px !important;
+    padding-left: 82px !important;
+  }
+
+  body.asteroid-page main {
+    width: calc(100% - 20px) !important;
+    padding: 16px 10px !important;
+  }
+
+  body.asteroid-page .asteroid-controls {
+    gap: 6px;
+  }
+
+  body.asteroid-page .asteroid-controls button {
+    padding: 7px 4px;
+    font-size: 0.68rem;
+    letter-spacing: 0.02em;
+  }
+}
+
+@media (max-width: 760px) and (orientation: landscape) {
+  body.asteroid-page #lang-selector {
+    right: 12px;
+    transform: none;
+  }
+  body.asteroid-page header {
+    padding-top: 12px !important;
+    padding-bottom: 10px !important;
+  }
+
+  body.asteroid-page main {
+    margin-top: 12px !important;
+    padding-top: 15px !important;
+    padding-bottom: 16px !important;
+  }
+
+  body.asteroid-page .asteroid-controls {
+    width: min(100%, 640px);
+    gap: 7px;
+    margin-top: 8px;
+  }
+
+  body.asteroid-page .asteroid-controls button {
+    min-height: 48px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.asteroid-page .asteroid-controls button {
+    transition: none;
+  }
+}

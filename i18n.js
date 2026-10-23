@@ -803,22 +803,40 @@
   Object.assign(i18n.en, {
     ast_h1:    "Asteroids",
     ast_h2:    "Maize and Blue Asteroids",
-    ast_instr: "Use <strong>W</strong> to thrust, <strong>A/D</strong> to steer, and <strong>Spacebar</strong> to shoot. Destroy asteroids to earn points!",
+    ast_instr: "Use <strong>W / ↑</strong> to thrust, <strong>A/D / ← →</strong> to steer, and hold <strong>Spacebar</strong> to fire. On mobile, hold the buttons below—you can steer, thrust, and fire together. Destroy asteroids to earn points!",
     ast_score: "Score:",
+    ast_game: "Asteroids game",
+    ast_controls: "Touch controls",
+    ast_left: "Left",
+    ast_right: "Right",
+    ast_thrust: "Thrust",
+    ast_fire: "Fire",
   });
   // === GERMAN ===
   Object.assign(i18n.de, {
     ast_h1:    "Asteroiden",
     ast_h2:    "Maize and Blue Asteroiden",
-    ast_instr: "<strong>W</strong> zum Beschleunigen, <strong>A/D</strong> zum Lenken, <strong>Leertaste</strong> zum Schießen. Asteroiden zerstören = Punkte!",
+    ast_instr: "<strong>W / ↑</strong> für Schub, <strong>A/D / ← →</strong> zum Lenken und <strong>Leertaste</strong> zum Dauerfeuer gedrückt halten. Auf dem Handy die Tasten unten halten—Lenken, Schub und Feuer funktionieren gleichzeitig. Zerstöre Asteroiden, um Punkte zu sammeln!",
     ast_score: "Punkte:",
+    ast_game: "Asteroiden-Spiel",
+    ast_controls: "Touch-Steuerung",
+    ast_left: "Links",
+    ast_right: "Rechts",
+    ast_thrust: "Schub",
+    ast_fire: "Feuer",
   });
   // === CANTONESE ===
   Object.assign(i18n.ct, {
     ast_h1:    "小行星",
     ast_h2:    "藍金小行星",
-    ast_instr: "按 <strong>W</strong> 推進，<strong>A/D</strong> 轉向，<strong>空白鍵</strong> 射擊。摧毀小行星可獲得分數！",
+    ast_instr: "按 <strong>W / ↑</strong> 推進，<strong>A/D / ← →</strong> 轉向，長按<strong>空白鍵</strong>連續射擊。手機玩家可以長按下面嘅按鈕，同時轉向、推進同射擊。摧毀小行星可獲得分數！",
     ast_score: "分數：",
+    ast_game: "小行星遊戲",
+    ast_controls: "觸控操作",
+    ast_left: "向左",
+    ast_right: "向右",
+    ast_thrust: "推進",
+    ast_fire: "射擊",
   });
 
 
