@@ -110,7 +110,7 @@
 
   // === ENGLISH ===
   Object.assign(i18n.en, {
-    idx_caption:     "@ Ford Robotics Building, Sept 2025",
+    idx_caption:     "@ Ford Robotics Building, April 2026",
     idx_about_h2:    "About Me",
     idx_about_p:     "Hi, I'm Yuqi Sun (Kevin). I study Computer Science and Robotics at University of Michigan, College of Engineering. I am interested in multimodal perception for autonomous systems. In my free time, I enjoy cycling, writing poetry, and playing my cello.",
     idx_inv_h2:      "Current Involvements",

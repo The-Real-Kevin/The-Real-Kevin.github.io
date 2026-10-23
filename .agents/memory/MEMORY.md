@@ -1,1 +1,2 @@
 - [Trilingual consistency](trilingual-consistency.md) — Keep all three language versions consistent whenever changing website content.
+- [Theme direction](theme-direction.md) — Prefer white or very light maize, maize outlines and accents, and dark text over large solid color areas.
