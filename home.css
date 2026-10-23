@@ -164,8 +164,8 @@ body.home-page .profile-figure {
 body.home-page .profile-image {
   display: block;
   width: 100%;
-  height: 300px;
-  object-fit: cover;
+  height: auto;
+  object-fit: contain;
   object-position: center;
   margin: 0;
   border-radius: 3px;
@@ -438,8 +438,8 @@ body.home-page #theme-toggle:hover {
 
   body.home-page .profile-image {
     height: auto;
-    max-height: 340px;
-    aspect-ratio: 4 / 5;
+    max-height: none;
+    aspect-ratio: auto;
   }
 
   body.home-page .text-content {

@@ -7,6 +7,10 @@ Use white or super-light maize as the light-mode background, maize outlines/high
 
 Use an Apple-website-style sans-serif font throughout the site, not serif headings.
 
+Default to dark mode across all pages, while allowing visitors to switch to light mode and retain their choice.
+
+**Why:** The user explicitly requested dark as the default theme across all pages.
+
 **Why:** The user said the previous large chunks of color felt overwhelming and inelegant, disliked the new serif font, and requested the Apple website font and Michigan-blue dark-mode accents. They explicitly approved the resulting home page and asked to apply that appearance to every page in both light and dark mode.
 
 **How to apply:** Keep this approved appearance consistent across the website and across English, German, and Cantonese versions. Preserve page-specific content and functional layouts.

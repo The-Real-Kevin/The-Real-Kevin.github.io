@@ -663,3 +663,202 @@ body:not(.home-page) #theme-toggle:hover {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* One shared header rhythm for every portfolio page, including Home. */
+body.home-page header,
+body:not(.home-page) header {
+  position: relative;
+  padding: 22px 24px 16px;
+  text-align: center;
+}
+
+body.home-page header h1,
+body:not(.home-page) header h1 {
+  margin: 0 0 10px;
+  font-family: inherit;
+  font-size: clamp(1.45rem, 2.7vw, 1.95rem);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  line-height: 1.25;
+  text-transform: none;
+}
+
+body.home-page header nav,
+body:not(.home-page) header nav {
+  position: relative;
+  display: flex;
+  width: min(900px, 100%);
+  min-height: 40px;
+  margin: 0 auto;
+  padding: 0 46px;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 3px;
+}
+
+body.home-page header nav a:not(.nav-arrow),
+body:not(.home-page) header nav a:not(.nav-arrow) {
+  min-width: 0;
+  max-width: 100%;
+  padding: 5px 10px;
+  color: var(--site-muted);
+  font-family: inherit;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.025em;
+  line-height: 1.4;
+  text-align: center;
+  overflow-wrap: anywhere;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  transition: color 180ms ease, background-color 180ms ease, border-color 180ms ease;
+}
+
+body.home-page header nav a:not(.nav-arrow)[aria-current="page"],
+body:not(.home-page) header nav a:not(.nav-arrow)[aria-current="page"] {
+  color: var(--site-ink);
+  background: var(--site-accent-soft);
+  border-color: var(--site-accent-line);
+}
+
+body.home-page header nav a:not(.nav-arrow):hover,
+body:not(.home-page) header nav a:not(.nav-arrow):hover {
+  color: var(--site-ink);
+  background: var(--site-accent-soft);
+  border-color: var(--site-accent-line);
+}
+
+body.home-page header nav a.nav-arrow,
+body:not(.home-page) header nav a.nav-arrow {
+  position: absolute;
+  top: 50%;
+  z-index: 1;
+  display: inline-flex;
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  max-width: 40px;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  color: var(--site-accent);
+  background: var(--site-surface);
+  border: 1px solid var(--site-accent-line);
+  border-radius: 50%;
+  font-size: 0;
+  line-height: 1;
+  text-decoration: none;
+  transform: translateY(-50%);
+  transition: color 180ms ease, background-color 180ms ease, border-color 180ms ease;
+}
+
+body.home-page header nav a.nav-arrow::before,
+body:not(.home-page) header nav a.nav-arrow::before {
+  font-size: 1.55rem;
+  font-weight: 400;
+  line-height: 1;
+}
+
+body.home-page header nav a.nav-arrow-prev,
+body:not(.home-page) header nav a.nav-arrow-prev {
+  left: 0;
+}
+
+body.home-page header nav a.nav-arrow-prev::before,
+body:not(.home-page) header nav a.nav-arrow-prev::before {
+  content: "‹";
+}
+
+body.home-page header nav a.nav-arrow-next,
+body:not(.home-page) header nav a.nav-arrow-next {
+  right: 0;
+}
+
+body.home-page header nav a.nav-arrow-next::before,
+body:not(.home-page) header nav a.nav-arrow-next::before {
+  content: "›";
+}
+
+body.home-page header nav a.nav-arrow:hover,
+body:not(.home-page) header nav a.nav-arrow:hover {
+  color: var(--site-ink);
+  background: var(--site-accent-soft);
+  border-color: var(--site-accent);
+}
+
+body.home-page header nav a.nav-arrow:focus-visible,
+body:not(.home-page) header nav a.nav-arrow:focus-visible {
+  outline: 2px solid var(--site-accent);
+  outline-offset: 3px;
+}
+
+/* The download lives in resume content, so every header has the same spacing. */
+body:not(.home-page) main > .header-action {
+  display: flex;
+  justify-content: flex-end;
+  margin: 0 0 20px;
+}
+
+body:not(.home-page) main > .header-action a {
+  display: inline-flex;
+  min-height: 36px;
+  align-items: center;
+  padding: 6px 10px;
+  font-size: 0.72rem;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+@media (max-width: 760px) {
+  body.home-page header,
+  body:not(.home-page) header {
+    padding: 60px 12px 14px;
+  }
+
+  body.home-page header h1,
+  body:not(.home-page) header h1 {
+    margin-bottom: 8px;
+    font-size: 1.45rem;
+    min-height: 2.5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  body.home-page header nav,
+  body:not(.home-page) header nav {
+    width: 100%;
+    max-width: 620px;
+    padding: 0 42px;
+    gap: 2px;
+  }
+
+  body.home-page header nav a:not(.nav-arrow),
+  body:not(.home-page) header nav a:not(.nav-arrow) {
+    padding: 5px 7px;
+    font-size: 0.74rem;
+    letter-spacing: 0.01em;
+  }
+
+  body:not(.home-page) main > .header-action a {
+    min-height: 34px;
+    padding: 5px 8px;
+    font-size: 0.68rem;
+  }
+}
+
+@media (max-width: 380px) {
+  body.home-page header nav,
+  body:not(.home-page) header nav {
+    padding-right: 40px;
+    padding-left: 40px;
+  }
+
+  body.home-page header nav a:not(.nav-arrow),
+  body:not(.home-page) header nav a:not(.nav-arrow) {
+    padding-right: 5px;
+    padding-left: 5px;
+    font-size: 0.7rem;
+  }
+}

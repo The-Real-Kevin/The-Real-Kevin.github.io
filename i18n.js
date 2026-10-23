@@ -28,7 +28,12 @@
 
 (function () {
 
-  var _lang = localStorage.getItem('ks-lang') || 'en';
+  var _lang = 'en';
+  try {
+    _lang = localStorage.getItem('ks-lang') || 'en';
+  } catch (error) {
+    // Optional preference storage can be blocked in embedded previews.
+  }
   var i18n = { en: {}, de: {}, ct: {} };
 
   /* ─── lookup with EN fallback ─── */
@@ -42,9 +47,19 @@
       var val = get(lang, el.getAttribute('data-i18n'));
       if (val) el.innerHTML = val;
     });
+    ['aria-label', 'title'].forEach(function (attribute) {
+      document.querySelectorAll('[data-i18n-' + attribute + ']').forEach(function (el) {
+        var val = get(lang, el.getAttribute('data-i18n-' + attribute));
+        if (val) el.setAttribute(attribute, val);
+      });
+    });
     var map = { en: 'en', de: 'de', ct: 'zh-HK' };
     document.documentElement.lang = map[lang] || 'en';
-    localStorage.setItem('ks-lang', lang);
+    try {
+      localStorage.setItem('ks-lang', lang);
+    } catch (error) {
+      // Language switching remains available without persistent storage.
+    }
     document.querySelectorAll('#lang-selector button').forEach(function (btn) {
       btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
     });
@@ -70,7 +85,7 @@
 
   document.addEventListener('DOMContentLoaded', function () {
     initSelector();
-    if (_lang !== 'en') applyLang(_lang);
+    applyLang(_lang);
   });
 
 
@@ -85,6 +100,9 @@
     nav_blog:     "News",
     nav_projects: "Personal Projects",
     nav_showcase: "Showcase",
+    nav_previous: "Previous page",
+    nav_next:     "Next page",
+    theme_toggle: "Toggle colour theme",
   });
   // === GERMAN ===
   Object.assign(i18n.de, {
@@ -93,6 +111,9 @@
     nav_blog:     "News",
     nav_projects: "Persönliche Projekte",
     nav_showcase: "Galerie",
+    nav_previous: "Vorherige Seite",
+    nav_next:     "Nächste Seite",
+    theme_toggle: "Farbschema wechseln",
   });
   // === CANTONESE ===
   Object.assign(i18n.ct, {
@@ -101,6 +122,9 @@
     nav_blog:     "消息",
     nav_projects: "個人項目",
     nav_showcase: "作品集",
+    nav_previous: "上一頁",
+    nav_next:     "下一頁",
+    theme_toggle: "切換顏色主題",
   });
 
 
