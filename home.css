@@ -127,7 +127,7 @@ body.home-page #lang-selector button.active {
 
 body.home-page main {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr);
   gap: 18px;
   max-width: 1060px;
   margin: 38px auto 42px;
