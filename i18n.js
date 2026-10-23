@@ -117,7 +117,6 @@
     idx_inv_mmint:   "Research Assistant",
     idx_inv_mdst:    "Member (F25), Project Lead (W26)",
     idx_inv_polo:    "Member",
-    idx_inv_every:   "Developer",
     idx_acad_h2:     "Academics",
     idx_gpa:         "3.92 GPA <em>(updated Winter 2026)</em>",
     idx_fall25:        "Fall 2025",
@@ -125,11 +124,9 @@
     idx_fall26:        "Fall 2026",
     idx_skills_h2:   "Skills",
     idx_skill_prog:  "<strong>Programming:</strong> C/C++, Java, Python",
-    idx_skill_tools: "<strong>Tools &amp; Platforms:</strong> SQL Databases, Fusion360, PyTorch",
-    idx_skill_other: "<strong>Other:</strong> 3D printer, Laser cutter, Water jet, CNC machine",
-    idx_info_h2:     "Useful Information",
-    idx_info_lang:   "<strong>Languages:</strong> English (Bilingual), Mandarin (Bilingual), Cantonese (Fluent), German (Basic)",
-    idx_info_avail:  "<strong>Availability:</strong> Up to 14 hours/week for research involvement",
+    idx_skill_tools: "<strong>Tools &amp; Platforms:</strong> Fusion360, PyTorch, SQL",
+    idx_skill_manufacturing: "<strong>Manufacturing:</strong> 3D printer, Laser cutter, Water jet, CNC",
+    idx_skill_lang:  "<strong>Languages:</strong> English, Cantonese, Mandarin, German",
   });
   // === GERMAN ===
   Object.assign(i18n.de, {
@@ -140,7 +137,6 @@
     idx_inv_mmint:   "Wissenschaftlicher Mitarbeiter",
     idx_inv_mdst:    "Mitglied (H25), Projektleiter (W26)",
     idx_inv_polo:    "Mitglied",
-    idx_inv_every:   "Entwickler",
     idx_acad_h2:     "Studium",
     idx_gpa:         "3.92 GPA <em>(aktualisiert Winter 2026)</em>",
     idx_fall25:        "Herbst 2025",
@@ -148,11 +144,9 @@
     idx_fall26:        "Herbst 2026",
     idx_skills_h2:   "Kenntnisse",
     idx_skill_prog:  "<strong>Programmierung:</strong> C/C++, Java, Python",
-    idx_skill_tools: "<strong>Werkzeuge &amp; Plattformen:</strong> SQL-Datenbanken, Fusion360, PyTorch",
-    idx_skill_other: "<strong>Sonstiges:</strong> 3D-Drucker, Laserschneider, Wasserstrahlschneider, CNC-Maschine",
-    idx_info_h2:     "Nützliche Informationen",
-    idx_info_lang:   "<strong>Sprachen:</strong> Englisch (zweisprachig), Mandarin (zweisprachig), Kantonesisch (fließend), Deutsch (Grundkenntnisse)",
-    idx_info_avail:  "<strong>Verfügbarkeit:</strong> Bis zu 14 Stunden pro Woche für Forschungsarbeit",
+    idx_skill_tools: "<strong>Werkzeuge &amp; Plattformen:</strong> Fusion360, PyTorch, SQL",
+    idx_skill_manufacturing: "<strong>Fertigung:</strong> 3D-Drucker, Laserschneider, Wasserstrahlschneider, CNC",
+    idx_skill_lang:  "<strong>Sprachen:</strong> Englisch, Kantonesisch, Mandarin, Deutsch",
   });
   // === CANTONESE ===
   Object.assign(i18n.ct, {
@@ -163,7 +157,6 @@
     idx_inv_mmint:   "研究助理",
     idx_inv_mdst:    "成員（2025秋），項目負責人（2026冬）",
     idx_inv_polo:    "成員",
-    idx_inv_every:   "開發員",
     idx_acad_h2:     "學業",
     idx_gpa:         "3.92 GPA <em>（2026年冬季更新）</em>",
     idx_fall25:        "2025年秋季",
@@ -171,11 +164,9 @@
     idx_fall26:        "2026年秋季",
     idx_skills_h2:   "技能",
     idx_skill_prog:  "<strong>編程：</strong>C/C++、Java、Python",
-    idx_skill_tools: "<strong>工具及平台：</strong>SQL 數據庫、Fusion360、PyTorch",
-    idx_skill_other: "<strong>其他：</strong>3D 打印機、激光切割機、水刀、CNC 機床",
-    idx_info_h2:     "實用資訊",
-    idx_info_lang:   "<strong>語言：</strong>英語（雙語）、普通話（雙語）、廣東話（流利）、德語（基礎）",
-    idx_info_avail:  "<strong>可用性：</strong>每週最多14小時可從事研究工作",
+    idx_skill_tools: "<strong>工具及平台：</strong>Fusion360、PyTorch、SQL",
+    idx_skill_manufacturing: "<strong>製造：</strong>3D 打印機、激光切割機、水刀、CNC",
+    idx_skill_lang:  "<strong>語言：</strong>英語、廣東話、普通話、德語",
   });
 
 

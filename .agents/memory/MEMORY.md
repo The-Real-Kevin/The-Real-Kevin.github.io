@@ -1,0 +1,1 @@
+- [Trilingual consistency](trilingual-consistency.md) — Keep all three language versions consistent whenever changing website content.
