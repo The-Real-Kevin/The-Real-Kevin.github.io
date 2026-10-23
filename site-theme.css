@@ -1,0 +1,665 @@
+/* Shared portfolio theme: approved light maize / dark Michigan-blue system. */
+:root {
+  --site-paper: #fffefa;
+  --site-wash: #fbf8ef;
+  --site-ink: #292a27;
+  --site-muted: #66665f;
+  --site-accent: #a77d0b;
+  --site-accent-line: #e6d69f;
+  --site-accent-soft: #f7f0d8;
+  --site-rule: #e9e5d9;
+  --site-surface: rgba(255, 255, 252, 0.94);
+  --site-shadow: 0 12px 40px rgba(58, 49, 23, 0.055);
+  --site-header: rgba(255, 254, 250, 0.96);
+  --site-footer: #fbf8ef;
+  --site-control: rgba(255, 255, 252, 0.98);
+  --site-wash-glow: rgba(230, 214, 159, 0.17);
+}
+
+[data-theme="dark"] {
+  --site-paper: #14191f;
+  --site-wash: #171f28;
+  --site-ink: #edf2f7;
+  --site-muted: #b2becb;
+  --site-accent: #79add8;
+  --site-accent-line: #335675;
+  --site-accent-soft: #00274c;
+  --site-rule: rgba(152, 183, 211, 0.18);
+  --site-surface: rgba(27, 34, 42, 0.97);
+  --site-shadow: 0 12px 40px rgba(0, 0, 0, 0.14);
+  --site-header: rgba(20, 25, 31, 0.97);
+  --site-footer: #171f28;
+  --site-control: rgba(27, 34, 42, 0.98);
+  --site-wash-glow: rgba(0, 39, 76, 0.22);
+}
+
+/* Home already uses this exact approved system and its page-specific layout. */
+body:not(.home-page),
+[data-theme="dark"] body:not(.home-page) {
+  --body-bg: var(--site-paper);
+  --body-bg2: var(--site-wash);
+  --glass-panel: var(--site-surface);
+  --glass-border: var(--site-accent-line);
+  --glass-shadow: var(--site-shadow);
+  --glass-inner: none;
+  --hdr-bg: var(--site-header);
+  --hdr-border: var(--site-accent-line);
+  --ftr-bg: var(--site-footer);
+  --ftr-border: var(--site-accent-line);
+  --text-1: var(--site-ink);
+  --text-2: var(--site-muted);
+  --acc: var(--site-accent);
+  --acc-dim: var(--site-muted);
+  --acc-faint: var(--site-accent-soft);
+  --acc-glow: transparent;
+  --acc-border: var(--site-accent-line);
+  --acc-hover-bg: var(--site-accent-soft);
+  --acc-hover-bdr: var(--site-accent);
+  --sec-bg: var(--site-surface);
+  --sec-border: var(--site-accent-line);
+  --sec-hover-bdr: var(--site-accent);
+  --card-bg: var(--site-surface);
+  --date-color: var(--site-muted);
+  --divider: var(--site-rule);
+  --tag-bg: var(--site-accent-soft);
+  --tag-color: var(--site-muted);
+  --tag-border: var(--site-accent-line);
+  --hdr-h1: var(--site-ink);
+  --hdr-link: var(--site-muted);
+  --hdr-link-hover: var(--site-ink);
+  --link-sec: var(--site-muted);
+  --toggle-bg: var(--site-control);
+  --toggle-border: var(--site-accent-line);
+  --toggle-color: var(--site-ink);
+  --r: 8px;
+  --r-sm: 7px;
+  --r-pill: 5px;
+  color: var(--site-ink);
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.72;
+  background-color: var(--site-paper);
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+body:not(.home-page)::before,
+[data-theme="dark"] body:not(.home-page)::before {
+  background:
+    radial-gradient(ellipse 80% 42% at 50% 0%, var(--site-wash-glow), transparent 72%),
+    linear-gradient(180deg, var(--site-paper), var(--site-wash) 80%, var(--site-paper));
+}
+
+body:not(.home-page)::after,
+[data-theme="dark"] body:not(.home-page)::after {
+  display: none;
+}
+
+body:not(.home-page) header {
+  position: relative;
+  padding: 22px 210px 17px;
+  background: var(--site-header);
+  border-bottom: 1px solid var(--site-accent-line);
+  box-shadow: 0 4px 20px rgba(58, 49, 23, 0.035);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  text-align: center;
+}
+
+body:not(.home-page) header h1 {
+  margin: 0 0 10px;
+  color: var(--site-ink);
+  font-family: inherit;
+  font-size: clamp(1.45rem, 2.7vw, 1.95rem);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  line-height: 1.25;
+  text-transform: none;
+}
+
+body:not(.home-page) nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+body:not(.home-page) nav a {
+  color: var(--site-muted);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.025em;
+  line-height: 1.45;
+  padding: 5px 11px;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  transition: color 180ms ease, background-color 180ms ease, border-color 180ms ease;
+}
+
+body:not(.home-page) nav a[aria-current="page"] {
+  color: var(--site-ink);
+  background: var(--site-accent-soft);
+  border-color: var(--site-accent-line);
+}
+
+body:not(.home-page) nav a:hover {
+  color: var(--site-ink);
+  background: var(--site-accent-soft);
+  border-color: var(--site-accent-line);
+}
+
+body:not(.home-page) :focus-visible {
+  outline: 2px solid var(--site-accent);
+  outline-offset: 3px;
+}
+
+body:not(.home-page) #lang-selector {
+  top: 14px;
+  right: 18px;
+  max-width: min(224px, calc(100vw - 20px));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2px;
+  padding: 3px;
+  background: var(--site-control);
+  border: 1px solid var(--site-accent-line);
+  border-radius: 7px;
+  box-shadow: 0 3px 12px rgba(58, 49, 23, 0.07);
+  backdrop-filter: blur(12px);
+}
+
+body:not(.home-page) #lang-selector button {
+  min-width: 34px;
+  max-width: 100%;
+  padding: 6px 8px;
+  color: var(--site-muted);
+  font-family: inherit;
+  font-size: 0.72rem;
+  line-height: 1.2;
+  letter-spacing: 0.01em;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  border-radius: 4px;
+}
+
+body:not(.home-page) #lang-selector button.active {
+  color: var(--site-ink);
+  background: var(--site-accent-soft);
+}
+
+body:not(.home-page) main {
+  width: min(1060px, calc(100% - 48px));
+  max-width: 1060px;
+  margin: 34px auto 42px;
+  padding: clamp(24px, 4vw, 42px);
+  color: var(--site-ink);
+  background: var(--site-surface);
+  border: 1px solid var(--site-accent-line);
+  border-radius: 8px;
+  box-shadow: var(--site-shadow);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+body:not(.home-page) h1,
+body:not(.home-page) h2,
+body:not(.home-page) h3,
+body:not(.home-page) h4 {
+  font-family: inherit;
+}
+
+body:not(.home-page) h2 {
+  color: var(--site-ink);
+  font-size: clamp(1.35rem, 2.4vw, 1.8rem);
+  font-weight: 600;
+}
+
+body:not(.home-page) h3 {
+  color: var(--site-ink);
+  font-size: 1.08rem;
+  font-weight: 600;
+}
+
+body:not(.home-page) p,
+body:not(.home-page) ul,
+body:not(.home-page) li {
+  color: var(--site-muted);
+}
+
+body:not(.home-page) strong {
+  color: var(--site-ink);
+  font-weight: 600;
+}
+
+body:not(.home-page) a {
+  color: var(--site-accent);
+}
+
+body:not(.home-page) .header-action a,
+body:not(.home-page) .project-button {
+  color: var(--site-ink);
+  background: var(--site-accent-soft);
+  border: 1px solid var(--site-accent-line);
+  border-radius: 5px;
+  box-shadow: none;
+  backdrop-filter: none;
+  transition: color 180ms ease, background-color 180ms ease, border-color 180ms ease, transform 180ms ease;
+}
+
+body:not(.home-page) .header-action a:hover,
+body:not(.home-page) .project-button:hover {
+  color: var(--site-ink);
+  background: var(--site-surface);
+  border-color: var(--site-accent);
+  box-shadow: none;
+  opacity: 1;
+  transform: translateY(-1px);
+}
+
+body:not(.home-page) .involvement-section,
+body:not(.home-page) .skills-section,
+body:not(.home-page) .useful-info-section,
+body:not(.home-page) .fun-facts-section,
+body:not(.home-page) .timeline-section,
+body:not(.home-page) .blog-post,
+body:not(.home-page) .project,
+body:not(.home-page) .showcase-intro {
+  background: var(--site-surface);
+  border: 1px solid var(--site-accent-line);
+  border-radius: 7px;
+  box-shadow: 0 8px 26px rgba(58, 49, 23, 0.035);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+body:not(.home-page) .blog-post,
+body:not(.home-page) .project {
+  transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease, background-color 180ms ease;
+}
+
+body:not(.home-page) .blog-post:hover,
+body:not(.home-page) .project:hover {
+  border-color: var(--site-accent);
+  box-shadow: var(--site-shadow);
+  transform: translateY(-2px);
+}
+
+body:not(.home-page) .project.featured {
+  border-color: var(--site-accent);
+  box-shadow: var(--site-shadow);
+}
+
+body:not(.home-page) .project.featured::before {
+  color: var(--site-ink);
+  background: var(--site-accent-soft);
+  border: 1px solid var(--site-accent-line);
+  border-radius: 4px;
+}
+
+body:not(.home-page) .tag {
+  border-radius: 4px;
+}
+
+body:not(.home-page) .project-link-secondary {
+  color: var(--site-muted);
+  border-bottom-color: var(--site-rule);
+}
+
+body:not(.home-page) .project-link-secondary:hover {
+  color: var(--site-ink);
+  border-bottom-color: var(--site-accent);
+}
+
+body:not(.home-page) .resume-heading {
+  border-bottom-color: var(--site-rule);
+}
+
+body:not(.home-page) .resume-container h3 {
+  color: var(--site-ink);
+  border-bottom-color: var(--site-accent-line);
+}
+
+body:not(.home-page) .resume-container a {
+  color: var(--site-accent);
+}
+
+body:not(.home-page) .blog-image,
+body:not(.home-page) .project-img,
+body:not(.home-page) .project-media {
+  border-radius: 5px;
+  box-shadow: 0 3px 14px rgba(40, 39, 31, 0.11);
+}
+
+body:not(.home-page) .carousel-container {
+  border-radius: 6px;
+}
+
+body:not(.home-page) .carousel-btn {
+  color: var(--site-ink);
+  background: var(--site-control);
+  border: 1px solid var(--site-accent-line);
+  border-radius: 5px;
+  box-shadow: none;
+}
+
+body:not(.home-page) .carousel-btn:hover {
+  border-color: var(--site-accent);
+  box-shadow: none;
+}
+
+body:not(.home-page) .course-timeline {
+  gap: 16px;
+}
+
+body:not(.home-page) .semester {
+  padding: 17px;
+  background: var(--site-paper);
+  border: 1px solid var(--site-rule);
+  border-top: 2px solid var(--site-accent);
+  border-radius: 4px;
+}
+
+body:not(.home-page) .semester h3 {
+  color: var(--site-ink);
+}
+
+body:not(.home-page) footer {
+  margin-top: 0;
+  border-top: 1px solid var(--site-accent-line);
+  background: var(--site-footer);
+}
+
+body:not(.home-page) .footer-bar {
+  gap: 12px 32px;
+  padding: 21px 24px;
+  background: transparent;
+  border: 0;
+  backdrop-filter: none;
+}
+
+body:not(.home-page) .footer-bar a {
+  color: var(--site-muted);
+  font-size: 0.82rem;
+  transition: color 180ms ease;
+}
+
+body:not(.home-page) .footer-bar a:hover {
+  color: var(--site-ink);
+  opacity: 1;
+}
+
+/* Game details use the same site surfaces; embedded/game canvas art stays untouched. */
+body:not(.home-page) .game-description h2,
+body:not(.home-page) .game-description p,
+body:not(.home-page) .tutorial-bar p,
+body:not(.home-page) .game-info h3,
+body:not(.home-page) .game-info h4,
+body:not(.home-page) .game-info p,
+body:not(.home-page) .game-info li,
+body:not(.home-page) .game-info strong,
+body:not(.home-page) .game-controls h3,
+body:not(.home-page) .game-controls li,
+body:not(.home-page) .game-controls strong {
+  color: var(--site-ink);
+}
+
+body:not(.home-page) .tutorial-bar,
+body:not(.home-page) .game-info,
+body:not(.home-page) .game-controls {
+  background: var(--site-surface);
+  border: 1px solid var(--site-accent-line);
+  border-radius: 7px;
+}
+
+body:not(.home-page) .game-info li,
+body:not(.home-page) .game-controls li {
+  border-bottom-color: var(--site-rule);
+}
+
+body:not(.home-page) .game-wrapper {
+  background: var(--site-paper);
+  border: 1px solid var(--site-accent-line);
+  border-radius: 6px;
+  box-shadow: none;
+}
+
+body:not(.home-page) .app-container {
+  border: 1px solid var(--site-accent-line);
+  border-radius: 6px;
+  box-shadow: 0 8px 26px rgba(58, 49, 23, 0.08);
+}
+
+/* Asteroid playfield retains its original canvas colors; only the surrounding site changes. */
+body.asteroid-page,
+[data-theme="dark"] body.asteroid-page {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Helvetica Neue", Arial, sans-serif !important;
+  background-color: var(--site-paper) !important;
+  color: var(--site-ink) !important;
+}
+
+body.asteroid-page::before,
+[data-theme="dark"] body.asteroid-page::before {
+  background:
+    radial-gradient(ellipse 80% 42% at 50% 0%, var(--site-wash-glow), transparent 72%),
+    linear-gradient(180deg, var(--site-paper), var(--site-wash) 80%, var(--site-paper)) !important;
+}
+
+body.asteroid-page::after,
+[data-theme="dark"] body.asteroid-page::after {
+  display: none !important;
+}
+
+body.asteroid-page header,
+[data-theme="dark"] body.asteroid-page header {
+  background: var(--site-header) !important;
+  border-bottom-color: var(--site-accent-line) !important;
+}
+
+body.asteroid-page header h1,
+body.asteroid-page nav a,
+body.asteroid-page nav a[aria-current="page"],
+body.asteroid-page nav a:hover,
+body.asteroid-page .footer-bar a,
+body.asteroid-page .footer-bar a:hover {
+  color: var(--site-ink) !important;
+}
+
+body.asteroid-page nav a:hover,
+body.asteroid-page nav a[aria-current="page"] {
+  background: var(--site-accent-soft) !important;
+  border-color: var(--site-accent-line) !important;
+}
+
+body.asteroid-page main,
+[data-theme="dark"] body.asteroid-page main {
+  width: min(1060px, calc(100% - 48px));
+  margin: 34px auto 42px;
+  padding: clamp(24px, 4vw, 42px) !important;
+  background: var(--site-surface) !important;
+  border: 1px solid var(--site-accent-line) !important;
+  border-radius: 8px;
+  box-shadow: var(--site-shadow) !important;
+  color: var(--site-ink) !important;
+}
+
+body.asteroid-page h2,
+body.asteroid-page p,
+body.asteroid-page main strong {
+  color: var(--site-ink) !important;
+}
+
+body.asteroid-page canvas {
+  /* Preserve the original game's dark playfield and maize artwork. */
+  border-color: rgba(247, 209, 71, 0.35);
+}
+
+body.asteroid-page .footer-bar,
+[data-theme="dark"] body.asteroid-page .footer-bar {
+  background: transparent !important;
+  border-top-color: transparent !important;
+}
+
+body:not(.home-page) #theme-toggle {
+  width: 42px;
+  height: 42px;
+  color: var(--site-ink);
+  background: var(--site-control);
+  border-color: var(--site-accent-line);
+  box-shadow: 0 4px 16px rgba(58, 49, 23, 0.12);
+  transition: transform 180ms ease, box-shadow 180ms ease;
+  font-size: 0;
+}
+
+body:not(.home-page) #theme-toggle::before {
+  content: '☾';
+  font-family: Arial, sans-serif;
+  font-size: 25px;
+  line-height: 1;
+}
+
+[data-theme="dark"] body:not(.home-page) #theme-toggle::before {
+  content: '☀';
+  color: var(--site-accent);
+}
+
+body:not(.home-page) #theme-toggle:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 7px 20px rgba(58, 49, 23, 0.16);
+}
+
+@media (max-width: 760px) {
+  body:not(.home-page) header {
+    padding: 66px 14px 16px;
+  }
+
+  body:not(.home-page) header h1 {
+    margin-bottom: 9px;
+    font-size: 1.5rem;
+  }
+
+  body:not(.home-page) nav {
+    max-width: 560px;
+    margin: 0 auto;
+    gap: 3px;
+  }
+
+  body:not(.home-page) nav a {
+    padding: 5px 8px;
+    font-size: 0.76rem;
+  }
+
+  body:not(.home-page) #lang-selector {
+    top: 8px;
+    right: 50%;
+    transform: translateX(50%);
+  }
+
+  body:not(.home-page) main {
+    width: calc(100% - 32px);
+    margin: 22px auto 28px;
+    padding: 23px 20px;
+  }
+
+  body:not(.home-page) .course-timeline {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  body:not(.home-page) .project-content {
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  body:not(.home-page) .project-img {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  body:not(.home-page) .project-content-vertical iframe {
+    max-width: 100%;
+  }
+
+  body:not(.home-page) .media-grid {
+    grid-template-columns: 1fr;
+  }
+
+  body:not(.home-page) .project-links {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+
+  body:not(.home-page) .project-button,
+  body:not(.home-page) .project-link-secondary {
+    width: 100%;
+    text-align: center;
+  }
+
+  body:not(.home-page) .footer-bar {
+    flex-direction: row;
+    gap: 10px 20px;
+    padding: 18px 16px;
+  }
+
+  body:not(.home-page) .game-wrapper {
+    padding-bottom: 100%;
+  }
+
+  body:not(.home-page) .app-container {
+    height: calc(100dvh - 200px);
+    min-height: 440px;
+    margin: 1.2em 0;
+  }
+
+  body.asteroid-page main {
+    width: calc(100% - 32px);
+    margin: 22px auto 28px;
+  }
+
+  body.asteroid-page canvas {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  body:not(.home-page) header {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  body:not(.home-page) nav {
+    column-gap: 1px;
+  }
+
+  body:not(.home-page) nav a {
+    padding: 5px 6px;
+    font-size: 0.72rem;
+    letter-spacing: 0;
+  }
+
+  body:not(.home-page) main {
+    width: calc(100% - 24px);
+    padding: 20px 16px;
+  }
+
+  body:not(.home-page) .course-timeline {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  body.asteroid-page main {
+    width: calc(100% - 24px);
+    padding: 20px 14px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body:not(.home-page) *,
+  body:not(.home-page) *::before,
+  body:not(.home-page) *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
