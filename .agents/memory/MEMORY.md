@@ -3,3 +3,4 @@
 - [Preview routing checks](preview-routing.md) — Local screenshots can succeed even when the default development-domain preview route is broken.
 - [Browser validation timing](browser-validation.md) — Use real browser timing for scrolling, rendering, and native-dialog interaction checks.
 - [Home-page content direction](homepage-direction.md) — Keep the existing biography; do not add a new introductory tagline or Selected Work section.
+- [Project collection direction](project-collection-direction.md) — One discoverable collection, branching year timeline, union filters, and unlisted legacy pages.

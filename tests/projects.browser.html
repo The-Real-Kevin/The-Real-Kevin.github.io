@@ -1,0 +1,134 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Projects timeline regression checks</title>
+<pre id="results">RUNNING</pre>
+<iframe id="frame" style="width:1440px;height:900px;border:0"></iframe>
+<script>
+(async function () {
+  const frame = document.getElementById('frame');
+  const output = document.getElementById('results');
+  const passed = [];
+  const tags = ['project', 'showcase', 'robotics', 'software'];
+  function check(condition, message) { if (!condition) throw new Error(message); }
+  async function settle(win) {
+    let previous = '';
+    let stable = 0;
+    for (let attempt = 0; attempt < 24; attempt++) {
+      await new Promise(resolve =>
+        win.requestAnimationFrame(() => win.setTimeout(resolve, 40)));
+      const signature = Array.from(win.document.querySelectorAll('.timeline-card:not([hidden]), .timeline-year-cards'))
+        .map(element => {
+          const rect = element.getBoundingClientRect();
+          return [rect.left, rect.top, rect.width, rect.height].join(',');
+        }).join(';');
+      stable = signature === previous ? stable + 1 : 0;
+      if (stable >= 3) return;
+      previous = signature;
+    }
+    throw new Error('Timeline did not finish reflowing');
+  }
+  function load(lang, theme, width) {
+    localStorage.setItem('ks-lang', lang);
+    localStorage.setItem('ks-theme', theme);
+    frame.style.width = width + 'px';
+    return new Promise(resolve => {
+      frame.onload = () => resolve(frame.contentWindow);
+      frame.src = '../projects.html?check=' + lang + theme + width;
+    });
+  }
+  function validate(win, selected) {
+    const doc = win.document;
+    const all = Array.from(doc.querySelectorAll('.timeline-card'));
+    const visible = all.filter(card => !card.hidden);
+    const expected = all.filter(card => !selected.length ||
+      selected.some(tag => card.dataset.tags.split(' ').includes(tag)));
+    check(visible.length === expected.length, 'Incorrect OR filter result');
+    check(visible.every(card => expected.includes(card)), 'Wrong project included');
+    check(doc.getElementById('project-count').textContent === String(visible.length), 'Count mismatch');
+    check(doc.documentElement.scrollWidth <= win.innerWidth + 1, 'Page width overflow');
+    if (win.innerWidth <= 1000) {
+      const intro = doc.querySelector('.work-intro');
+      check(doc.querySelector('.work-intro-copy').getBoundingClientRect().width >= intro.clientWidth * 0.8,
+        'Mobile introduction was squeezed into a narrow grid column');
+    }
+    for (const tag of tags) {
+      check(doc.querySelector('[data-filter="' + tag + '"]').getAttribute('aria-pressed') ===
+        String(selected.includes(tag)), 'Filter pressed state mismatch');
+    }
+    for (const group of doc.querySelectorAll('.timeline-year')) {
+      check(group.hidden === !Array.from(group.querySelectorAll('.timeline-card')).some(card => !card.hidden),
+        'Empty year not hidden');
+    }
+    const rectangles = visible.map(card => ({ card, r: card.getBoundingClientRect() }));
+    rectangles.forEach(({card, r}, i) => {
+      check(r.width > 100 && r.height > 30, 'Project card has no usable size');
+      check(r.left >= 0 && r.right <= win.innerWidth + 1, 'Card outside viewport');
+      const container = card.parentElement.getBoundingClientRect();
+      check(r.bottom <= container.bottom + 1, 'Card extends outside its year: ' +
+        card.dataset.projectId + ' (' + r.bottom + ' > ' + container.bottom + ') at ' +
+        win.innerWidth + 'px / ' + selected.join(','));
+      const lineLeft = r.left - parseFloat(card.style.getPropertyValue('--connector-length'));
+      const lineY = r.top + 28;
+      rectangles.forEach(({card: other, r: q}, j) => {
+        if (i === j) return;
+        const overlap = r.left < q.right - 1 && r.right > q.left + 1 &&
+          r.top < q.bottom - 1 && r.bottom > q.top + 1;
+        check(!overlap, 'Panels overlap: ' + card.dataset.projectId + '/' + other.dataset.projectId);
+        const crosses = lineY > q.top + 1 && lineY < q.bottom - 1 &&
+          lineLeft < q.right - 1 && r.left > q.left + 1;
+        check(!crosses, 'Connector crosses panel: ' + card.dataset.projectId + '/' + other.dataset.projectId);
+      });
+    });
+    check(!doc.querySelector('header a[href="showcase.html"]'), 'Showcase is still in navigation');
+    check(!doc.querySelector('a[href="asteroid.html"]'), 'Secret Asteroids was exposed');
+  }
+  try {
+    let win = await load('en', 'dark', 1600);
+    await settle(win);
+    check(win.document.querySelectorAll('.timeline-card').length === 10, 'Expected all ten merged projects');
+    for (let mask = 0; mask < 16; mask++) {
+      win.document.getElementById('project-reset').click();
+      const selected = tags.filter((tag, bit) => mask & (1 << bit));
+      selected.forEach(tag => win.document.querySelector('[data-filter="' + tag + '"]').click());
+      await settle(win);
+      validate(win, selected);
+    }
+    passed.push('PASS all 16 tag combinations: inclusive union, counts, empty years, non-overlap, clear connectors');
+    for (const lang of ['en', 'de', 'ct']) {
+      for (const theme of ['dark', 'maize']) {
+        for (const width of [375, 1024, 1920]) {
+          win = await load(lang, theme, width);
+          await settle(win);
+          validate(win, []);
+          win.document.querySelector('[data-filter="robotics"]').click();
+          win.document.querySelector('[data-filter="showcase"]').click();
+          await settle(win);
+          validate(win, ['robotics', 'showcase']);
+          check(win.document.querySelectorAll('.timeline-card:not([hidden])').length === 5,
+            'Robotics OR showcase must show five projects');
+          const c = win.document.getElementById('project-reset');
+          check(c.textContent === {en:'Reset filters',de:'Filter zurücksetzen',ct:'重設篩選'}[lang], 'Missing translation');
+          c.click();
+          await settle(win);
+          validate(win, []);
+          passed.push('PASS ' + lang + '/' + theme + '/' + width + ': layout and filters');
+        }
+      }
+    }
+    // Reflow in-place when language and viewport change while filters stay active.
+    win.document.querySelector('[data-filter="robotics"]').click();
+    for (const lang of ['de', 'ct', 'en']) {
+      win.document.querySelector('[data-lang="' + lang + '"]').click();
+      await settle(win);
+      validate(win, ['robotics']);
+    }
+    frame.style.width = '320px';
+    await settle(win);
+    validate(win, ['robotics']);
+    passed.push('PASS live language/viewport changes preserve filters and collision-free layout');
+    output.textContent = 'ALL PASSED\n' + passed.join('\n');
+  } catch (error) {
+    output.textContent = 'FAILED: ' + error.message + '\n' + passed.join('\n');
+  }
+})();
+</script>

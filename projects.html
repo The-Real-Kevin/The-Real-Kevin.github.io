@@ -1,171 +1,236 @@
 <!DOCTYPE html>
-<!-- projects.html -->
 <html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Past Projects - Yuqi Sun</title>
+    <title>Projects &amp; Demos - Yuqi Sun</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="site-theme.css">
+    <link rel="stylesheet" href="projects.css">
     <script src="theme.js"></script>
     <script src="i18n.js"></script>
+    <script src="projects.js" defer></script>
 </head>
-<body>
+<body class="projects-page">
     <header>
-        <h1 data-i18n="prj_h1">Personal Projects</h1>
+        <h1 data-i18n="prj_h1">Projects</h1>
         <nav>
             <a class="nav-arrow nav-arrow-prev" href="blog.html" aria-label="Previous page" title="Previous page" data-i18n-aria-label="nav_previous" data-i18n-title="nav_previous"><span aria-hidden="true">←</span></a>
             <a href="index.html" data-i18n="nav_home">Home</a>
             <a href="resume.html" data-i18n="nav_resume">Resume</a>
             <a href="blog.html" data-i18n="nav_blog">News</a>
-            <a href="projects.html" data-i18n="nav_projects" aria-current="page">Personal Projects</a>
-            <a href="showcase.html" data-i18n="nav_showcase">Showcase</a>
-            <a class="nav-arrow nav-arrow-next" href="showcase.html" aria-label="Next page" title="Next page" data-i18n-aria-label="nav_next" data-i18n-title="nav_next"><span aria-hidden="true">→</span></a>
+            <a href="projects.html" data-i18n="nav_projects" aria-current="page">Projects</a>
+            <a class="nav-arrow nav-arrow-next" href="index.html" aria-label="Next page" title="Next page" data-i18n-aria-label="nav_next" data-i18n-title="nav_next"><span aria-hidden="true">→</span></a>
         </nav>
     </header>
     <main>
-        <h2 data-i18n="prj_h2">Projects</h2>
-
-    <section class="project">
-            <h3 data-i18n="prj_orbital_h3">Orbital2025 (2025 March - Ongoing)</h3>
-            <div class="project-content-vertical">
-                <iframe width="400" height="225"
-                    src="https://www.youtube.com/embed/H2bGkJQFOcw?si=9lMKD2OWBa5jYgBR"
-                    title="Beta testing"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowfullscreen>
-                </iframe>
-                <div>
-                    <p data-i18n="prj_orbital_p">Indie game in development. Retro-futuristic space combat with realistic orbital physics.
-                        Check out my <a href="https://youtube.com/playlist?list=PL4bcmDv4awOb4WdpuHDiPknu6YfnpEedx&si=pohlLYl6zVkXZvKv" target="_blank"> devlog series</a> for more!
-                        You could download the <a href="https://kevinsunyuqi.itch.io/orbital2025" target="_blank"> latest release</a> of the game here </p>
+        <section class="work-intro" aria-labelledby="work-heading">
+            <div class="work-intro-copy">
+                <p class="work-eyebrow" data-i18n="work_intro">Projects and live demos, arranged by the year they began.</p>
+                <h2 id="work-heading" data-i18n="prj_h2">Projects &amp; Demos</h2>
+            </div>
+            <div class="work-controls">
+                <div class="filter-heading">
+                    <span data-i18n="work_filters">Filter by</span>
+                    <span class="filter-help" data-i18n="work_filter_help">Show matches for any selected tag.</span>
                 </div>
-            </div>
-        </section>
-
-        <section class="project">
-            <h3 data-i18n="prj_qirui_h3">Qirui Pay (2022 May - 2025 June)</h3>
-            <div class="project-content-vertical">
-                <iframe width="400" height="225"
-                    src="https://www.youtube.com/embed/nAjYhv-6kYM"
-                    title="Intro Video"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowfullscreen>
-                </iframe>
-                <div>
-                    <p data-i18n="prj_qirui_p">Qirui Pay is a digital wallet and transaction platform for private currencies issued by large organizations such as schools and companies for use in their internal events. Check out my <a href="https://www.youtube.com/@the_real_kevin8996" target="_blank">YouTube channel</a> for more!</p>
+                <div id="project-filters" class="project-filters" role="group" aria-label="Project filters" data-i18n-aria-label="work_filter_group">
+                    <button type="button" class="filter-button" data-filter="project" aria-pressed="false">#project</button>
+                    <button type="button" class="filter-button" data-filter="showcase" aria-pressed="false">#showcase</button>
+                    <button type="button" class="filter-button" data-filter="robotics" aria-pressed="false">#robotics</button>
+                    <button type="button" class="filter-button" data-filter="software" aria-pressed="false">#software</button>
                 </div>
+                <button type="button" id="project-reset" class="project-reset" data-i18n="work_reset">Reset filters</button>
             </div>
+            <p class="work-count" aria-live="polite"><span id="project-count">10</span> <span data-i18n="work_count_label">items shown</span></p>
         </section>
 
-        <section class="project">
-            <h3 data-i18n="prj_recycle_h3">Recycle Royale (2022 December - 2023 December)</h3>
-            <div class="project-content-vertical">
-                <iframe width="400" height="225"
-                    src="https://www.youtube.com/embed/PC6xUnMR5Vk?si=Pp_2DoYqXSvNvxUk"
-                    title="Playlist"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowfullscreen>
-                </iframe>
-                <div>
-                    <p data-i18n="prj_recycle_p">Project lead for Recycle Royale, a system of smart bins that uses machine vision to sort recyclable trash from landfill.
-                        Users are encouraged to recycle through a gamified app that rewards them with points for each item recycled.
-                        The points can be redeemed for in-game cosmetics, prizes or donated to charity.
-                        Check out Recycle Royale app on the <a href="https://apps.apple.com/app/recycle-royale/id6446848447" target="_blank">App Store page</a>
-                        and <a href="http://recycling.student.isf.edu.hk" target="_blank">the website</a> for more!
-                    </p>
+        <p id="project-empty" class="work-empty" data-i18n="work_empty" hidden>No projects match these filters.</p>
+
+        <section class="projects-timeline" id="projects-timeline" aria-label="Projects by starting year" data-i18n-aria-label="work_timeline_label">
+            <section class="timeline-year" data-year="2026" id="year-2026" aria-labelledby="label-2026">
+                <h2 class="timeline-year-label" id="label-2026">2026</h2>
+                <div class="timeline-year-cards">
+                    <article class="timeline-card" data-project-id="collage" data-tags="showcase software">
+                        <div class="timeline-panel">
+                            <div class="timeline-card-meta"><time datetime="2026-04-12">2026-04-12</time></div>
+                            <div class="project-content">
+                                <img src="assets/collage.png" alt="Auto image collage example" class="project-img" loading="lazy">
+                                <div class="project-info">
+                                    <h3 data-i18n="shw_collage_h3">MDST W26 Project — Auto Image Collage Generator</h3>
+                                    <p data-i18n="shw_collage_p">A photomosaic generator built with Python and Streamlit that transforms any target image into a stunning collage made entirely from your own source images. The tool analyzes colors, matches tiles intelligently, and creates high-resolution artistic mosaics. Developed as project lead for Michigan Data Science Team (MDST).</p>
+                                    <div class="project-links">
+                                        <a href="collage-demo.html" class="project-button" data-i18n="shw_btn_demo">View Demo →</a>
+                                        <a href="https://github.com/The-Real-Kevin/MDST-Image-Collage-W26" target="_blank" rel="noopener noreferrer" class="project-link-secondary" data-i18n="shw_github">GitHub Repository</a>
+                                        <a href="https://www.youtube.com/watch?v=DiUdkiedquo" target="_blank" rel="noopener noreferrer" class="project-link-secondary" data-i18n="shw_watch_demo">Watch Demo Video</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="project-tags" aria-label="Project tags">
+                                <span class="project-tag">#showcase</span><span class="project-tag">#software</span>
+                            </div>
+                        </div>
+                    </article>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <section class="project">
-            <h3 data-i18n="prj_rc_h3">Various RC vehicles/robots (2020 April - 2023 November)</h3>
-            <div class="media-grid">
-                <img src="assets/project1.jpg" alt="Collection of vehicles" class="project-media">
-                <iframe width="280" height="158"
-                    src="https://www.youtube.com/embed/8OvnJanlw-M?si=eTtTY0Mu09cTO3KK&amp;list=PL4bcmDv4awOZ44guoik3CraoAMXpaxECB"
-                    title="Underwater robots and boat"
-                    frameborder="0"
-                    allowfullscreen>
-                </iframe>
-                <iframe width="280" height="158"
-                    src="https://www.youtube.com/embed/videoseries?si=uTCw6Zs6Fa5QB7BL&amp;list=PL4bcmDv4awOYsobwktcMDDLqcG6mTvW1M"
-                    title="Hovercrafts"
-                    frameborder="0"
-                    allowfullscreen>
-                </iframe>
-                <iframe width="280" height="158"
-                    src="https://www.youtube.com/embed/videoseries?si=ZE9IaLwmKmBxIumf&amp;list=PL4bcmDv4awOa21CrogUMGwTAGy5OB5jK7"
-                    title="RC plane"
-                    frameborder="0"
-                    allowfullscreen>
-                </iframe>
-                <!-- Add more media as needed -->
-            </div>
-            <div class="media-grid-description">
-                <p data-i18n="prj_rc_p">A collection of my various RC vehicles and robots. From my first flying wing to hovercrafts, from ekranoplan to robotic boats. All designed and made in my free time. </p>
-            </div>
-        </section>
-        <section class="project">
-            <h3 data-i18n="prj_ieee_h3">IEEE YE Conference (2023 November)</h3>
-            <div class="project-content-vertical">
-                <iframe width="400" height="225"
-                    src="https://www.youtube.com/embed/bFGUwiTUqJw"
-                    title="Presentation Video"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowfullscreen>
-                </iframe>
-                <div>
-                    <p data-i18n="prj_ieee_p">See Resume section on my website for details on "Development and Evaluation of a Low-Cost Open Source Power Monitoring and Recording System for Solar Panel Efficiency Analysis."</p>
+            <section class="timeline-year" data-year="2025" id="year-2025" aria-labelledby="label-2025">
+                <h2 class="timeline-year-label" id="label-2025">2025</h2>
+                <div class="timeline-year-cards">
+                    <article class="timeline-card" data-project-id="civilisation" data-tags="showcase software">
+                        <div class="timeline-panel">
+                            <div class="timeline-card-meta"><time datetime="2025-12-04">2025-12-04</time></div>
+                            <div class="project-content">
+                                <img src="assets/civilisation-thumbnail.png" alt="Civilisation Game" class="project-img" loading="lazy">
+                                <div class="project-info">
+                                    <h3 data-i18n="shw_civ_h3">ENGR100/UARTS150 Final Project — Civilisation</h3>
+                                    <p data-i18n="shw_civ_p">An open-world strategy game where you manage a society through various challenges. Complete missions, interact with NPCs, and make decisions that shape your civilization's future. Built with Construct 3 using TypeScript for game logic.</p>
+                                    <div class="project-links">
+                                        <a href="civilisation.html" class="project-button" data-i18n="shw_btn_play">Play Game →</a>
+                                        <a href="https://www.youtube.com/watch?v=yWzf6_O5P8Q" target="_blank" rel="noopener noreferrer" class="project-link-secondary" data-i18n="shw_watch_tut">Watch Tutorial</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="project-tags" aria-label="Project tags">
+                                <span class="project-tag">#showcase</span><span class="project-tag">#software</span>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="timeline-card" data-project-id="invaders" data-tags="showcase software">
+                        <div class="timeline-panel">
+                            <div class="timeline-card-meta"><time datetime="2025-10-22">2025-10-22</time></div>
+                            <div class="project-content">
+                                <img src="assets/invaders-thumbnail.png" alt="Space Invaders Game" class="project-img" loading="lazy">
+                                <div class="project-info">
+                                    <h3 data-i18n="shw_inv_h3">ENGR100 Demo Project — Space Invaders</h3>
+                                    <p data-i18n="shw_inv_p">A technical demonstration of creating and embedding a Construct 3 game by recreating the classic Space Invaders game.</p>
+                                    <div class="project-links">
+                                        <a href="invaders.html" class="project-button" data-i18n="shw_btn_play">Play Game →</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="project-tags" aria-label="Project tags">
+                                <span class="project-tag">#showcase</span><span class="project-tag">#software</span>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="timeline-card" data-project-id="orbital" data-tags="project software">
+                        <div class="timeline-panel">
+                            <h3 data-i18n="prj_orbital_h3">Orbital2025 (2025 March - Ongoing)</h3>
+                            <div class="project-content-vertical">
+                                <iframe width="400" height="225" src="https://www.youtube.com/embed/H2bGkJQFOcw?si=9lMKD2OWBa5jYgBR" title="Beta testing" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+                                <div>
+                                    <p data-i18n="prj_orbital_p">Indie game in development. Retro-futuristic space combat with realistic orbital physics. Check out my <a href="https://youtube.com/playlist?list=PL4bcmDv4awOb4WdpuHDiPknu6YfnpEedx&amp;si=pohlLYl6zVkXZvKv" target="_blank" rel="noopener noreferrer">devlog series</a> for more! You could download the <a href="https://kevinsunyuqi.itch.io/orbital2025" target="_blank" rel="noopener noreferrer">latest release</a> of the game here</p>
+                                </div>
+                            </div>
+                            <div class="project-tags" aria-label="Project tags"><span class="project-tag">#project</span><span class="project-tag">#software</span></div>
+                        </div>
+                    </article>
                 </div>
-            </div>
-        </section>
-        <section class="project">
-            <h3 data-i18n="prj_13e_h3">13e education (2021 June - 2021 August)</h3>
-            <div class="project-content-vertical">
-                <div>
-                    <p data-i18n="prj_13e_p">Developed the portal app for 13e education, a mobile app for parents to track their children's learning progress.
-                        It syncs the student's coding time and line count which parents can access in real-time.
-                        Check out 13e education on the <a href="https://apps.apple.com/hk/app/13e-education/id1640954044" target="_blank">App Store page</a> for more!
-                    </p>
+            </section>
+
+            <section class="timeline-year" data-year="2023" id="year-2023" aria-labelledby="label-2023">
+                <h2 class="timeline-year-label" id="label-2023">2023</h2>
+                <div class="timeline-year-cards">
+                    <article class="timeline-card" data-project-id="ieee" data-tags="project software">
+                        <div class="timeline-panel">
+                            <h3 data-i18n="prj_ieee_h3">IEEE YE Conference (2023 November)</h3>
+                            <div class="project-content-vertical">
+                                <iframe width="400" height="225" src="https://www.youtube.com/embed/bFGUwiTUqJw" title="Presentation Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+                                <div><p data-i18n="prj_ieee_p">See Resume section on my website for details on "Development and Evaluation of a Low-Cost Open Source Power Monitoring and Recording System for Solar Panel Efficiency Analysis."</p></div>
+                            </div>
+                            <div class="project-tags" aria-label="Project tags"><span class="project-tag">#project</span><span class="project-tag">#software</span></div>
+                        </div>
+                    </article>
                 </div>
-            </div>
-        </section>
-        <section class="project">
-            <h3 data-i18n="prj_solar_h3">Solar Sim 1 (2020 June - 2020 Aug)</h3>
-            <div class="media-grid">
-                <iframe width="360" height="240"
-                    src="https://www.youtube.com/embed/PfyjIiK35KQ"
-                    title="Updated demo 2022"
-                    frameborder="0"
-                    allowfullscreen>
-                </iframe>
-                <iframe width="360" height="240"
-                    src="https://www.youtube.com/embed/xSFN5FMUO-M"
-                    title="First Launch Success"
-                    frameborder="0"
-                    allowfullscreen>
-                </iframe>
-            </div>
-            <div class="media-grid-description">
-                <p data-i18n="prj_solar_p">Developed a fun solar system simulator completely written in C. Gravity and other physical processes are simulated.
-                    Planets specs can be edited in a config file, player can design and program the flight of rockets and other spacecrafts. </p>
-            </div>
-        </section>
+            </section>
 
+            <section class="timeline-year" data-year="2022" id="year-2022" aria-labelledby="label-2022">
+                <h2 class="timeline-year-label" id="label-2022">2022</h2>
+                <div class="timeline-year-cards">
+                    <article class="timeline-card" data-project-id="recycle" data-tags="project robotics software">
+                        <div class="timeline-panel">
+                            <h3 data-i18n="prj_recycle_h3">Recycle Royale (2022 December - 2023 December)</h3>
+                            <div class="project-content-vertical">
+                                <iframe width="400" height="225" src="https://www.youtube.com/embed/PC6xUnMR5Vk?si=Pp_2DoYqXSvNvxUk" title="Playlist" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+                                <div>
+                                    <p data-i18n="prj_recycle_p">Project lead for Recycle Royale, a system of smart bins that uses machine vision to sort recyclable trash from landfill. Users are encouraged to recycle through a gamified app that rewards them with points for each item recycled. The points can be redeemed for in-game cosmetics, prizes or donated to charity. Check out Recycle Royale app on the <a href="https://apps.apple.com/app/recycle-royale/id6446848447" target="_blank" rel="noopener noreferrer">App Store page</a> and <a href="http://recycling.student.isf.edu.hk" target="_blank" rel="noopener noreferrer">the website</a> for more!</p>
+                                </div>
+                            </div>
+                            <div class="project-tags" aria-label="Project tags"><span class="project-tag">#project</span><span class="project-tag">#robotics</span><span class="project-tag">#software</span></div>
+                        </div>
+                    </article>
+                    <article class="timeline-card" data-project-id="qirui" data-tags="project software">
+                        <div class="timeline-panel">
+                            <h3 data-i18n="prj_qirui_h3">Qirui Pay (2022 May - 2025 June)</h3>
+                            <div class="project-content-vertical">
+                                <iframe width="400" height="225" src="https://www.youtube.com/embed/nAjYhv-6kYM" title="Intro Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+                                <div><p data-i18n="prj_qirui_p">Qirui Pay is a digital wallet and transaction platform for private currencies issued by large organizations such as schools and companies for use in their internal events. Check out my <a href="https://www.youtube.com/@the_real_kevin8996" target="_blank" rel="noopener noreferrer">YouTube channel</a> for more!</p></div>
+                            </div>
+                            <div class="project-tags" aria-label="Project tags"><span class="project-tag">#project</span><span class="project-tag">#software</span></div>
+                        </div>
+                    </article>
+                </div>
+            </section>
 
-        <!-- Add more project sections as desired! -->
+            <section class="timeline-year" data-year="2021" id="year-2021" aria-labelledby="label-2021">
+                <h2 class="timeline-year-label" id="label-2021">2021</h2>
+                <div class="timeline-year-cards">
+                    <article class="timeline-card" data-project-id="education" data-tags="project software">
+                        <div class="timeline-panel">
+                            <h3 data-i18n="prj_13e_h3">13e education (2021 June - 2021 August)</h3>
+                            <div class="project-content-vertical">
+                                <div>
+                                    <p data-i18n="prj_13e_p">Developed the portal app for 13e education, a mobile app for parents to track their children's learning progress. It syncs the student's coding time and line count which parents can access in real-time. Check out 13e education on the <a href="https://apps.apple.com/hk/app/13e-education/id1640954044" target="_blank" rel="noopener noreferrer">App Store page</a> for more!</p>
+                                </div>
+                            </div>
+                            <div class="project-tags" aria-label="Project tags"><span class="project-tag">#project</span><span class="project-tag">#software</span></div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <section class="timeline-year" data-year="2020" id="year-2020" aria-labelledby="label-2020">
+                <h2 class="timeline-year-label" id="label-2020">2020</h2>
+                <div class="timeline-year-cards">
+                    <article class="timeline-card" data-project-id="solar" data-tags="project software">
+                        <div class="timeline-panel">
+                            <h3 data-i18n="prj_solar_h3">Solar Sim 1 (2020 June - 2020 Aug)</h3>
+                            <div class="media-grid">
+                                <iframe width="360" height="240" src="https://www.youtube.com/embed/PfyjIiK35KQ" title="Updated demo 2022" frameborder="0" allowfullscreen loading="lazy"></iframe>
+                                <iframe width="360" height="240" src="https://www.youtube.com/embed/xSFN5FMUO-M" title="First Launch Success" frameborder="0" allowfullscreen loading="lazy"></iframe>
+                            </div>
+                            <div class="media-grid-description">
+                                <p data-i18n="prj_solar_p">Developed a fun solar system simulator completely written in C. Gravity and other physical processes are simulated. Planets specs can be edited in a config file, player can design and program the flight of rockets and other spacecrafts.</p>
+                            </div>
+                            <div class="project-tags" aria-label="Project tags"><span class="project-tag">#project</span><span class="project-tag">#software</span></div>
+                        </div>
+                    </article>
+                    <article class="timeline-card" data-project-id="rc" data-tags="project robotics">
+                        <div class="timeline-panel">
+                            <h3 data-i18n="prj_rc_h3">Various RC vehicles/robots (2020 April - 2023 November)</h3>
+                            <div class="media-grid">
+                                <img src="assets/project1.jpg" alt="Collection of vehicles" class="project-media" loading="lazy">
+                                <iframe width="280" height="158" src="https://www.youtube.com/embed/8OvnJanlw-M?si=eTtTY0Mu09cTO3KK&amp;list=PL4bcmDv4awOZ44guoik3CraoAMXpaxECB" title="Underwater robots and boat" frameborder="0" allowfullscreen loading="lazy"></iframe>
+                                <iframe width="280" height="158" src="https://www.youtube.com/embed/videoseries?si=uTCw6Zs6Fa5QB7BL&amp;list=PL4bcmDv4awOYsobwktcMDDLqcG6mTvW1M" title="Hovercrafts" frameborder="0" allowfullscreen loading="lazy"></iframe>
+                                <iframe width="280" height="158" src="https://www.youtube.com/embed/videoseries?si=ZE9IaLwmKmBxIumf&amp;list=PL4bcmDv4awOa21CrogUMGwTAGy5OB5jK7" title="RC plane" frameborder="0" allowfullscreen loading="lazy"></iframe>
+                            </div>
+                            <div class="media-grid-description">
+                                <p data-i18n="prj_rc_p">A collection of my various RC vehicles and robots. From my first flying wing to hovercrafts, from ekranoplan to robotic boats. All designed and made in my free time.</p>
+                            </div>
+                            <div class="project-tags" aria-label="Project tags"><span class="project-tag">#project</span><span class="project-tag">#robotics</span></div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+        </section>
     </main>
     <footer>
         <div class="footer-bar">
             <a href="mailto:yuqisun@umich.edu">Email: yuqisun@umich.edu</a>
-            <a href="https://www.linkedin.com/in/kevinsunyuqi" target="_blank">LinkedIn</a>
-            <a href="https://www.youtube.com/@the_real_kevin8996" target="_blank">YouTube</a>
-            <a href="https://yuqisun-blog-umich.tumblr.com/" target="_blank">Blog</a>
+            <a href="https://www.linkedin.com/in/kevinsunyuqi" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a href="https://www.youtube.com/@the_real_kevin8996" target="_blank" rel="noopener noreferrer">YouTube</a>
+            <a href="https://yuqisun-blog-umich.tumblr.com/" target="_blank" rel="noopener noreferrer">Blog</a>
         </div>
     </footer>
 </body>
