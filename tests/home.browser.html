@@ -35,23 +35,24 @@
           await settle(win);
           const doc = win.document;
           const track = doc.getElementById('semester-track');
-          const slides = Array.from(track.children);
+          const slides = Array.from(track.children).filter(slide => !slide.hidden);
           const previous = doc.getElementById('semester-prev');
           const next = doc.getElementById('semester-next');
           check(doc.documentElement.scrollWidth <= width + 1, 'Page overflow: ' + lang + width);
-          check(slides.length === 5, 'Expected five semesters');
+          check(slides.length === 4, 'Expected four visible semesters');
+          check(doc.getElementById('semester-winter27').parentElement.hidden, 'Winter 2027 must remain hidden');
           check(slides.map(s => s.querySelector('h3').id).join(',') ===
-            'semester-winter27,semester-fall26,semester-summer26,semester-winter26,semester-fall25',
+            'semester-fall26,semester-summer26,semester-winter26,semester-fall25',
             'Incorrect newest-to-oldest semester order');
           check(previous.disabled && !next.disabled, 'Initial carousel boundary incorrect');
           for (let i = 0; i < slides.length; i++) {
             if (i) next.click();
             await waitFor(win, () =>
-              doc.getElementById('semester-status').textContent === (i + 1) + ' / 5' &&
+              doc.getElementById('semester-status').textContent === (i + 1) + ' / 4' &&
               Math.abs(slides[i].getBoundingClientRect().left - track.getBoundingClientRect().left) < 2 &&
               track.clientHeight + 1 >= slides[i].getBoundingClientRect().height,
               'Carousel did not settle at slide ' + i);
-            check(doc.getElementById('semester-status').textContent === (i + 1) + ' / 5', 'Wrong semester counter');
+            check(doc.getElementById('semester-status').textContent === (i + 1) + ' / 4', 'Wrong semester counter');
             check(slides[i].getAttribute('aria-hidden') === 'false', 'Selected slide not accessible');
             check(slides.filter(slide => !slide.inert).length === 1, 'Offscreen slides remain focusable');
             const offset = Math.abs(slides[i].getBoundingClientRect().left - track.getBoundingClientRect().left);
@@ -67,9 +68,9 @@
           // Native touch swipes use this same scroll/snap path.
           track.scrollTo({ left: track.clientWidth + parseFloat(win.getComputedStyle(track).gap), behavior: 'instant' });
           await settle(win);
-          await waitFor(win, () => doc.getElementById('semester-status').textContent === '2 / 5',
+          await waitFor(win, () => doc.getElementById('semester-status').textContent === '2 / 4',
             'Native scroll controls did not settle');
-          check(doc.getElementById('semester-status').textContent === '2 / 5', 'Native scroll did not update controls');
+          check(doc.getElementById('semester-status').textContent === '2 / 4', 'Native scroll did not update controls');
           const opener = doc.getElementById('contact-open');
           const dialog = doc.getElementById('contact-dialog');
           opener.click();
@@ -87,6 +88,8 @@
           check(opener.textContent.trim() === {en:'Get in touch',de:'Kontakt aufnehmen',ct:'聯絡我'}[lang],
             'Contact action not translated');
           check(doc.querySelector('.home-actions a').getAttribute('href') === 'projects.html', 'Projects action incorrect');
+          check(doc.querySelector('.home-actions a').textContent === {en:'Learn more',de:'Mehr erfahren',ct:'了解更多'}[lang],
+            'Learn more action not translated');
           check(doc.querySelector('.home-actions a:nth-child(2)').getAttribute('href') === 'resume.html', 'Resume action incorrect');
           passed.push('PASS ' + lang + '/' + theme + '/' + width + ': carousel, scroll, keyboard, dialog, links');
         }

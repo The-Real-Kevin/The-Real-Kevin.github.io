@@ -36,7 +36,7 @@
   const status = document.getElementById('semester-status');
   if (!track || !previous || !next || !status) return;
 
-  const slides = Array.from(track.querySelectorAll('.semester'));
+  const slides = Array.from(track.querySelectorAll('.semester:not([hidden])'));
   if (!slides.length) return;
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   let active = 0;
