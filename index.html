@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="site-theme.css">
     <script src="theme.js"></script>
     <script src="i18n.js"></script>
+    <script src="home.js" defer></script>
 </head>
 <body class="home-page">
     <header>
@@ -35,6 +36,11 @@
                 <p data-i18n="idx_about_p">
                     Hi, I'm Yuqi Sun (Kevin). I study Computer Science and Robotics at University of Michigan, College of Engineering. I am interested in multimodal perception for autonomous systems. In my free time, I enjoy cycling, writing poetry, and playing my cello.
                 </p>
+                <div class="home-actions">
+                    <a class="home-action home-action-primary" href="projects.html" data-i18n="idx_explore">Explore my work</a>
+                    <a class="home-action" href="resume.html" data-i18n="idx_view_resume">View resume</a>
+                    <button class="home-action home-action-contact" id="contact-open" type="button" aria-haspopup="dialog" aria-controls="contact-dialog" data-i18n="idx_contact">Get in touch</button>
+                </div>
             </div>
         </div>
         <!-- Current Involvements Section -->
@@ -74,47 +80,73 @@
             <div class="gpa-banner">
                 <span data-i18n="idx_gpa">3.92 GPA <em>(updated Winter 2026)</em></span>
             </div>
-            <div class="course-timeline">
-                <div class="semester">
-                    <h3 data-i18n="idx_fall26">Fall 2026</h3>
-                    <ul>
-                        <li>EECS295: Leadership & Soc Cntx</li>
-                        <li>EECS376: Foundatns Comp Sci</li>
-                        <li>GERMAN 310: Studies in German Culture, Hamburg</li>
-                        <li>GERMAN 325: Interm German, German for Engineers</li>
-                        <li>ROB 204: Intro Human-Robot Sys</li>
-                        <li>ROB 320: Robot Operating Sys</li>
-                    </ul>
+            <div class="semester-carousel" id="semester-carousel" role="region" aria-label="Academic semesters" data-i18n-aria-label="idx_semester_carousel">
+                <div class="semester-controls">
+                    <button class="semester-control" id="semester-prev" type="button" aria-label="Newer semester" title="Newer semester" data-i18n-aria-label="idx_semester_prev" data-i18n-title="idx_semester_prev"><span aria-hidden="true">←</span></button>
+                    <span class="semester-status" id="semester-status" aria-live="polite" aria-atomic="true">1 / 5</span>
+                    <button class="semester-control" id="semester-next" type="button" aria-label="Older semester" title="Older semester" data-i18n-aria-label="idx_semester_next" data-i18n-title="idx_semester_next"><span aria-hidden="true">→</span></button>
                 </div>
-                <div class="semester">
-                    <h3 data-i18n="idx_winter27">Winter 2027</h3>
-                </div>
-                <div class="semester">
-                    <h3 data-i18n="idx_fall25">Fall 2025</h3>
-                    <ul>
-                        <li>ENGR100: Intro to Engineering</li>
-                        <li>ENGR101: Intro to Comps &amp; Prog</li>
-                        <li>ENGR110: Des Your Engr Exp</li>
-                        <li>MATH214: App Linear Algebra</li>
-                        <li>EECS203: Discrete Math</li>
-                        <li>EECS280: Prog &amp; Data Struct</li>
-                    </ul>
-                </div>
-                <div class="semester">
-                    <h3 data-i18n="idx_winter26">Winter 2026</h3>
-                    <ul>
-                        <li>CHEM125: Gen Chem Lab I</li>
-                        <li>CHEM126: Gen Chem Lab II</li>
-                        <li>CHEM130: G Chem &amp; R Princ</li>
-                        <li>STATS250: Intr Stat &amp; Data Anlys</li>
-                        <li>EECS281: Data Struct &amp; Algor</li>
-                        <li>EECS370: Intro Computer Org</li>
-                        <li>UARTS175: Collab Creative Proj</li>
-                    </ul>
+                <div class="course-timeline" id="semester-track" tabindex="0" aria-label="Semester courses" data-i18n-aria-label="idx_semester_track">
+                    <div class="semester" role="group" aria-labelledby="semester-winter27">
+                        <h3 id="semester-winter27" data-i18n="idx_winter27">Winter 2027</h3>
+                    </div>
+                    <div class="semester" role="group" aria-labelledby="semester-fall26">
+                        <h3 id="semester-fall26" data-i18n="idx_fall26">Fall 2026</h3>
+                        <ul>
+                            <li>EECS295: Leadership &amp; Soc Cntx</li>
+                            <li>EECS376: Foundatns Comp Sci</li>
+                            <li>GERMAN 310: Studies in German Culture, Hamburg</li>
+                            <li>GERMAN 325: Interm German, German for Engineers</li>
+                            <li>ROB 204: Intro Human-Robot Sys</li>
+                            <li>ROB 320: Robot Operating Sys</li>
+                        </ul>
+                    </div>
+                    <div class="semester" role="group" aria-labelledby="semester-summer26">
+                        <h3 id="semester-summer26" data-i18n="idx_summer26">Spring/Summer 2026</h3>
+                        <ul>
+                            <li data-i18n="idx_summer26_490">ENGR 490: Special Topics</li>
+                            <li data-i18n="idx_summer26_301">ENGR 301: Study Abroad</li>
+                        </ul>
+                    </div>
+                    <div class="semester" role="group" aria-labelledby="semester-winter26">
+                        <h3 id="semester-winter26" data-i18n="idx_winter26">Winter 2026</h3>
+                        <ul>
+                            <li>CHEM125: Gen Chem Lab I</li>
+                            <li>CHEM126: Gen Chem Lab II</li>
+                            <li>CHEM130: G Chem &amp; R Princ</li>
+                            <li>STATS250: Intr Stat &amp; Data Anlys</li>
+                            <li>EECS281: Data Struct &amp; Algor</li>
+                            <li>EECS370: Intro Computer Org</li>
+                            <li>UARTS175: Collab Creative Proj</li>
+                        </ul>
+                    </div>
+                    <div class="semester" role="group" aria-labelledby="semester-fall25">
+                        <h3 id="semester-fall25" data-i18n="idx_fall25">Fall 2025</h3>
+                        <ul>
+                            <li>ENGR100: Intro to Engineering</li>
+                            <li>ENGR101: Intro to Comps &amp; Prog</li>
+                            <li>ENGR110: Des Your Engr Exp</li>
+                            <li>MATH214: App Linear Algebra</li>
+                            <li>EECS203: Discrete Math</li>
+                            <li>EECS280: Prog &amp; Data Struct</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </section>
     </main>
+    <dialog id="contact-dialog" aria-labelledby="contact-title">
+        <div class="contact-dialog-content">
+            <div class="contact-dialog-heading">
+                <h2 id="contact-title" data-i18n="idx_contact">Get in touch</h2>
+                <button id="contact-close" class="contact-close" type="button" aria-label="Close" data-i18n="idx_contact_close" data-i18n-aria-label="idx_contact_close">Close</button>
+            </div>
+            <div class="contact-links">
+                <a href="mailto:yuqisun@umich.edu">yuqisun@umich.edu</a>
+                <a href="https://www.linkedin.com/in/kevinsunyuqi" target="_blank" rel="noopener">LinkedIn</a>
+            </div>
+        </div>
+    </dialog>
     <footer>
         <div class="footer-bar">
             <a href="mailto:yuqisun@umich.edu">Email: yuqisun@umich.edu</a>

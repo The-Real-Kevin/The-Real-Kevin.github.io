@@ -1,0 +1,107 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Home interaction regression checks</title>
+<pre id="results">RUNNING</pre>
+<iframe id="frame" style="width:1280px;height:1800px;border:0"></iframe>
+<script>
+(async function () {
+  const output = document.getElementById('results');
+  const frame = document.getElementById('frame');
+  const passed = [];
+  function check(condition, message) { if (!condition) throw new Error(message); }
+  function load(lang, theme, width) {
+    localStorage.setItem('ks-lang', lang);
+    localStorage.setItem('ks-theme', theme);
+    frame.style.width = width + 'px';
+    return new Promise(resolve => {
+      frame.onload = () => resolve(frame.contentWindow);
+      frame.src = '../index.html?home-test=' + lang + theme + width;
+    });
+  }
+  const settle = win => new Promise(resolve =>
+    win.requestAnimationFrame(() => win.setTimeout(resolve, 160)));
+  async function waitFor(win, condition, message) {
+    for (let attempt = 0; attempt < 60; attempt++) {
+      if (condition()) return;
+      await new Promise(resolve => win.requestAnimationFrame(() => win.setTimeout(resolve, 25)));
+    }
+    throw new Error(message);
+  }
+  try {
+    for (const lang of ['en', 'de', 'ct']) {
+      for (const theme of ['dark', 'maize']) {
+        for (const width of [1280, 375]) {
+          const win = await load(lang, theme, width);
+          await settle(win);
+          const doc = win.document;
+          const track = doc.getElementById('semester-track');
+          const slides = Array.from(track.children);
+          const previous = doc.getElementById('semester-prev');
+          const next = doc.getElementById('semester-next');
+          check(doc.documentElement.scrollWidth <= width + 1, 'Page overflow: ' + lang + width);
+          check(slides.length === 5, 'Expected five semesters');
+          check(slides.map(s => s.querySelector('h3').id).join(',') ===
+            'semester-winter27,semester-fall26,semester-summer26,semester-winter26,semester-fall25',
+            'Incorrect newest-to-oldest semester order');
+          check(previous.disabled && !next.disabled, 'Initial carousel boundary incorrect');
+          for (let i = 0; i < slides.length; i++) {
+            if (i) next.click();
+            await waitFor(win, () =>
+              doc.getElementById('semester-status').textContent === (i + 1) + ' / 5' &&
+              Math.abs(slides[i].getBoundingClientRect().left - track.getBoundingClientRect().left) < 2 &&
+              track.clientHeight + 1 >= slides[i].getBoundingClientRect().height,
+              'Carousel did not settle at slide ' + i);
+            check(doc.getElementById('semester-status').textContent === (i + 1) + ' / 5', 'Wrong semester counter');
+            check(slides[i].getAttribute('aria-hidden') === 'false', 'Selected slide not accessible');
+            check(slides.filter(slide => !slide.inert).length === 1, 'Offscreen slides remain focusable');
+            const offset = Math.abs(slides[i].getBoundingClientRect().left - track.getBoundingClientRect().left);
+            check(offset < 2, 'Carousel navigation did not align selected slide: ' + i + '/' + offset);
+            check(track.clientHeight + 1 >= slides[i].getBoundingClientRect().height,
+              'Course list clipped: ' + i + ' track=' + track.clientHeight + ' style=' + track.style.height +
+              ' card=' + slides[i].getBoundingClientRect().height + ' count=' + doc.getElementById('semester-status').textContent);
+          }
+          check(next.disabled && !previous.disabled, 'Final carousel boundary incorrect');
+          track.dispatchEvent(new win.KeyboardEvent('keydown', { key: 'Home', bubbles: true }));
+          await settle(win);
+          check(previous.disabled, 'Home key did not return to newest');
+          // Native touch swipes use this same scroll/snap path.
+          track.scrollTo({ left: track.clientWidth + parseFloat(win.getComputedStyle(track).gap), behavior: 'instant' });
+          await settle(win);
+          await waitFor(win, () => doc.getElementById('semester-status').textContent === '2 / 5',
+            'Native scroll controls did not settle');
+          check(doc.getElementById('semester-status').textContent === '2 / 5', 'Native scroll did not update controls');
+          const opener = doc.getElementById('contact-open');
+          const dialog = doc.getElementById('contact-dialog');
+          opener.click();
+          check(dialog.open, 'Contact dialog did not open');
+          check(doc.activeElement.id === 'contact-close', 'Dialog focus was not moved');
+          check(dialog.querySelector('a[href="mailto:yuqisun@umich.edu"]'), 'Email link missing');
+          check(dialog.querySelector('a[href="https://www.linkedin.com/in/kevinsunyuqi"]'), 'LinkedIn link missing');
+          doc.getElementById('contact-close').click();
+          await settle(win);
+          check(!dialog.open && doc.activeElement === opener, 'Dialog close/focus restoration failed');
+          opener.click();
+          dialog.dispatchEvent(new win.MouseEvent('click', { clientX: 0, clientY: 0 }));
+          await settle(win);
+          check(!dialog.open, 'Backdrop click did not close dialog');
+          check(opener.textContent.trim() === {en:'Get in touch',de:'Kontakt aufnehmen',ct:'聯絡我'}[lang],
+            'Contact action not translated');
+          check(doc.querySelector('.home-actions a').getAttribute('href') === 'projects.html', 'Projects action incorrect');
+          check(doc.querySelector('.home-actions a:nth-child(2)').getAttribute('href') === 'resume.html', 'Resume action incorrect');
+          passed.push('PASS ' + lang + '/' + theme + '/' + width + ': carousel, scroll, keyboard, dialog, links');
+        }
+      }
+    }
+    output.textContent = 'ALL PASSED\n' + passed.join('\n');
+  } catch (error) {
+    const t = frame.contentDocument.getElementById('semester-track');
+    output.textContent = 'FAILED: ' + error.message + '\n' + passed.join('\n') + '\n' +
+      JSON.stringify({
+        count: frame.contentDocument.getElementById('semester-status').textContent,
+        height: t.clientHeight, style: t.style.height, scroll: t.scrollLeft,
+        slides: Array.from(t.children).map(s => ({height:s.getBoundingClientRect().height,
+          left:s.getBoundingClientRect().left-t.getBoundingClientRect().left, hidden:s.getAttribute('aria-hidden')}))
+      });
+  }
+})();
+</script>

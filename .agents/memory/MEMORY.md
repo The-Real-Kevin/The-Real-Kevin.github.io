@@ -1,3 +1,5 @@
 - [Trilingual consistency](trilingual-consistency.md) — Keep all three language versions consistent whenever changing website content.
 - [Theme direction](theme-direction.md) — Prefer white or very light maize, maize outlines and accents, and dark text over large solid color areas.
 - [Preview routing checks](preview-routing.md) — Local screenshots can succeed even when the default development-domain preview route is broken.
+- [Browser validation timing](browser-validation.md) — Use real browser timing for scrolling, rendering, and native-dialog interaction checks.
+- [Home-page content direction](homepage-direction.md) — Keep the existing biography; do not add a new introductory tagline or Selected Work section.
