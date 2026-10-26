@@ -337,6 +337,142 @@ body.home-page .timeline-section {
   padding: 27px;
 }
 
+body.home-page .home-bottom-panels {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 18px;
+  min-width: 0;
+}
+
+body.home-page .home-bottom-panels > .timeline-section {
+  grid-column: auto;
+  min-width: 0;
+  padding: 27px;
+}
+
+body.home-page .gallery-section {
+  min-width: 0;
+  margin: 0;
+  padding: 27px;
+  background: var(--home-surface);
+  border: 1px solid var(--home-maize-line);
+  border-radius: 7px;
+  box-shadow: var(--home-shadow);
+  transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+}
+
+body.home-page .gallery-section:hover {
+  border-color: var(--home-maize);
+  box-shadow: 0 14px 42px rgba(58, 49, 23, 0.075);
+  transform: translateY(-2px);
+}
+
+body.home-page .gallery-intro {
+  margin: -5px 0 14px;
+  color: var(--home-muted);
+  font-size: 0.85rem;
+}
+
+body.home-page .gallery-controls {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 9px;
+  margin: -2px 0 10px;
+}
+
+body.home-page .gallery-control {
+  flex: 0 0 auto;
+}
+
+body.home-page .gallery-status {
+  min-width: 42px;
+}
+
+body.home-page .gallery-track {
+  display: flex;
+  min-width: 0;
+  align-items: stretch;
+  gap: 13px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  overscroll-behavior-x: contain;
+  scroll-behavior: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-color: var(--home-maize-line) transparent;
+  scrollbar-width: thin;
+  -webkit-overflow-scrolling: touch;
+}
+
+body.home-page .gallery-slide {
+  flex: 0 0 100%;
+  min-width: 0;
+  margin: 0;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+body.home-page .gallery-image-area {
+  position: relative;
+  display: flex;
+  min-width: 0;
+  aspect-ratio: 4 / 3;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 9px;
+  overflow: hidden;
+  color: var(--home-muted);
+  background:
+    linear-gradient(135deg, transparent 49.7%, var(--home-rule) 50%, transparent 50.3%),
+    linear-gradient(45deg, transparent 49.7%, var(--home-rule) 50%, transparent 50.3%),
+    var(--home-paper);
+  border: 1px dashed var(--home-maize-line);
+  border-radius: 4px;
+}
+
+body.home-page .gallery-image-area img {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+body.home-page .gallery-number {
+  position: absolute;
+  top: 10px;
+  left: 12px;
+  color: var(--home-maize);
+  font-size: 0.72rem;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.08em;
+}
+
+body.home-page .gallery-placeholder-icon {
+  width: 38px;
+  height: 38px;
+  color: var(--home-maize);
+  opacity: 0.78;
+}
+
+body.home-page .gallery-placeholder-label {
+  color: var(--home-muted);
+  font-size: 0.78rem;
+  letter-spacing: 0.01em;
+}
+
+body.home-page .gallery-slide figcaption {
+  min-height: 2.8em;
+  padding: 10px 2px 1px;
+  color: var(--home-muted);
+  font-size: 0.82rem;
+  line-height: 1.5;
+}
+
 body.home-page .gpa-banner {
   display: inline-block;
   margin: 1px 0 21px;
@@ -447,6 +583,7 @@ body.home-page .semester ul {
   color: var(--home-muted);
   font-size: 0.83rem;
   line-height: 1.55;
+  overflow-wrap: anywhere;
 }
 
 body.home-page .semester li {
@@ -637,7 +774,22 @@ body.home-page #theme-toggle:hover {
     padding: 22px 20px;
   }
 
+  body.home-page .home-bottom-panels {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 14px;
+  }
+
+  body.home-page .home-bottom-panels > .timeline-section,
+  body.home-page .gallery-section {
+    grid-column: 1;
+    padding: 22px 20px;
+  }
+
   body.home-page .course-timeline {
+    gap: 10px;
+  }
+
+  body.home-page .gallery-track {
     gap: 10px;
   }
 
@@ -663,6 +815,10 @@ body.home-page #theme-toggle:hover {
 
   body.home-page .semester {
     padding: 15px;
+  }
+
+  body.home-page .gallery-image-area {
+    aspect-ratio: 5 / 4;
   }
 
   body.home-page .home-actions {
