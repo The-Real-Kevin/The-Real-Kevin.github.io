@@ -17,6 +17,6 @@ Use a far-left year timeline with horizontal branches to panels. Panels progress
 
 Full-width means the outer timeline/projects section, not each individual project card. Desktop cards should stay compact, with date/title/media on the left and description/actions/hashtags on the right; mobile stays stacked.
 
-**Why:** The user clarified that page-wide individual cards made the media too large and left too much empty space, while confirming the two-column arrangement was right.
+**Why:** The user clarified that page-wide individual cards made the media too large and left too much empty space, then explicitly confirmed that the compact timeline looked much nicer and should be kept.
 
 **How to apply:** Let the timeline use the browser width without stretching individual cards to fill it. Keep media modest and card spacing tight.

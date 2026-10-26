@@ -684,3 +684,296 @@ body.projects-page .timeline-card .project-media {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* Native project viewer: spacious media, while the archive cards stay compact. */
+body.project-dialog-open {
+  overflow: hidden;
+}
+
+.timeline-panel {
+  cursor: zoom-in;
+}
+
+.timeline-panel a,
+.timeline-panel button,
+.timeline-panel iframe {
+  cursor: auto;
+}
+
+.timeline-panel a,
+.timeline-panel button,
+.project-expand-button {
+  cursor: pointer;
+}
+
+.project-expand-button {
+  display: inline-flex;
+  min-height: 30px;
+  align-self: flex-end;
+  align-items: center;
+  justify-content: center;
+  margin: 13px 0 0 auto;
+  padding: 5px 9px;
+  color: var(--site-muted);
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  font: inherit;
+  font-size: 0.71rem;
+  line-height: 1.2;
+  transition: color 160ms ease, border-color 160ms ease, background-color 160ms ease;
+}
+
+.project-expand-button:hover,
+.project-expand-button:focus-visible {
+  color: var(--site-ink);
+  background: var(--site-accent-soft);
+  border-color: var(--site-accent-line);
+}
+
+.project-dialog {
+  box-sizing: border-box;
+  width: min(1500px, 96vw);
+  max-width: 1500px;
+  height: 92dvh;
+  max-height: 92dvh;
+  margin: auto;
+  padding: 0;
+  overflow: hidden;
+  color: var(--site-ink);
+  background: var(--site-paper);
+  border: 1px solid var(--site-accent-line);
+  border-radius: 8px;
+  box-shadow: var(--site-shadow);
+}
+
+.project-dialog[open] {
+  display: flex;
+  flex-direction: column;
+}
+
+.project-dialog::backdrop {
+  background: rgba(18, 29, 43, 0.58);
+  backdrop-filter: blur(4px);
+}
+
+.project-dialog-toolbar {
+  position: sticky;
+  z-index: 2;
+  top: 0;
+  display: flex;
+  min-height: 58px;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 9px 16px 9px 22px;
+  background: var(--site-paper);
+  border-bottom: 1px solid var(--site-rule);
+}
+
+.project-dialog-toolbar p {
+  margin: 0;
+  color: var(--site-muted);
+  font-size: 0.78rem;
+  line-height: 1.4;
+}
+
+.project-dialog-close {
+  display: inline-grid;
+  width: 38px;
+  height: 38px;
+  flex: 0 0 auto;
+  place-items: center;
+  padding: 0;
+  color: var(--site-ink);
+  background: var(--site-accent-soft);
+  border: 1px solid var(--site-accent-line);
+  border-radius: 50%;
+  font: inherit;
+  font-size: 1.45rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background-color 160ms ease, border-color 160ms ease, transform 160ms ease;
+}
+
+.project-dialog-close:hover,
+.project-dialog-close:focus-visible {
+  background: var(--site-wash);
+  border-color: var(--site-accent);
+  transform: rotate(4deg);
+}
+
+.project-dialog-content {
+  min-height: 0;
+  flex: 1 1 auto;
+  overflow: auto;
+  overscroll-behavior: contain;
+  padding: clamp(14px, 2.5vw, 34px);
+}
+
+.project-dialog .timeline-card.project-expanded-card {
+  position: static;
+  top: auto;
+  left: auto;
+  z-index: auto;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  cursor: auto;
+  transform: none;
+}
+
+.project-dialog .timeline-card.project-expanded-card::before,
+.project-dialog .timeline-card.project-expanded-card::after {
+  display: none;
+  content: none;
+}
+
+.project-dialog .project-expanded-card .timeline-panel {
+  padding: clamp(18px, 3vw, 38px);
+  cursor: auto;
+  box-shadow: none;
+}
+
+.project-dialog .project-expanded-card .timeline-card-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.9fr) minmax(280px, 1fr);
+  gap: clamp(24px, 4vw, 60px);
+  align-items: start;
+}
+
+.project-dialog .project-expanded-card [data-mobile-order] {
+  order: 0;
+}
+
+.project-dialog .project-expanded-card .timeline-card-left,
+.project-dialog .project-expanded-card .timeline-card-right {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.project-dialog .project-expanded-card .timeline-card-left .timeline-card-meta {
+  margin-bottom: 8px;
+  font-size: 0.77rem;
+}
+
+.project-dialog .project-expanded-card .timeline-card-left h3 {
+  max-width: 44ch;
+  margin-bottom: 20px;
+  font-size: clamp(1.35rem, 2.4vw, 2rem);
+  line-height: 1.25;
+}
+
+body.projects-page .project-dialog .project-expanded-card .timeline-card-left > .project-img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: 65vh;
+  object-fit: contain;
+  background: var(--site-wash);
+}
+
+.project-dialog .project-expanded-card iframe {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: 65vh;
+  aspect-ratio: 16 / 9;
+  border: 0;
+  border-radius: 4px;
+  background: var(--site-wash);
+  box-shadow: none;
+}
+
+.project-dialog .project-expanded-card .media-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 0;
+}
+
+.project-dialog .project-expanded-card .media-grid > * {
+  width: 100%;
+  max-width: 100%;
+  max-height: 65vh;
+}
+
+.project-dialog .project-expanded-card .media-grid .project-media {
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
+}
+
+.project-dialog .project-expanded-card .timeline-card-right {
+  gap: 3px;
+  padding-top: 4px;
+}
+
+.project-dialog .project-expanded-card .timeline-card-right > p,
+.project-dialog .project-expanded-card .timeline-card-right > div {
+  margin-top: 0;
+}
+
+.project-dialog .project-expanded-card .timeline-card-right p {
+  font-size: 0.98rem;
+  line-height: 1.75;
+}
+
+.project-dialog .project-expanded-card .project-links {
+  gap: 10px 14px;
+  margin-top: 18px;
+}
+
+.project-dialog .project-expanded-card .project-tags {
+  margin-top: 22px;
+  padding-top: 15px;
+}
+
+.project-dialog .project-expanded-card .project-expand-button {
+  display: none;
+}
+
+@media (max-width: 1000px) {
+  .project-expand-button {
+    order: 1000;
+  }
+
+  .project-dialog .project-expanded-card .timeline-card-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+  }
+
+  .project-dialog .project-expanded-card .timeline-card-left,
+  .project-dialog .project-expanded-card .timeline-card-right {
+    display: flex;
+  }
+}
+
+@media (max-width: 600px) {
+  .project-dialog {
+    width: 96vw;
+    height: 92dvh;
+    border-radius: 6px;
+  }
+
+  .project-dialog-toolbar {
+    min-height: 52px;
+    padding: 7px 10px 7px 14px;
+  }
+
+  .project-dialog-content {
+    padding: 12px;
+  }
+
+  .project-dialog .project-expanded-card .timeline-panel {
+    padding: 16px;
+  }
+
+  .project-dialog .project-expanded-card .media-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

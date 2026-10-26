@@ -1,0 +1,108 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Expanded project viewer regression checks</title>
+<pre id="results">RUNNING</pre>
+<iframe id="frame" style="width:1440px;height:900px;border:0"></iframe>
+<script>
+(async function () {
+  const output = document.getElementById('results');
+  const frame = document.getElementById('frame');
+  const passed = [];
+  const wait = ms => new Promise(resolve => setTimeout(resolve, ms));
+  function check(condition, message) { if (!condition) throw Error(message); }
+  function load(lang, theme, width) {
+    localStorage.setItem('ks-lang', lang);
+    localStorage.setItem('ks-theme', theme);
+    frame.style.width = width + 'px';
+    return new Promise(resolve => {
+      frame.onload = () => resolve(frame.contentWindow);
+      frame.src = '../projects.html?viewer-test=' + lang + theme + width;
+    });
+  }
+  try {
+    for (const lang of ['en', 'de', 'ct']) {
+      for (const theme of ['dark', 'maize']) {
+        for (const width of [375, 1024, 1440]) {
+          window.testProgress = lang + '/' + theme + '/' + width;
+          const win = await load(lang, theme, width);
+          const doc = win.document;
+          await wait(100);
+          const dialog = doc.getElementById('project-dialog');
+          const close = doc.getElementById('project-dialog-close');
+          const content = doc.getElementById('project-dialog-content');
+          const cards = Array.from(doc.querySelectorAll('#projects-timeline .timeline-card'));
+          check(cards.length === 10, 'Original projects missing');
+          for (const [index, card] of cards.entries()) {
+            const button = card.querySelector('.project-expand-button');
+            check(button.textContent === {
+              en:'Expand project ↗',de:'Projekt vergrößern ↗',ct:'放大項目 ↗'
+            }[lang], 'Expand control translation missing');
+            // Card background/heading click and accessible button both open.
+            (index % 2 ? button : card.querySelector('h3')).click();
+            await wait(60);
+            check(dialog.open, 'Project did not expand: ' + card.dataset.projectId);
+            check(doc.activeElement === close, 'Close button should receive focus');
+            check(button.getAttribute('aria-expanded') === 'true', 'Expanded state missing');
+            check(doc.body.classList.contains('project-dialog-open'), 'Background not scroll-locked');
+            const expanded = content.querySelector('.project-expanded-card');
+            check(expanded.querySelector('h3').textContent === card.querySelector('h3').textContent,
+              'Expanded project title mismatch');
+            for (const selector of ['img', 'iframe', 'a', '.project-tag']) {
+              check(expanded.querySelectorAll(selector).length === card.querySelectorAll(selector).length,
+                'Expanded media/links/tags lost: ' + selector);
+            }
+            const box = dialog.getBoundingClientRect();
+            check(box.width >= width * 0.85, 'Viewer is not nearly full-width');
+            check(box.left >= -1 && box.right <= width + 1, 'Viewer overflows screen');
+            check(dialog.scrollWidth <= dialog.clientWidth + 1, 'Dialog horizontal overflow');
+            check(content.scrollWidth <= content.clientWidth + 1, 'Expanded content horizontal overflow');
+            const compactMedia = card.querySelector('img, iframe');
+            if (compactMedia) {
+              const largeMedia = expanded.querySelector('img, iframe').getBoundingClientRect();
+              const smallMedia = compactMedia.getBoundingClientRect();
+              check(largeMedia.width > smallMedia.width + 10, 'Media did not enlarge');
+            }
+            content.scrollTop = content.scrollHeight;
+            check(close.getBoundingClientRect().top >= box.top, 'Close button scrolls out of view');
+            // Clicking inside the viewer must not dismiss it.
+            expanded.querySelector('h3').click();
+            check(dialog.open, 'Inside click incorrectly closed dialog');
+            if (index % 3 === 0) close.click();
+            else if (index % 3 === 1) {
+              dialog.dispatchEvent(new win.MouseEvent('click', {clientX:0,clientY:0}));
+            } else {
+              dialog.requestClose(); // Same native cancel/close path as Escape.
+            }
+            await wait(60);
+            check(!dialog.open, 'Project did not collapse');
+            check(content.childElementCount === 0, 'Closed viewer retained media players');
+            check(!doc.body.classList.contains('project-dialog-open'), 'Scroll lock not removed');
+            check(doc.activeElement === button, 'Focus was not restored');
+            check(button.getAttribute('aria-expanded') === 'false', 'Collapsed state missing');
+          }
+          // A real link still works independently, without opening the viewer.
+          const link = cards[0].querySelector('a');
+          const preventNavigation = event => event.preventDefault();
+          link.addEventListener('click', preventNavigation, {once:true});
+          link.click();
+          check(!dialog.open, 'Project link should not trigger expanded view');
+          // Switching language updates the open viewer without losing its identity.
+          cards[0].querySelector('.project-expand-button').click();
+          const heading = content.querySelector('h3');
+          const alternate = lang === 'de' ? 'ct' : 'de';
+          doc.querySelector('[data-lang="' + alternate + '"]').click();
+          check(heading.textContent === cards[0].querySelector('h3').textContent, 'Open viewer translation mismatch');
+          check(close.getAttribute('aria-label') === {de:'Vergrößertes Projekt schließen',ct:'關閉放大項目'}[alternate],
+            'Close label not translated');
+          close.click();
+          await wait(60);
+          passed.push('PASS ' + window.testProgress + ': all ten cards, larger media, close paths, focus, labels, links');
+        }
+      }
+    }
+    output.textContent = 'ALL PASSED\n' + passed.join('\n');
+  } catch (error) {
+    output.textContent = 'FAILED: ' + window.testProgress + ': ' + error.message + '\n' + passed.join('\n');
+  }
+})();
+</script>
