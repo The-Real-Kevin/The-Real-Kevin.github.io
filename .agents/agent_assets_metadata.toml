@@ -1,0 +1,16 @@
+uploads = []
+generated = []
+
+[[outputs]]
+id = "PEm-XMjYtiY8ETkwpcqwO"
+uri = "file://assets/drafts/ys-favicon-preview.png"
+type = "image"
+title = "YS favicon — draft preview"
+description = "White YS lettering on a square Michigan-blue (#00274C) background. Enlarged preview; not yet applied to the website."
+logical_id = "53d145f1-775c-40b1-b979-c85cbc28c581"
+content_hash = "sha256:4637fc5c2084950896fe2e3627d6fbbee2c3780f0c57e1209df0b29a57d7b16b"
+size = 5390
+mtime_ms = 1792983318569
+storage_uri = "gcs://replit-rams-assets-picard/rams/assets/repl:b0129902-aca0-425d-9996-bada39b2585d/53d145f1-775c-40b1-b979-c85cbc28c581/8b523a02-512e-438b-902e-6b1eb0880393"
+storage_version_token = "1792983332901568"
+content_type = "image/png"
