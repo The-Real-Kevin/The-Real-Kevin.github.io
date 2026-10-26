@@ -84,11 +84,14 @@
     if (!width) return;
     const spine = parseFloat(getComputedStyle(timeline).getPropertyValue('--timeline-spine')) || 72;
     const wide = window.innerWidth > 1000;
-    const lanes = wide ? 1 : width >= 1200 ? 3 : width >= 840 ? 2 : 1;
-    const gap = 28;
     const available = width - spine - 24;
+    const desktopColumns = wide && available >= 1600 ? 2 : 1;
+    const lanes = wide ? desktopColumns : width >= 1200 ? 3 : width >= 840 ? 2 : 1;
+    const gap = 28;
     const cardWidth = wide
-      ? Math.max(240, Math.floor(available - 42))
+      ? desktopColumns === 2
+        ? Math.min(760, Math.floor((available - 128) / 2))
+        : Math.max(440, Math.min(780, Math.floor(available - 60)))
       : Math.max(160, Math.floor((available - gap * (lanes - 1)) / lanes));
     let laneCursor = 0;
     timeline.classList.add('timeline-enhanced');
@@ -110,9 +113,14 @@
       visible.forEach(function (card) {
         const lane = laneCursor % lanes;
         laneCursor++;
-        const wideInset = wide ? [0, 18, 36, 18][(laneCursor - 1) % 4] : 0;
+        const wideInset = wide && lanes === 1
+          ? Math.min(72, Math.max(0, width - (spine + 28) - cardWidth - 20) / 3) *
+            [0, 1, 2, 1][(laneCursor - 1) % 4]
+          : wide
+            ? [0, 12, 24, 12][(laneCursor - 1) % 4]
+            : 0;
         const x = wide
-          ? spine + 28 + wideInset
+          ? spine + 28 + lane * (cardWidth + 100) + wideInset
           : spine + 24 + lane * (cardWidth + gap);
         let y = lanes === 1 ? 0 : Math.max(0, previousTop + 84);
         let height = card.getBoundingClientRect().height;
@@ -168,8 +176,12 @@
   });
   window.addEventListener('resize', scheduleLayout);
   timeline.addEventListener('load', scheduleLayout, true);
-  // Reflow when translated text changes; media load events and viewport resizes are
-  // handled separately so observing card sizes cannot create a resize feedback loop.
+  // Responsive media and late font metrics may settle after the viewport event.
+  // Observe cards, not their height-managed containers, to avoid feedback loops.
+  if ('ResizeObserver' in window) {
+    const observer = new ResizeObserver(scheduleLayout);
+    cards.forEach(card => observer.observe(card));
+  }
   new MutationObserver(scheduleLayout).observe(timeline, {
     childList: true, characterData: true, subtree: true,
   });

@@ -14,3 +14,9 @@ Use a far-left year timeline with horizontal branches to panels. Panels progress
 **Why:** The user explicitly described this branching layout and OR-selection behavior rather than an alternating timeline or conventional grid.
 
 **How to apply:** Preserve these behaviors when adding projects, changing card sizes, or extending filters. Group chronology by the year a project began while retaining its full displayed date range, so long-running projects have a stable year.
+
+Full-width means the outer timeline/projects section, not each individual project card. Desktop cards should stay compact, with date/title/media on the left and description/actions/hashtags on the right; mobile stays stacked.
+
+**Why:** The user clarified that page-wide individual cards made the media too large and left too much empty space, while confirming the two-column arrangement was right.
+
+**How to apply:** Let the timeline use the browser width without stretching individual cards to fill it. Keep media modest and card spacing tight.

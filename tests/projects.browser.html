@@ -77,8 +77,12 @@
         if (media) check(heading.bottom <= media.top + 2, 'Desktop title is not above media: ' + card.dataset.projectId);
         check(copy.left >= leftEdge + 8, 'Desktop text is not to the right of media: ' + card.dataset.projectId);
         check(tags.left >= leftEdge + 8, 'Desktop hashtags are not in the right column: ' + card.dataset.projectId);
-        check(r.width >= 0.65 * doc.getElementById('projects-timeline').clientWidth,
-          'Desktop cards too narrow for two-column content');
+        check(r.width >= 500 && r.width <= 800,
+          'Desktop cards should remain compact rather than stretch across the page');
+        if (media) {
+          check(media.width <= 310 && media.height <= 225,
+            'Desktop media is too large: ' + card.dataset.projectId);
+        }
         for (const link of card.querySelectorAll('.project-links a')) {
           check(link.getBoundingClientRect().left >= leftEdge + 8, 'Action escaped right column');
         }

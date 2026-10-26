@@ -397,8 +397,8 @@ body.projects-page .timeline-card .project-media {
 
   .timeline-card-layout {
     display: grid;
-    grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
-    gap: clamp(24px, 4vw, 58px);
+    grid-template-columns: minmax(190px, 260px) minmax(0, 1fr);
+    gap: clamp(20px, 2vw, 30px);
     align-items: start;
   }
 
@@ -423,14 +423,21 @@ body.projects-page .timeline-card .project-media {
     width: 100%;
     max-width: 100%;
     height: auto;
-    max-height: 390px;
+    max-height: 200px;
     object-fit: contain;
     background: var(--site-wash);
   }
 
-  .timeline-card-left > .project-content-vertical iframe,
   .timeline-card-left > .media-grid {
     margin-top: 0;
+  }
+
+  .timeline-card-left > .media-grid {
+    max-height: none;
+  }
+
+  .timeline-card-left > .media-grid > * {
+    max-height: 150px;
   }
 
   .timeline-card-right > p,
@@ -444,11 +451,15 @@ body.projects-page .timeline-card .project-media {
 
   .timeline-card-right .project-tags {
     margin-top: auto;
-    padding-top: 16px;
+    padding-top: 12px;
   }
 
   .timeline-card-left > iframe {
     width: 100%;
+  }
+
+  .timeline-panel {
+    padding: 17px 19px;
   }
 }
 
