@@ -14,3 +14,17 @@ mtime_ms = 1792983318569
 storage_uri = "gcs://replit-rams-assets-picard/rams/assets/repl:b0129902-aca0-425d-9996-bada39b2585d/53d145f1-775c-40b1-b979-c85cbc28c581/8b523a02-512e-438b-902e-6b1eb0880393"
 storage_version_token = "1792983332901568"
 content_type = "image/png"
+
+[[outputs]]
+id = "cNctjNqJUOnI2weR6DgYl"
+uri = "file://assets/ys-favicon.png"
+type = "image"
+title = "YS favicon — final"
+description = "Larger white YS lettering on a dark-blue square, now used across the website."
+logical_id = "7d3670ad-726d-4852-849d-1aec261380d1"
+content_hash = "sha256:f81d9b0e42f94501010f4572c73d285688671383cce3abc34748ef4a1eb302e1"
+size = 6642
+mtime_ms = 1792983662742
+storage_uri = "gcs://replit-rams-assets-picard/rams/assets/repl:b0129902-aca0-425d-9996-bada39b2585d/7d3670ad-726d-4852-849d-1aec261380d1/d3ad4416-b62a-4571-accd-058581e3ec73"
+storage_version_token = "1792983730923356"
+content_type = "image/png"
