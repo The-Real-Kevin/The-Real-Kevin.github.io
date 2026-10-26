@@ -1,4 +1,4 @@
-/* Home-only contact dialog and independently controlled course/photo carousels. */
+/* Home-only contact dialog and independently controlled course/news carousels. */
 (function () {
   'use strict';
 
@@ -30,7 +30,7 @@
     });
   }
 
-  function initializeCarousel(prefix, slideSelector, loop = false) {
+  function initializeCarousel(prefix, slideSelector, loop = false, autoplay = false) {
     const track = document.getElementById(prefix + '-track');
     const previous = document.getElementById(prefix + '-prev');
     const next = document.getElementById(prefix + '-next');
@@ -42,6 +42,33 @@
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
     let active = 0;
     let settleTimer;
+    const toggle = document.getElementById(prefix + '-toggle');
+    const region = track.closest('[role="region"]') || track.parentElement;
+    let playing = autoplay && !reducedMotion.matches;
+    let hovering = false;
+    let touching = false;
+    let visible = !('IntersectionObserver' in window);
+    let autoplayTimer;
+
+    function updatePlayback() {
+      clearTimeout(autoplayTimer);
+      if (!autoplay) return;
+      if (toggle) {
+        toggle.dataset.playing = String(playing);
+        toggle.setAttribute('aria-pressed', String(playing));
+        const label = toggle.dataset[playing ? 'playingLabel' : 'pausedLabel'];
+        if (label) {
+          toggle.textContent = label;
+          toggle.setAttribute('aria-label', label);
+          toggle.title = label;
+        }
+      }
+      status.setAttribute('aria-live', playing ? 'off' : 'polite');
+      // Do not move content while someone is reading or interacting with it.
+      if (!playing || slides.length < 2 || hovering || touching || !visible ||
+          document.hidden || region.contains(document.activeElement)) return;
+      autoplayTimer = setTimeout(function () { navigate(active + 1, true); }, 6000);
+    }
 
     function render(index) {
       active = loop
@@ -70,6 +97,7 @@
         left: slidePosition(slides[active]),
         behavior: smooth && !wrapping && !reducedMotion.matches ? 'smooth' : 'auto',
       });
+      updatePlayback();
     }
 
     function updateFromScroll() {
@@ -83,6 +111,7 @@
         }
       });
       render(nearest);
+      updatePlayback();
     }
 
     previous.addEventListener('click', function () { navigate(active - 1, true); });
@@ -107,6 +136,8 @@
     if (loop && slides.length > 1) {
       let gesture;
       track.addEventListener('touchstart', function (event) {
+        touching = true;
+        updatePlayback();
         gesture = null;
         if (event.touches.length !== 1) return;
         const touch = event.touches[0];
@@ -116,6 +147,8 @@
         };
       }, { passive: true });
       track.addEventListener('touchend', function (event) {
+        touching = false;
+        updatePlayback();
         const start = gesture;
         gesture = null;
         if (!start || !start.aligned || event.touches.length || !event.changedTouches.length) return;
@@ -126,7 +159,40 @@
         if (start.index === slides.length - 1 && dx < 0) navigate(slides.length, false);
         else if (start.index === 0 && dx > 0) navigate(-1, false);
       }, { passive: true });
-      track.addEventListener('touchcancel', function () { gesture = null; }, { passive: true });
+      track.addEventListener('touchcancel', function () {
+        gesture = null;
+        touching = false;
+        updatePlayback();
+      }, { passive: true });
+    }
+    if (autoplay) {
+      if (toggle) toggle.addEventListener('click', function () {
+        playing = !playing;
+        updatePlayback();
+      });
+      region.addEventListener('pointerenter', function (event) {
+        if (event.pointerType === 'touch') return;
+        hovering = true;
+        updatePlayback();
+      });
+      region.addEventListener('pointerleave', function () {
+        hovering = false;
+        updatePlayback();
+      });
+      region.addEventListener('focusin', updatePlayback);
+      region.addEventListener('focusout', function () { setTimeout(updatePlayback, 0); });
+      document.addEventListener('visibilitychange', updatePlayback);
+      document.addEventListener('languagechange', updatePlayback);
+      reducedMotion.addEventListener('change', function () {
+        playing = !reducedMotion.matches;
+        updatePlayback();
+      });
+      if ('IntersectionObserver' in window) {
+        new IntersectionObserver(function (entries) {
+          visible = entries[0].isIntersecting;
+          updatePlayback();
+        }, { threshold: 0.15 }).observe(region);
+      }
     }
     window.addEventListener('resize', function () { navigate(active, false); });
     if ('ResizeObserver' in window) {
@@ -141,5 +207,5 @@
   }
 
   initializeCarousel('semester', '.semester:not([hidden])');
-  initializeCarousel('gallery', '.gallery-slide', true);
+  initializeCarousel('gallery', '.gallery-slide', true, true);
 })();

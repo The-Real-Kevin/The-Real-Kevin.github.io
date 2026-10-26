@@ -68,7 +68,11 @@ def main():
     name = sys.argv[1] if len(sys.argv) > 1 else "projects"
     if not name.replace("-", "").isalnum():
         raise ValueError("Use a test name such as projects or home")
-    with tempfile.TemporaryDirectory(prefix="portfolio-browser-") as profile:
+    motion = sys.argv[2] if len(sys.argv) > 2 else "reduce"
+    if motion not in ("reduce", "no-preference"):
+        raise ValueError("Motion preference must be reduce or no-preference")
+    # Chromium helper processes may briefly retain profile files after exit.
+    with tempfile.TemporaryDirectory(prefix="portfolio-browser-", ignore_cleanup_errors=True) as profile:
         with tempfile.TemporaryFile() as log:
             process = subprocess.Popen([
                 "chromium", "--headless", "--no-sandbox", "--disable-gpu",
@@ -90,7 +94,7 @@ def main():
                 browser.command("Page.enable")
                 browser.command("Page.bringToFront")
                 browser.command("Emulation.setEmulatedMedia", {
-                    "features": [{"name": "prefers-reduced-motion", "value": "reduce"}],
+                    "features": [{"name": "prefers-reduced-motion", "value": motion}],
                 })
                 browser.command("Page.navigate", {
                     "url": f"http://127.0.0.1:5000/tests/{name}.browser.html",
@@ -101,7 +105,7 @@ def main():
                       const text=document.querySelector('#results')?.textContent;
                       if(text&&text!=='RUNNING')return text;
                       await new Promise(resolve=>setTimeout(resolve,50));
-                    }return 'TIMEOUT';})()""",
+                    }return 'TIMEOUT: '+(window.testProgress||'unknown stage');})()""",
                     "awaitPromise": True, "returnByValue": True,
                 })
                 text = result.get("result", {}).get("value", str(result))

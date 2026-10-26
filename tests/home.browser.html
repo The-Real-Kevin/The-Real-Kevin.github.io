@@ -87,32 +87,40 @@
           const photoPrev = doc.getElementById('gallery-prev');
           const photoNext = doc.getElementById('gallery-next');
           const photoStatus = doc.getElementById('gallery-status');
-          check(photos.length === 3, 'Expected three clearly labeled gallery placeholders');
-          check(!gallery.querySelector('img'), 'Placeholder gallery must not pretend to have real photos');
-          check(doc.getElementById('gallery-heading').textContent === {en:'Gallery',de:'Galerie',ct:'相簿'}[lang],
-            'Gallery heading not translated');
+          const total = photos.length;
+          const count = index => index + ' / ' + total;
+          check(total === 13, 'Expected all thirteen published news posts');
+          check(gallery.querySelectorAll('img').length === total, 'Each post needs a real image');
+          check(doc.getElementById('gallery-heading').textContent === {en:'News',de:'News',ct:'消息'}[lang],
+            'News heading not translated');
+          check(doc.getElementById('gallery-toggle').dataset.playing === 'false',
+            'Autoplay must start paused for reduced-motion preference');
           check(!photoPrev.disabled && !photoNext.disabled, 'Circular gallery arrows must stay available');
           for (let i = 0; i < photos.length; i++) {
             if (i) photoNext.click();
-            await waitFor(win, () => photoStatus.textContent === (i + 1) + ' / 3' &&
+            await waitFor(win, () => photoStatus.textContent === count(i + 1) &&
               Math.abs(photos[i].getBoundingClientRect().left - gallery.getBoundingClientRect().left) < 2,
               'Gallery did not align photo ' + i);
             check(photos.filter(photo => !photo.inert).length === 1, 'Offscreen photos remain focusable');
             check(photos[i].getAttribute('aria-hidden') === 'false', 'Active photo not accessible');
             check(gallery.clientHeight + 1 >= photos[i].getBoundingClientRect().height, 'Photo caption clipped');
-            check(photos[i].querySelector('figcaption').textContent ===
-              {en:'Caption coming soon.',de:'Bildunterschrift folgt.',ct:'相片說明稍後加上。'}[lang],
-              'Photo caption not translated');
+            const caption = photos[i].querySelector('figcaption');
+            check(caption.textContent.trim().length > 0, 'News excerpt missing');
+            const excerpt = caption.querySelector('.news-excerpt') || caption;
+            check(win.getComputedStyle(excerpt).textOverflow === 'ellipsis', 'Excerpt must use an ellipsis');
+            check(win.getComputedStyle(excerpt).whiteSpace === 'nowrap', 'Excerpt must stay on one line');
+            check(photos[i].querySelector('time[datetime]'), 'Machine-readable news date missing');
+            check(photos[i].querySelector('a[href^="blog.html#"]'), 'Full news post link missing');
           }
           check(!photoNext.disabled && !photoPrev.disabled, 'Circular gallery must not disable its last arrow');
           photoNext.click();
-          check(photoStatus.textContent === '1 / 3', 'Last-to-first gallery button wrap failed');
+          check(photoStatus.textContent === count(1), 'Last-to-first gallery button wrap failed');
           photoPrev.click();
-          check(photoStatus.textContent === '3 / 3', 'First-to-last gallery button wrap failed');
+          check(photoStatus.textContent === count(total), 'First-to-last gallery button wrap failed');
           gallery.dispatchEvent(new win.KeyboardEvent('keydown', { key: 'ArrowRight', bubbles: true }));
-          check(photoStatus.textContent === '1 / 3', 'Last-to-first gallery keyboard wrap failed');
+          check(photoStatus.textContent === count(1), 'Last-to-first gallery keyboard wrap failed');
           gallery.dispatchEvent(new win.KeyboardEvent('keydown', { key: 'ArrowLeft', bubbles: true }));
-          check(photoStatus.textContent === '3 / 3', 'First-to-last gallery keyboard wrap failed');
+          check(photoStatus.textContent === count(total), 'First-to-last gallery keyboard wrap failed');
           await settle(win);
           function swipeEdge(startX, endX, endY = 100) {
             const start = new win.Event('touchstart');
@@ -124,31 +132,31 @@
             gallery.dispatchEvent(end);
           }
           swipeEdge(200, 100);
-          check(photoStatus.textContent === '1 / 3', 'Last-to-first gallery swipe wrap failed');
+          check(photoStatus.textContent === count(1), 'Last-to-first gallery swipe wrap failed');
           swipeEdge(100, 200);
-          check(photoStatus.textContent === '3 / 3', 'First-to-last gallery swipe wrap failed');
+          check(photoStatus.textContent === count(total), 'First-to-last gallery swipe wrap failed');
           swipeEdge(200, 190, 250);
-          check(photoStatus.textContent === '3 / 3', 'Vertical scrolling must not wrap the gallery');
+          check(photoStatus.textContent === count(total), 'Vertical scrolling must not wrap the gallery');
           photoPrev.click();
-          await waitFor(win, () => photoStatus.textContent === '2 / 3', 'Previous-photo button failed');
+          await waitFor(win, () => photoStatus.textContent === count(total - 1), 'Previous-photo button failed');
           gallery.dispatchEvent(new win.KeyboardEvent('keydown', { key: 'Home', bubbles: true }));
           await settle(win);
-          check(photoStatus.textContent === '1 / 3', 'Gallery Home key failed');
+          check(photoStatus.textContent === count(1), 'Gallery Home key failed');
           gallery.dispatchEvent(new win.KeyboardEvent('keydown', { key: 'End', bubbles: true }));
           await settle(win);
-          check(photoStatus.textContent === '3 / 3', 'Gallery End key failed');
+          check(photoStatus.textContent === count(total), 'Gallery End key failed');
           gallery.dispatchEvent(new win.KeyboardEvent('keydown', { key: 'ArrowLeft', bubbles: true }));
           await settle(win);
-          check(photoStatus.textContent === '2 / 3', 'Gallery left arrow key failed');
+          check(photoStatus.textContent === count(total - 1), 'Gallery left arrow key failed');
           gallery.dispatchEvent(new win.KeyboardEvent('keydown', { key: 'ArrowRight', bubbles: true }));
           await settle(win);
-          check(photoStatus.textContent === '3 / 3', 'Gallery right arrow key failed');
+          check(photoStatus.textContent === count(total), 'Gallery right arrow key failed');
           gallery.scrollTo({ left: gallery.clientWidth + parseFloat(win.getComputedStyle(gallery).gap), behavior: 'instant' });
-          await waitFor(win, () => photoStatus.textContent === '2 / 3', 'Native gallery scroll did not update counter');
+          await waitFor(win, () => photoStatus.textContent === count(2), 'Native gallery scroll did not update counter');
           check(doc.getElementById('semester-status').textContent === '2 / 4', 'Gallery changed academic selection');
           frame.style.width = (width + 12) + 'px';
           await settle(win);
-          check(photoStatus.textContent === '2 / 3', 'Resize reset gallery selection');
+          check(photoStatus.textContent === count(2), 'Resize reset gallery selection');
           check(Math.abs(photos[1].getBoundingClientRect().left - gallery.getBoundingClientRect().left) < 2,
             'Resized gallery was not realigned');
           frame.style.width = width + 'px';

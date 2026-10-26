@@ -387,6 +387,26 @@ body.home-page .gallery-control {
   flex: 0 0 auto;
 }
 
+body.home-page .gallery-toggle {
+  min-height: 35px;
+  padding: 6px 11px;
+  color: var(--home-muted);
+  background: var(--home-paper);
+  border: 1px solid var(--home-maize-line);
+  border-radius: 4px;
+  font: inherit;
+  font-size: 0.74rem;
+  line-height: 1.2;
+  cursor: pointer;
+  transition: color 180ms ease, background-color 180ms ease, border-color 180ms ease;
+}
+
+body.home-page .gallery-toggle:hover {
+  color: var(--home-ink);
+  background: var(--home-maize-soft);
+  border-color: var(--home-maize);
+}
+
 body.home-page .gallery-status {
   min-width: 42px;
 }
@@ -471,6 +491,53 @@ body.home-page .gallery-slide figcaption {
   color: var(--home-muted);
   font-size: 0.82rem;
   line-height: 1.5;
+}
+
+body.home-page .news-image-area {
+  border-style: solid;
+  border-color: var(--home-rule);
+  background: var(--home-paper);
+}
+
+body.home-page .news-image-link {
+  position: absolute;
+  inset: 0;
+  display: block;
+  color: inherit;
+}
+
+body.home-page .news-image-link img {
+  transition: opacity 180ms ease;
+}
+
+body.home-page .news-image-link:hover img {
+  opacity: 0.9;
+}
+
+body.home-page .news-image-link:focus-visible {
+  outline: 2px solid var(--home-maize);
+  outline-offset: -3px;
+}
+
+body.home-page .news-card-date {
+  display: block;
+  margin: 10px 2px 0;
+  color: var(--home-maize);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.055em;
+  line-height: 1.35;
+}
+
+body.home-page .news-slide figcaption {
+  min-height: 0;
+  padding: 4px 2px 1px;
+  overflow: hidden;
+  color: var(--home-muted);
+  font-size: 0.8rem;
+  line-height: 1.5;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 body.home-page .gpa-banner {
