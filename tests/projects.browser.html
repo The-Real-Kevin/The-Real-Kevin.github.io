@@ -46,6 +46,10 @@
     check(visible.every(card => expected.includes(card)), 'Wrong project included');
     check(doc.getElementById('project-count').textContent === String(visible.length), 'Count mismatch');
     check(doc.documentElement.scrollWidth <= win.innerWidth + 1, 'Page width overflow');
+    if (win.innerWidth >= 1024) {
+      const main = doc.querySelector('main').getBoundingClientRect();
+      check(main.width >= win.innerWidth - 65, 'Desktop project area still has a fixed-width cap');
+    }
     if (win.innerWidth <= 1000) {
       const intro = doc.querySelector('.work-intro');
       check(doc.querySelector('.work-intro-copy').getBoundingClientRect().width >= intro.clientWidth * 0.8,
@@ -63,6 +67,27 @@
     rectangles.forEach(({card, r}, i) => {
       check(r.width > 100 && r.height > 30, 'Project card has no usable size');
       check(r.left >= 0 && r.right <= win.innerWidth + 1, 'Card outside viewport');
+      if (win.innerWidth >= 1024) {
+        const mediaElement = card.querySelector('img, iframe');
+        const media = mediaElement && mediaElement.getBoundingClientRect();
+        const heading = card.querySelector('h3').getBoundingClientRect();
+        const copy = card.querySelector('p').getBoundingClientRect();
+        const tags = card.querySelector('.project-tags').getBoundingClientRect();
+        const leftEdge = media ? media.right : heading.right;
+        if (media) check(heading.bottom <= media.top + 2, 'Desktop title is not above media: ' + card.dataset.projectId);
+        check(copy.left >= leftEdge + 8, 'Desktop text is not to the right of media: ' + card.dataset.projectId);
+        check(tags.left >= leftEdge + 8, 'Desktop hashtags are not in the right column: ' + card.dataset.projectId);
+        check(r.width >= 0.65 * doc.getElementById('projects-timeline').clientWidth,
+          'Desktop cards too narrow for two-column content');
+        for (const link of card.querySelectorAll('.project-links a')) {
+          check(link.getBoundingClientRect().left >= leftEdge + 8, 'Action escaped right column');
+        }
+      } else if (win.innerWidth <= 375) {
+        const mediaElement = card.querySelector('img, iframe');
+        const media = mediaElement && mediaElement.getBoundingClientRect();
+        const copy = card.querySelector('p').getBoundingClientRect();
+        if (media) check(copy.top >= media.bottom - 2, 'Mobile project should retain stacked media and text');
+      }
       const container = card.parentElement.getBoundingClientRect();
       check(r.bottom <= container.bottom + 1, 'Card extends outside its year: ' +
         card.dataset.projectId + ' (' + r.bottom + ' > ' + container.bottom + ') at ' +
@@ -96,7 +121,7 @@
     passed.push('PASS all 16 tag combinations: inclusive union, counts, empty years, non-overlap, clear connectors');
     for (const lang of ['en', 'de', 'ct']) {
       for (const theme of ['dark', 'maize']) {
-        for (const width of [375, 1024, 1920]) {
+        for (const width of [375, 1024, 1440, 1920]) {
           win = await load(lang, theme, width);
           await settle(win);
           validate(win, []);

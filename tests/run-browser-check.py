@@ -17,7 +17,7 @@ from urllib.request import urlopen
 class BrowserConnection:
     def __init__(self, url):
         parsed = urlsplit(url)
-        self.socket = socket.create_connection((parsed.hostname, parsed.port), timeout=90)
+        self.socket = socket.create_connection((parsed.hostname, parsed.port), timeout=150)
         self.counter = 0
         key = base64.b64encode(os.urandom(16)).decode()
         self.socket.sendall((
@@ -101,7 +101,7 @@ def main():
                 })
                 time.sleep(0.5)
                 result = browser.command("Runtime.evaluate", {
-                    "expression": """(async()=>{for(let i=0;i<1400;i++){
+                    "expression": """(async()=>{for(let i=0;i<2400;i++){
                       const text=document.querySelector('#results')?.textContent;
                       if(text&&text!=='RUNNING')return text;
                       await new Promise(resolve=>setTimeout(resolve,50));

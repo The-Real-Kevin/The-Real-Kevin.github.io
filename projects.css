@@ -291,7 +291,7 @@ body.projects-page .timeline-card .project-content {
   gap: 16px;
 }
 
-body.projects-page .timeline-card .project-content .project-img {
+body.projects-page .timeline-card .project-img {
   width: 100%;
   max-width: 100%;
   height: 190px;
@@ -301,10 +301,6 @@ body.projects-page .timeline-card .project-content .project-img {
 
 body.projects-page .timeline-card .project-img {
   display: block;
-  flex: 0 0 38%;
-  width: 38%;
-  max-width: 200px;
-  height: auto;
   object-fit: cover;
   border-radius: 4px;
   box-shadow: none;
@@ -325,8 +321,7 @@ body.projects-page .timeline-card .project-img {
   gap: 13px;
 }
 
-body.projects-page .timeline-card .project-content-vertical iframe,
-body.projects-page .timeline-card .media-grid iframe {
+body.projects-page .timeline-card iframe {
   display: block;
   width: 100%;
   max-width: 100%;
@@ -391,6 +386,70 @@ body.projects-page .timeline-card .project-media {
 .timeline-card .project-link-secondary {
   color: var(--site-muted);
   font-size: 0.77rem;
+}
+
+/* A wide, two-column reading surface once the branching spine has room to breathe. */
+@media (min-width: 1001px) {
+  body.projects-page main {
+    width: 100%;
+    max-width: none;
+  }
+
+  .timeline-card-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+    gap: clamp(24px, 4vw, 58px);
+    align-items: start;
+  }
+
+  .timeline-card-left,
+  .timeline-card-right {
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .timeline-card-left .timeline-card-meta {
+    margin-bottom: 7px;
+  }
+
+  .timeline-card-left h3 {
+    margin-bottom: 15px;
+    max-width: 38ch;
+  }
+
+  body.projects-page .timeline-card .timeline-card-left > .project-img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    max-height: 390px;
+    object-fit: contain;
+    background: var(--site-wash);
+  }
+
+  .timeline-card-left > .project-content-vertical iframe,
+  .timeline-card-left > .media-grid {
+    margin-top: 0;
+  }
+
+  .timeline-card-right > p,
+  .timeline-card-right > div {
+    min-width: 0;
+  }
+
+  .timeline-card-right .media-grid-description {
+    margin-top: 0;
+  }
+
+  .timeline-card-right .project-tags {
+    margin-top: auto;
+    padding-top: 16px;
+  }
+
+  .timeline-card-left > iframe {
+    width: 100%;
+  }
 }
 
 .project-tags {
@@ -460,6 +519,23 @@ body.projects-page .timeline-card .project-media {
 
   .work-count {
     grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 1000px) {
+  .timeline-card-layout,
+  .timeline-card-left,
+  .timeline-card-right {
+    display: contents;
+  }
+
+  .timeline-panel {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .timeline-panel [data-mobile-order] {
+    order: var(--mobile-order);
   }
 }
 
