@@ -91,7 +91,7 @@
           check(!gallery.querySelector('img'), 'Placeholder gallery must not pretend to have real photos');
           check(doc.getElementById('gallery-heading').textContent === {en:'Gallery',de:'Galerie',ct:'相簿'}[lang],
             'Gallery heading not translated');
-          check(photoPrev.disabled && !photoNext.disabled, 'Gallery initial boundary incorrect');
+          check(!photoPrev.disabled && !photoNext.disabled, 'Circular gallery arrows must stay available');
           for (let i = 0; i < photos.length; i++) {
             if (i) photoNext.click();
             await waitFor(win, () => photoStatus.textContent === (i + 1) + ' / 3' &&
@@ -104,15 +104,39 @@
               {en:'Caption coming soon.',de:'Bildunterschrift folgt.',ct:'相片說明稍後加上。'}[lang],
               'Photo caption not translated');
           }
-          check(photoNext.disabled && !photoPrev.disabled, 'Gallery final boundary incorrect');
+          check(!photoNext.disabled && !photoPrev.disabled, 'Circular gallery must not disable its last arrow');
+          photoNext.click();
+          check(photoStatus.textContent === '1 / 3', 'Last-to-first gallery button wrap failed');
+          photoPrev.click();
+          check(photoStatus.textContent === '3 / 3', 'First-to-last gallery button wrap failed');
+          gallery.dispatchEvent(new win.KeyboardEvent('keydown', { key: 'ArrowRight', bubbles: true }));
+          check(photoStatus.textContent === '1 / 3', 'Last-to-first gallery keyboard wrap failed');
+          gallery.dispatchEvent(new win.KeyboardEvent('keydown', { key: 'ArrowLeft', bubbles: true }));
+          check(photoStatus.textContent === '3 / 3', 'First-to-last gallery keyboard wrap failed');
+          await settle(win);
+          function swipeEdge(startX, endX, endY = 100) {
+            const start = new win.Event('touchstart');
+            Object.defineProperty(start, 'touches', {value:[{clientX:startX,clientY:100}]});
+            gallery.dispatchEvent(start);
+            const end = new win.Event('touchend');
+            Object.defineProperty(end, 'touches', {value:[]});
+            Object.defineProperty(end, 'changedTouches', {value:[{clientX:endX,clientY:endY}]});
+            gallery.dispatchEvent(end);
+          }
+          swipeEdge(200, 100);
+          check(photoStatus.textContent === '1 / 3', 'Last-to-first gallery swipe wrap failed');
+          swipeEdge(100, 200);
+          check(photoStatus.textContent === '3 / 3', 'First-to-last gallery swipe wrap failed');
+          swipeEdge(200, 190, 250);
+          check(photoStatus.textContent === '3 / 3', 'Vertical scrolling must not wrap the gallery');
           photoPrev.click();
           await waitFor(win, () => photoStatus.textContent === '2 / 3', 'Previous-photo button failed');
           gallery.dispatchEvent(new win.KeyboardEvent('keydown', { key: 'Home', bubbles: true }));
           await settle(win);
-          check(photoPrev.disabled, 'Gallery Home key failed');
+          check(photoStatus.textContent === '1 / 3', 'Gallery Home key failed');
           gallery.dispatchEvent(new win.KeyboardEvent('keydown', { key: 'End', bubbles: true }));
           await settle(win);
-          check(photoNext.disabled, 'Gallery End key failed');
+          check(photoStatus.textContent === '3 / 3', 'Gallery End key failed');
           gallery.dispatchEvent(new win.KeyboardEvent('keydown', { key: 'ArrowLeft', bubbles: true }));
           await settle(win);
           check(photoStatus.textContent === '2 / 3', 'Gallery left arrow key failed');

@@ -30,7 +30,7 @@
     });
   }
 
-  function initializeCarousel(prefix, slideSelector) {
+  function initializeCarousel(prefix, slideSelector, loop = false) {
     const track = document.getElementById(prefix + '-track');
     const previous = document.getElementById(prefix + '-prev');
     const next = document.getElementById(prefix + '-next');
@@ -44,9 +44,11 @@
     let settleTimer;
 
     function render(index) {
-      active = Math.max(0, Math.min(slides.length - 1, index));
-      previous.disabled = active === 0;
-      next.disabled = active === slides.length - 1;
+      active = loop
+        ? ((index % slides.length) + slides.length) % slides.length
+        : Math.max(0, Math.min(slides.length - 1, index));
+      previous.disabled = slides.length === 1 || (!loop && active === 0);
+      next.disabled = slides.length === 1 || (!loop && active === slides.length - 1);
       const count = (active + 1) + ' / ' + slides.length;
       if (status.textContent !== count) status.textContent = count;
       slides.forEach(function (slide, position) {
@@ -62,10 +64,11 @@
 
     function navigate(index, smooth) {
       clearTimeout(settleTimer);
+      const wrapping = loop && (index < 0 || index >= slides.length);
       render(index);
       track.scrollTo({
         left: slidePosition(slides[active]),
-        behavior: smooth && !reducedMotion.matches ? 'smooth' : 'auto',
+        behavior: smooth && !wrapping && !reducedMotion.matches ? 'smooth' : 'auto',
       });
     }
 
@@ -101,6 +104,30 @@
       event.preventDefault();
       navigate(destinations[event.key], true);
     });
+    if (loop && slides.length > 1) {
+      let gesture;
+      track.addEventListener('touchstart', function (event) {
+        gesture = null;
+        if (event.touches.length !== 1) return;
+        const touch = event.touches[0];
+        gesture = {
+          x: touch.clientX, y: touch.clientY, index: active,
+          aligned: Math.abs(track.scrollLeft - slidePosition(slides[active])) < 2,
+        };
+      }, { passive: true });
+      track.addEventListener('touchend', function (event) {
+        const start = gesture;
+        gesture = null;
+        if (!start || !start.aligned || event.touches.length || !event.changedTouches.length) return;
+        const touch = event.changedTouches[0];
+        const dx = touch.clientX - start.x;
+        const dy = touch.clientY - start.y;
+        if (Math.abs(dx) < 45 || Math.abs(dx) <= Math.abs(dy) * 1.2) return;
+        if (start.index === slides.length - 1 && dx < 0) navigate(slides.length, false);
+        else if (start.index === 0 && dx > 0) navigate(-1, false);
+      }, { passive: true });
+      track.addEventListener('touchcancel', function () { gesture = null; }, { passive: true });
+    }
     window.addEventListener('resize', function () { navigate(active, false); });
     if ('ResizeObserver' in window) {
       let width = track.clientWidth;
@@ -114,5 +141,5 @@
   }
 
   initializeCarousel('semester', '.semester:not([hidden])');
-  initializeCarousel('gallery', '.gallery-slide');
+  initializeCarousel('gallery', '.gallery-slide', true);
 })();
