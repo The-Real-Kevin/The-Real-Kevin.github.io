@@ -89,7 +89,7 @@
           const photoStatus = doc.getElementById('gallery-status');
           const total = photos.length;
           const count = index => index + ' / ' + total;
-          check(total === 13, 'Expected all thirteen published news posts');
+          check(total === win.YuqiNewsData.posts.length, 'Expected all published news posts');
           check(gallery.querySelectorAll('img').length === total, 'Each post needs a real image');
           check(doc.getElementById('gallery-heading').textContent === {en:'News',de:'News',ct:'消息'}[lang],
             'News heading not translated');
