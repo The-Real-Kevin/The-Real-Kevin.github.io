@@ -11,7 +11,7 @@
     en: {
       blg_ai26_h2: `2026 Michigan AI Symposium`,
       blg_ai26_date: `October 20, 2026`,
-      blg_ai26_p: `I presented my work at the 2026 Michigan AI Symposium, “Foundational Models: From Academia to Industry to Society,” hosted by the Artificial Intelligence Laboratory at the University of Michigan.`,
+      blg_ai26_p: `I presented my work at the 2026 Michigan AI Symposium, “Foundational Models: From Academia to Industry to Society,” hosted by the Artificial Intelligence Laboratory at the University of Michigan. (Photo credits: Brenda Ahearn)`,
       blg_f26_h2: `Fall 2026 semester starts!`,
       blg_f26_date: `August 31, 2026`,
       blg_f26_p: `I'm excited to start F26 semester as a Max Kade Haus resident. Go blue!`,
@@ -64,7 +64,7 @@
     de: {
       blg_ai26_h2: `Michigan AI Symposium 2026`,
       blg_ai26_date: `20. Oktober 2026`,
-      blg_ai26_p: `Ich habe meine Arbeit beim Michigan AI Symposium 2026 zum Thema „Basismodelle: Von der Wissenschaft über die Industrie bis zur Gesellschaft“ vorgestellt. Das Symposium wurde vom Artificial Intelligence Laboratory der University of Michigan ausgerichtet.`,
+      blg_ai26_p: `Ich habe meine Arbeit beim Michigan AI Symposium 2026 zum Thema „Basismodelle: Von der Wissenschaft über die Industrie bis zur Gesellschaft“ vorgestellt. Das Symposium wurde vom Artificial Intelligence Laboratory der University of Michigan ausgerichtet. (Foto: Brenda Ahearn)`,
       blg_f26_h2: `Das Herbstsemester 2026 beginnt!`,
       blg_f26_date: `31. August 2026`,
       blg_f26_p: `Ich freue mich darauf, das F26-Semester als Bewohner des Max Kade Hauses zu beginnen. Go Blue!`,
@@ -117,7 +117,7 @@
     ct: {
       blg_ai26_h2: `2026年密歇根人工智能研討會`,
       blg_ai26_date: `2026年10月20日`,
-      blg_ai26_p: `我喺2026年密歇根人工智能研討會發表咗我嘅研究成果。研討會由密歇根大學人工智能實驗室主辦，主題係「基礎模型：從學術界到業界再到社會」。`,
+      blg_ai26_p: `我喺2026年密歇根人工智能研討會發表咗我嘅研究成果。研討會由密歇根大學人工智能實驗室主辦，主題係「基礎模型：從學術界到業界再到社會」。（攝影：Brenda Ahearn）`,
       blg_f26_h2: `2026年秋季學期開始！`,
       blg_f26_date: `2026年8月31日`,
       blg_f26_p: `我好期待以 Max Kade Haus 宿舍住客身份開始 F26 學期。Go Blue！`,
